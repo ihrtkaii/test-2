@@ -1,0 +1,40 @@
+name: update
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"   # every 6 hours
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Sync company registry from secnet-internships
+        run: python tools/sync_companies.py
+      - name: Scan
+        env:
+          USAJOBS_API_KEY: ${{ secrets.USAJOBS_API_KEY }}
+          USAJOBS_EMAIL: ${{ secrets.USAJOBS_EMAIL }}
+          WORKDAY_PROXY: ${{ secrets.WORKDAY_PROXY }}
+        run: python run.py
+      - name: Commit
+        run: |
+          git config user.name "secnet-parttime-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add README.md data docs
+          git diff --cached --quiet || git commit -m "chore: update part-time roles ($(date -u +%F))"
+          git push
