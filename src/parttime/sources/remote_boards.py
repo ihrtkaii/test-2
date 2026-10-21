@@ -1,13 +1,13 @@
 """Remote-only job boards with public JSON feeds. These are where most hourly
 contract and freelance security work shows up.
 
-Remotive and Jobicy state the employment type; RemoteOK only has tags, so its
-part-time evidence comes from tags and posting text.
+Completeness: Remotive's search returns every match, so its reads are
+complete. Jobicy caps at `count`, so a full page is a partial read. RemoteOK
+only serves its most recent postings, so it is never complete: its roles go
+stale instead of closing.
 """
 
 from __future__ import annotations
-
-import re
 
 from .. import models
 from ..models import Fetch, Job
@@ -17,10 +17,13 @@ from .ats import norm_type, plain
 REMOTIVE = "https://remotive.com/api/remote-jobs"
 JOBICY = "https://jobicy.com/api/v2/remote-jobs"
 REMOTEOK = "https://remoteok.com/api"
+REMOTIVE_TERMS = ("security", "cyber", "soc analyst", "penetration")
+JOBICY_TAGS = ("security", "cybersecurity")
+JOBICY_COUNT = 100
 
 
-def _slug(text: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "-", (text or "").lower()).strip("-")[:60]
+def html_title(text) -> str:
+    return (plain(str(text or "")) or "").strip()
 
 
 def parse_remotive(payload: dict) -> list[Job]:
@@ -30,8 +33,8 @@ def parse_remotive(payload: dict) -> list[Job]:
             continue
         region = (p.get("candidate_required_location") or "").strip()
         out.append(Job(
-            id=f"remotive:{p.get('id')}", source="remotive", board="remotive",
-            company=p.get("company_name") or "—", title=(p.get("title") or "").strip(),
+            id=f"remotive:{p.get('id')}", source="remotive",
+            company=p.get("company_name") or "—", title=html_title(p.get("title")),
             location=f"Remote ({region})" if region else "Remote", url=p.get("url") or "",
             posted_at=(p.get("publication_date") or "")[:10] or None,
             employment_type=norm_type(p.get("job_type")), remote=True,
@@ -48,7 +51,7 @@ def parse_jobicy(payload: dict) -> list[Job]:
         types = p.get("jobType") or []
         types = types if isinstance(types, list) else [types]
         etype = models.UNKNOWN
-        for t in types:  # a role listed as both full- and part-time is part-time-capable
+        for t in types:  # listed as both full- and part-time: part-time is possible
             nt = norm_type(str(t))
             if nt == models.PART_TIME or etype == models.UNKNOWN:
                 etype = nt
@@ -60,7 +63,7 @@ def parse_jobicy(payload: dict) -> list[Job]:
                 "/hr" if "hour" in per else "/yr")
         geo = (p.get("jobGeo") or "").strip()
         out.append(Job(
-            id=f"jobicy:{p.get('id')}", source="jobicy", board="jobicy",
+            id=f"jobicy:{p.get('id')}", source="jobicy",
             company=p.get("companyName") or "—", title=html_title(p.get("jobTitle")),
             location=f"Remote ({geo})" if geo else "Remote", url=p.get("url") or "",
             posted_at=(p.get("pubDate") or "")[:10] or None, employment_type=etype,
@@ -68,10 +71,6 @@ def parse_jobicy(payload: dict) -> list[Job]:
             description=plain(p.get("jobDescription") or p.get("jobExcerpt")),
         ))
     return out
-
-
-def html_title(text) -> str:
-    return (plain(str(text or "")) or "").strip()
 
 
 def parse_remoteok(payload: list) -> list[Job]:
@@ -90,7 +89,7 @@ def parse_remoteok(payload: list) -> list[Job]:
         if p.get("salary_min"):
             salary = f"${int(p['salary_min']):,}–${int(p.get('salary_max') or p['salary_min']):,}/yr"
         out.append(Job(
-            id=f"remoteok:{p.get('id')}", source="remoteok", board="remoteok",
+            id=f"remoteok:{p.get('id')}", source="remoteok",
             company=p.get("company") or "—", title=html_title(p.get("position")),
             location=f"Remote ({loc})" if loc else "Remote",
             url=p.get("url") or f"https://remoteok.com/remote-jobs/{p.get('id')}",
@@ -102,24 +101,34 @@ def parse_remoteok(payload: list) -> list[Job]:
 
 async def fetch_remotive(net: Net) -> Fetch:
     seen: dict[str, Job] = {}
-    for term in ("security", "cyber", "soc analyst", "penetration"):
-        for job in parse_remotive(await net.get_json(REMOTIVE, params={"search": term})):
+    for term in REMOTIVE_TERMS:
+        data = await net.get_json(REMOTIVE, params={"search": term})
+        if not isinstance(data, dict) or not isinstance(data.get("jobs"), list):
+            return Fetch(list(seen.values()), ok=bool(seen), complete=False,
+                         error="malformed listing")
+        for job in parse_remotive(data):
             seen.setdefault(job.id, job)
     return Fetch(list(seen.values()))
 
 
 async def fetch_jobicy(net: Net) -> Fetch:
     seen: dict[str, Job] = {}
-    for tag in ("security", "cybersecurity"):
-        data = await net.get_json(JOBICY, params={"count": 100, "tag": tag})
-        for job in parse_jobicy(data):
+    complete = True
+    for tag in JOBICY_TAGS:
+        data = await net.get_json(JOBICY, params={"count": JOBICY_COUNT, "tag": tag})
+        rows = parse_jobicy(data)
+        if len(rows) >= JOBICY_COUNT:
+            complete = False
+        for job in rows:
             seen.setdefault(job.id, job)
-    return Fetch(list(seen.values()))
+    return Fetch(list(seen.values()), complete=complete)
 
 
 async def fetch_remoteok(net: Net) -> Fetch:
     data = await net.get_json(REMOTEOK, headers={"Accept": "application/json"})
-    return Fetch(parse_remoteok(data))
+    if not isinstance(data, list):
+        return Fetch([], ok=False, error="malformed listing")
+    return Fetch(parse_remoteok(data), complete=False)
 
 
 FETCHERS = {
@@ -127,3 +136,4 @@ FETCHERS = {
     "jobicy": fetch_jobicy,
     "remoteok": fetch_remoteok,
 }
+SCOPE = {"remotive": REMOTIVE_TERMS, "jobicy": JOBICY_TAGS}

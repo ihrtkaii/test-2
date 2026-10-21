@@ -1,9 +1,16 @@
 {
+  "max_hours_per_week": 20,
   "local_places": [
     "orlando", "kissimmee", "poinciana", "st. cloud", "saint cloud", "celebration",
     "lake nona", "lake mary", "maitland", "winter park", "altamonte springs",
     "sanford", "oviedo", "winter springs", "longwood", "heathrow", "apopka",
     "winter garden", "ocoee", "clermont", "lake buena vista", "davenport",
     "haines city", "central florida", "research park"
+  ],
+  "priority_employers": [
+    "l3harris", "lockheed martin", "northrop grumman", "leidos", "caci", "booz allen",
+    "general dynamics", "peraton", "saic", "rtx", "raytheon", "mantech",
+    "university of central florida", "ucf", "valencia college", "siemens energy",
+    "orlando health", "adventhealth", "the walt disney company", "electronic arts"
   ]
 }

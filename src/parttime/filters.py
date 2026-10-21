@@ -1,30 +1,34 @@
-"""What belongs on the list.
+"""What belongs on the list, what is worth a second look, and what is out.
 
-A role makes the list when all four gates pass:
+`classify(job, cfg)` returns a `Decision`:
 
-1. It is a security role (title), not physical security and not a senior post.
-2. It is part-time, a fall/spring/year-round internship, federal student work,
-   or hourly contract work. "Part-time" must be evidenced by the source's own
-   employment type or by the posting text. A full-time 40-hour role never
-   passes, and a summer-only internship is left to secnet-internships.
-3. Stated weekly hours, when there are any, start at 20 or below.
-4. It is remote (US-eligible) or in the Orlando area.
+  LISTED   main list. Security work, entry level, can be done from Florida
+           (remote) or in the Orlando area, and the schedule is a confirmed or
+           possible fit (see below).
+  REVIEW   plausible but unproven. The schedule wording is seasonal or vague
+           ("Fall internship", "flexible", "contract") with no hours evidence,
+           or a broad title at a priority employer has no duties to judge.
+  REJECTED with reason codes and the sentence that decided it.
 
-Everything here is pure functions over strings so it can be tested offline.
+Schedule fit levels:
+  confirmed  stated weekly hours are entirely at or under 20
+  possible   explicitly part-time with no hours, or a range that crosses 20
+  unknown    semester/seasonal/flexible wording only  -> REVIEW
+
+Everything here is pure functions over strings, so it can be tested offline.
 """
 
 from __future__ import annotations
 
 import re
+from dataclasses import dataclass, field
 
 from . import models
-from .models import Job
+from .models import Decision, Job
 
-# ---------------------------------------------------------------------------
-# 1. Security relevance. The title list matches secnet-internships, minus fraud
-#    and trust & safety, which are mostly moderation and call-center work at
-#    part-time hours.
-# ---------------------------------------------------------------------------
+# ===========================================================================
+# 1. Titles
+# ===========================================================================
 SECURITY_RE = re.compile(
     r"\b("
     r"cyber|cybersecurity|infosec|appsec|"
@@ -42,6 +46,22 @@ SECURITY_RE = re.compile(
     r"grc\b|governance,?\s+risk|risk and compliance|it\s+audit|"
     r"compliance\s+(?:analyst|engineer)|nist|fedramp|cmmc|"
     r"information assurance"
+    r")\b",
+    re.IGNORECASE,
+)
+
+# Titles that are sometimes security work and sometimes not. They only get a
+# description fetch when the title also carries a student/part-time signal
+# (or the employer is a priority), and then the duties decide.
+AMBIGUOUS_RE = re.compile(
+    r"\b("
+    r"technology risk|it risk|operational risk|cyber risk|"
+    r"identity (?:governance|management|services|engineer\w*|analyst)|"
+    r"access management|privacy|data protection|"
+    r"it compliance|technology compliance|it governance|"
+    r"information technology|it\b|technology|"
+    r"network\w*|systems?|infrastructure|cloud|"
+    r"it operations|technical operations"
     r")\b",
     re.IGNORECASE,
 )
@@ -65,12 +85,8 @@ CYBER_ANCHOR_RE = re.compile(
     re.IGNORECASE,
 )
 
-FED_CYBER_RE = re.compile(
-    r"\b(cyber\w*|information security|infosec|information assurance|"
-    r"incident response|vulnerabilit\w+|security operations)\b",
-    re.IGNORECASE,
-)
-
+# Whole words only: "Identity Management" is not "manager", "Leadership" is
+# not "lead", "Intelligence" is not "III".
 SENIOR_RE = re.compile(
     r"\b(senior|sr\.?|staff|principal|manager|director|lead|vp|head|chief|"
     r"architect|iii|iv|level\s*[3-5])\b",
@@ -100,6 +116,22 @@ SEC_DOMAIN_RE = re.compile(
     re.IGNORECASE,
 )
 
+# Help desk and general support stay out even with a student signal: the
+# point of the wide gate is security work hiding under a broad title, not an
+# all-IT list.
+SUPPORT_TITLE_RE = re.compile(
+    r"\b(help\s?desk|service desk|desktop support|technical support|it support|"
+    r"end user|field technician|repair|av\b|audio.?visual)\b",
+    re.IGNORECASE,
+)
+
+INTERN_RE = re.compile(
+    r"\b(intern|interns|internship|co[\s-]?op|apprentice(?:ship)?|"
+    r"student\s+(?:assistant|worker|employee|associate|analyst|technician|trainee)|"
+    r"work[\s-]study|fellow(?:ship)?|ops\s+student|student)\b",
+    re.IGNORECASE,
+)
+
 
 def is_security(title: str) -> bool:
     if not title or NON_TECH_RE.search(title):
@@ -121,87 +153,203 @@ def is_senior(title: str) -> bool:
     return bool(SENIOR_RE.search(title or ""))
 
 
-# ---------------------------------------------------------------------------
-# 2. Part-time evidence
-# ---------------------------------------------------------------------------
-INTERN_RE = re.compile(
-    r"\b(intern|interns|internship|co[\s-]?op|apprentice(?:ship)?|"
-    r"student\s+(?:assistant|worker|employee|associate|analyst|technician|trainee)|"
-    r"work[\s-]study|fellow(?:ship)?|ops\s+student)\b",
-    re.IGNORECASE,
-)
+@dataclass
+class Config:
+    local: tuple[str, ...] = ()
+    priority: tuple[str, ...] = ()
+    max_hours: int = 20
 
-PT_TITLE_RE = re.compile(
-    r"(\bpart[\s-]?time\b|\(pt\)|\bper\s+diem\b|\bprn\b|"
-    r"\b(?:fall|spring|winter)\b|\byear[\s-]?round\b|"
-    r"\bacademic[\s-]year\b|\bschool[\s-]year\b|\bsemester\b|"
-    r"\b(?:10|12|15|16|20)\s*(?:hrs?|hours)\b)",
-    re.IGNORECASE,
-)
-SUMMER_RE = re.compile(r"\bsummer\b", re.IGNORECASE)
+    @classmethod
+    def from_dict(cls, data: dict | None) -> Config:
+        data = data or {}
+        return cls(
+            local=tuple(x.lower() for x in data.get("local_places", DEFAULT_LOCAL)),
+            priority=tuple(x.lower() for x in data.get("priority_employers", ())),
+            max_hours=int(data.get("max_hours_per_week", 20)),
+        )
 
-PT_TEXT_RE = re.compile(
-    r"(\bpart[\s-]?time\b|"
-    r"\bup to (?:1\d|20) hours\b|"
-    r"\bno more than (?:1\d|20) hours\b|"
-    r"\b(?:during|throughout) the (?:academic|school) year\b|"
-    r"\b(?:fall|spring) (?:and|&|/) (?:spring|fall|summer) semesters?\b|"
-    r"\bduring the (?:fall|spring) semester\b|"
-    r"\bwhile (?:enrolled|attending|in) (?:in )?(?:school|classes|college)\b|"
-    r"\b(?:schedule|hours) (?:around|that work with) (?:your |their )?(?:classes|class schedule|school)\b|"
-    r"\byear[\s-]?round internship\b|\bacademic[\s-]year intern\w*\b|"
-    r"\bflexible (?:part[\s-]?time )?hours\b|\bper diem\b|\bas[\s-]needed basis\b)",
-    re.IGNORECASE,
-)
-FT_TEXT_RE = re.compile(
-    r"\b(full[\s-]?time|40 hours (?:per|a|/) ?week|40\s*hrs?\s*/\s*w(?:ee)?k)\b",
-    re.IGNORECASE,
-)
-CONTRACT_RE = re.compile(
-    r"\b(contract(?:or)?|freelance\w*|1099|consultant|gig|hourly|"
-    r"on[\s-]demand|independent contractor)\b",
-    re.IGNORECASE,
-)
-FREELANCE_TEXT_RE = re.compile(
-    r"\b(freelance\w*|1099|independent contractor|per project|project[\s-]based|"
-    r"flexible hours|set your own (?:hours|schedule)|as[\s-]needed)\b",
-    re.IGNORECASE,
-)
 
-# "15-20 hours per week", "up to 20 hours a week", "20 hrs/wk", "29 hours weekly"
+def is_priority(company: str, cfg: Config) -> bool:
+    # Whole words: "saic" must not match "Mosaic".
+    name = (company or "").lower()
+    return any(re.search(r"(?<![a-z0-9])" + re.escape(p) + r"(?![a-z0-9])", name)
+               for p in cfg.priority)
+
+
+def title_gate(job: Job, cfg: Config) -> str | None:
+    """"strict" (security title), "ambiguous" (broad title, judge by duties),
+    or None (not worth a description fetch)."""
+    title = job.title or ""
+    if is_senior(title) or NON_TECH_RE.search(title):
+        return None
+    if is_security(title):
+        return "strict"
+    if SUPPORT_TITLE_RE.search(title) or PHYSICAL_RE.search(title):
+        return None
+    if SWE_VETO_RE.search(title):
+        return None
+    if not AMBIGUOUS_RE.search(title):
+        return None
+    student = bool(INTERN_RE.search(title) or PT_TITLE_RE.search(title)
+                   or job.employment_type in (models.INTERN, models.PART_TIME)
+                   or job.source == "usajobs")
+    if student or is_priority(job.company, cfg):
+        return "ambiguous"
+    return None
+
+
+# Duties that mark a broad title as security work. Counted as distinct terms,
+# so one mention of "security" in a help desk posting does not qualify.
+DUTY_TERMS = {
+    "siem": r"\bsiem\b|splunk|sentinel|qradar|elastic security",
+    "vulnerability": r"vulnerabilit\w+|patch management|nessus|qualys|tenable",
+    "incident": r"incident (?:response|handling|management)|security incidents?",
+    "access review": r"access reviews?|user access|least privilege|provisioning|"
+                     r"role[\s-]based access|identity governance|\biam\b|\bmfa\b|"
+                     r"multi[\s-]factor|single sign[\s-]on|\bsso\b|okta|sailpoint|cyberark",
+    "risk assessment": r"risk assessments?|risk register|third[\s-]party risk|vendor risk",
+    "frameworks": r"\bnist\b|iso\s?27001|soc\s?2|\bcis\b controls|pci[\s-]dss|hipaa|"
+                  r"fedramp|cmmc|\bsox\b|\bitgc\b|\brmf\b|\bato\b",
+    "controls": r"security controls|control testing|it general controls|audit evidence",
+    "threat": r"threat (?:intel\w*|hunting|detection|model\w*)|indicators of compromise|"
+              r"\biocs?\b|mitre att&ck|\battack\b framework",
+    "network defense": r"firewalls?|\bids\b|\bips\b|intrusion detection|edr\b|"
+                       r"endpoint (?:detection|protection)|crowdstrike|defender",
+    "monitoring": r"security (?:monitoring|alerts|events|logs)|log analysis|soc\b",
+    "phishing": r"phishing|security awareness|social engineering",
+    "pentest": r"penetration test\w*|pen\s?test\w*|red team|offensive security",
+    "encryption": r"encryption|\bpki\b|certificates? management|key management",
+    "forensics": r"forensics|malware analysis|reverse engineering",
+    "policy": r"security polic(?:y|ies)|information security program|data classification",
+}
+_DUTY_RES = {k: re.compile(v, re.IGNORECASE) for k, v in DUTY_TERMS.items()}
+DUTY_THRESHOLD = 3
+
+
+def security_duties(text: str | None) -> list[str]:
+    if not text:
+        return []
+    return [k for k, rx in _DUTY_RES.items() if rx.search(text)]
+
+
+# ===========================================================================
+# 2. Sentences and evidence
+# ===========================================================================
+_SENT_SPLIT = re.compile(r"(?<=[.!?;])\s+|\n+|\s+[•·]\s+")
+
+
+def sentence_at(text: str, pos: int, limit: int = 220) -> str:
+    """The sentence containing character `pos`, trimmed for storage."""
+    start = 0
+    for m in _SENT_SPLIT.finditer(text):
+        if m.end() <= pos:
+            start = m.end()
+        else:
+            end = m.start()
+            break
+    else:
+        end = len(text)
+    s = text[start:end].strip()
+    return s if len(s) <= limit else s[: limit - 1].rstrip() + "…"
+
+
+# ===========================================================================
+# 3. Hours
+# ===========================================================================
 _HOURS_RANGE_RE = re.compile(
     r"\b(\d{1,2})\s*(?:-|–|—|to)\s*(\d{1,2})\s*(?:hours|hrs?)\s*"
     r"(?:per|a|each|/|every)?\s*(?:week|wk)\b",
     re.IGNORECASE,
 )
 _HOURS_ONE_RE = re.compile(
-    r"\b(up to|maximum of|max(?:imum)?|no more than|approximately|about|around|"
-    r"averag\w+|minimum of|at least)?\s*(\d{1,2})\s*(?:\+\s*)?(?:hours|hrs?)\s*"
-    r"(?:per|a|each|/|every)?\s*(?:week|wk|weekly)\b",
+    r"\b(up to|maximum of|max(?:imum)?|no more than|not (?:to )?exceed|"
+    r"approximately|about|around|averag\w+|minimum of|at least|min(?:imum)?)?"
+    r"\s*(\d{1,2})\s*(?:\+\s*)?(?:hours|hrs?)\s*(?:per|a|each|/|every)?\s*"
+    r"(?:week|wk|weekly)\b",
+    re.IGNORECASE,
+)
+# "20 hours during semesters" has no "per week" but means it.
+_HOURS_TERM_RE = re.compile(
+    r"\b(up to |no more than )?(\d{1,2})\s*(?:hours|hrs?)\s+(?:during|in|throughout|each|per) "
+    r"(?:the )?(?:semesters?|school year|academic year|fall|spring|school weeks?)\b",
+    re.IGNORECASE,
+)
+_UPPER = {"up to", "maximum of", "max", "maximum", "no more than", "not exceed",
+          "not to exceed"}
+_LOWER = {"minimum of", "at least", "min", "minimum"}
+_SUMMER_CTX = re.compile(r"\bsummer\b", re.IGNORECASE)
+_SEMESTER_CTX = re.compile(
+    r"\b(semesters?|school year|academic year|fall|spring|during (?:the )?(?:school|classes)|"
+    r"while (?:in|attending) (?:school|classes)|class schedule)\b",
     re.IGNORECASE,
 )
 
 
-def parse_hours(text: str | None) -> tuple[int | None, int | None]:
-    """(min, max) weekly hours stated in the text, or (None, None)."""
+@dataclass
+class HoursMention:
+    lo: int | None
+    hi: int | None
+    season: str          # "summer" | "semester" | "general"
+    sentence: str
+    pos: int
+
+
+def hour_mentions(text: str | None) -> list[HoursMention]:
     if not text:
-        return (None, None)
-    m = _HOURS_RANGE_RE.search(text)
-    if m:
+        return []
+    out: list[HoursMention] = []
+    taken: list[tuple[int, int]] = []
+    for m in _HOURS_RANGE_RE.finditer(text):
         lo, hi = sorted((int(m.group(1)), int(m.group(2))))
-        if 1 <= lo <= 60 and hi <= 60:
-            return (lo, hi)
-    m = _HOURS_ONE_RE.search(text)
-    if m:
-        qual = (m.group(1) or "").lower()
+        if 1 <= lo and hi <= 60:
+            out.append(_mention(text, m, lo, hi))
+            taken.append(m.span())
+    for m in _HOURS_ONE_RE.finditer(text):
+        if any(a <= m.start(2) < b for a, b in taken):
+            continue
         n = int(m.group(2))
         if not 1 <= n <= 60:
-            return (None, None)
-        if qual in {"up to", "maximum of", "max", "maximum", "no more than"}:
-            return (None, n)
-        if qual in {"minimum of", "at least"}:
-            return (n, None)
-        return (n, n)
+            continue
+        qual = re.sub(r"\s+", " ", (m.group(1) or "").lower())
+        if qual in _UPPER:
+            lo, hi = None, n
+        elif qual in _LOWER:
+            lo, hi = n, None
+        else:
+            lo, hi = n, n
+        out.append(_mention(text, m, lo, hi))
+        taken.append(m.span())
+    for m in _HOURS_TERM_RE.finditer(text):
+        if any(a <= m.start(2) < b for a, b in taken) or any(h.pos == m.start() for h in out):
+            continue
+        n = int(m.group(2))
+        if 1 <= n <= 60:
+            lo = None if m.group(1) else n
+            out.append(HoursMention(lo, n, "semester", sentence_at(text, m.start()), m.start()))
+    out.sort(key=lambda h: h.pos)
+    return out
+
+
+def _mention(text: str, m: re.Match, lo, hi) -> HoursMention:
+    sentence = sentence_at(text, m.start())
+    # Season comes from the same sentence: "20 hours during the semester and
+    # up to 40 in the summer" has two mentions with two seasons.
+    window = text[max(0, m.start() - 60): m.end() + 40]
+    if _SUMMER_CTX.search(window) and not _SEMESTER_CTX.search(
+            text[max(0, m.start() - 25): m.end() + 25]):
+        season = "summer"
+    elif _SEMESTER_CTX.search(window):
+        season = "semester"
+    else:
+        season = "general"
+    return HoursMention(lo, hi, season, sentence, m.start())
+
+
+def parse_hours(text: str | None) -> tuple[int | None, int | None]:
+    """(min, max) of the first non-summer weekly-hours mention."""
+    for h in hour_mentions(text):
+        if h.season != "summer":
+            return (h.lo, h.hi)
     return (None, None)
 
 
@@ -215,14 +363,148 @@ def format_hours(lo: int | None, hi: int | None) -> str | None:
     return f"{lo}/wk" if lo == hi else f"{lo}–{hi}/wk"
 
 
-# ---------------------------------------------------------------------------
-# 3. Experience, clearance and pay extracted from the posting text
-# ---------------------------------------------------------------------------
-_YEARS_RE = re.compile(
-    r"\b(\d{1,2})\s*\+?\s*(?:-\s*\d{1,2}\s*)?(?:years?|yrs?)\b[^.\n]{0,40}?"
-    r"\b(?:experience|exp\b|working in|in (?:cyber|information|it|security))",
+# ===========================================================================
+# 4. Part-time evidence
+# ===========================================================================
+PT_EXPLICIT_RE = re.compile(r"\bpart[\s-]?time\b|\(pt\)|\bper\s+diem\b|\bprn\b",
+                            re.IGNORECASE)
+PT_TITLE_RE = re.compile(
+    r"(\bpart[\s-]?time\b|\(pt\)|\bper\s+diem\b|\bprn\b|"
+    r"\b(?:fall|spring|winter)\b|\byear[\s-]?round\b|"
+    r"\bacademic[\s-]year\b|\bschool[\s-]year\b|\bsemester\b|"
+    r"\b(?:10|12|15|16|20)\s*(?:hrs?|hours)\b)",
     re.IGNORECASE,
 )
+# Seasonal or flexible wording: says "during school", not "20 hours or less".
+SEASONAL_RE = re.compile(
+    r"\b(fall|spring|winter|year[\s-]?round|academic[\s-]year|school[\s-]year|"
+    r"semester|co[\s-]?op)\b",
+    re.IGNORECASE,
+)
+SEASONAL_TEXT_RE = re.compile(
+    r"(\b(?:during|throughout) the (?:academic|school) year\b|"
+    r"\b(?:fall|spring) (?:and|&|/) (?:spring|fall|summer) semesters?\b|"
+    r"\bduring the (?:fall|spring) semester\b|"
+    r"\bwhile (?:enrolled|attending|in) (?:in )?(?:school|classes|college)\b|"
+    r"\b(?:schedule|hours) (?:around|that work with) (?:your |their )?"
+    r"(?:classes|class schedule|school)\b|"
+    r"\byear[\s-]?round internship\b|\bacademic[\s-]year intern\w*\b|"
+    r"\bflexible (?:hours|schedule)\b|\bas[\s-]needed\b|\bset your own (?:hours|schedule)\b)",
+    re.IGNORECASE,
+)
+# A full-time JOB, not a full-time STUDENT. Internship postings constantly say
+# "must be enrolled as a full-time student" or "may convert to full-time".
+FT_JOB_RE = re.compile(
+    r"(\b(?:is|be|this is) an? full[\s-]?time\b|"
+    r"\bfull[\s-]?time (?:position|role|job|schedule|internship|co[\s-]?op|"
+    r"employment opportunity|commitment|hours)\b|"
+    r"\b(?:requires?|expected to work|work) (?:a )?(?:minimum of )?(?:3[2-9]|40) hours\b|"
+    r"\b40\s*(?:hours|hrs?)\s*(?:per|a|/)\s*(?:week|wk)\b)",
+    re.IGNORECASE,
+)
+FT_NOT_JOB_RE = re.compile(
+    r"full[\s-]?time (?:students?|enrol\w*|undergrad\w*|graduate|degree|"
+    r"employees?|offers?|employment after|role after|position after|opportunit\w+ after)|"
+    r"(?:convert|conversion|transition) (?:to|into) (?:a )?full[\s-]?time|"
+    r"enrolled full[\s-]?time",
+    re.IGNORECASE,
+)
+SUMMER_FT_RE = re.compile(
+    r"(full[\s-]?time (?:during|in|over|for) (?:the )?summer|"
+    r"summer[^.]{0,40}\bfull[\s-]?time|(?:40|3[2-9]) hours[^.]{0,30}summer|"
+    r"summer[^.]{0,30}(?:40|3[2-9]) hours|"
+    r"\b(?:40|3[2-9])(?:\s*(?:hours|hrs?))?(?:\s*(?:per|a|/)\s*week)?\s+(?:during|in|over|for) "
+    r"(?:the )?summer)",
+    re.IGNORECASE,
+)
+SUMMER_RE = re.compile(r"\bsummer\b", re.IGNORECASE)
+CONTINUES_RE = re.compile(
+    r"\b(continue|extend\w*|transition)\w*\b[^.]{0,40}\b(part[\s-]?time|"
+    r"fall|school year|academic year|semester)\b",
+    re.IGNORECASE,
+)
+CONTRACT_RE = re.compile(
+    r"\b(contract(?:or)?|freelance\w*|1099|consultant|gig|hourly|"
+    r"on[\s-]demand|independent contractor)\b",
+    re.IGNORECASE,
+)
+FREELANCE_TEXT_RE = re.compile(
+    r"\b(freelance\w*|1099|independent contractor|per project|project[\s-]based|"
+    r"flexible hours|set your own (?:hours|schedule)|as[\s-]needed)\b",
+    re.IGNORECASE,
+)
+
+
+def full_time_job(text: str) -> str | None:
+    """The sentence saying this is a full-time job, ignoring summer-only and
+    full-time-student wording."""
+    for m in FT_JOB_RE.finditer(text or ""):
+        sentence = sentence_at(text, m.start())
+        if FT_NOT_JOB_RE.search(sentence) or SUMMER_RE.search(sentence):
+            continue
+        return sentence
+    return None
+
+
+# ===========================================================================
+# 5. Experience, clearance, pay
+# ===========================================================================
+_YEARS_RE = re.compile(
+    r"\b(?:minimum (?:of )?|at least )?(\d{1,2})\s*\+?\s*(?:-\s*\d{1,2}\s*)?"
+    r"(?:years?|yrs?)(?:\s+of)?(?:\s+[\w/&-]+){0,4}?\s+(?:experience|exp\b)",
+    re.IGNORECASE,
+)
+PREFERRED_RE = re.compile(
+    r"\b(preferred|preferably|desired|nice to have|a plus|bonus|ideally|"
+    r"is an advantage|helpful)\b",
+    re.IGNORECASE,
+)
+ALTERNATIVE_RE = re.compile(
+    r"\b(or equivalent|equivalent (?:combination|experience)|in lieu of|"
+    r"or (?:a |an )?(?:bachelor|master|associate|degree)|or relevant (?:coursework|education)|"
+    r"or (?:a )?combination)\b",
+    re.IGNORECASE,
+)
+# The years headline only counts when it describes the applicant, not the
+# company ("over the past 5 years our team has...").
+_NOT_APPLICANT_RE = re.compile(r"\b(our|we have|we've|the company|founded)\b", re.IGNORECASE)
+
+
+@dataclass
+class Experience:
+    years: int
+    level: str        # "required" | "preferred" | "alternative"
+    sentence: str
+
+
+def experience(text: str | None) -> list[Experience]:
+    if not text:
+        return []
+    out = []
+    for m in _YEARS_RE.finditer(text):
+        n = int(m.group(1))
+        if n >= 30:
+            continue
+        sentence = sentence_at(text, m.start())
+        if _NOT_APPLICANT_RE.search(sentence) and not re.search(
+                r"\b(you|candidate|applicant|require|must|minimum)\b", sentence, re.I):
+            continue
+        if PREFERRED_RE.search(sentence):
+            level = "preferred"
+        elif ALTERNATIVE_RE.search(sentence):
+            level = "alternative"
+        else:
+            level = "required"
+        out.append(Experience(n, level, sentence))
+    return out
+
+
+def min_years(text: str | None) -> int | None:
+    """Smallest REQUIRED years in the text (kept for callers that want one number)."""
+    req = [e.years for e in experience(text) if e.level == "required"]
+    return min(req) if req else None
+
+
 CLEARANCE_RE = re.compile(
     r"\b(active|current|existing|must (?:have|hold|possess))\b[^.\n]{0,40}?"
     r"\b(secret|top secret|ts/sci|ts\b|public trust)\b[^.\n]{0,20}?\bclearance\b|"
@@ -243,13 +525,6 @@ _PAY_ONE_RE = re.compile(
 )
 
 
-def min_years(text: str | None) -> int | None:
-    if not text:
-        return None
-    years = [int(m.group(1)) for m in _YEARS_RE.finditer(text) if int(m.group(1)) < 30]
-    return min(years) if years else None
-
-
 def hourly_pay(text: str | None) -> str | None:
     if not text:
         return None
@@ -263,9 +538,9 @@ def hourly_pay(text: str | None) -> str | None:
     return None
 
 
-# ---------------------------------------------------------------------------
-# 4. Location: remote (US-eligible) or Orlando area
-# ---------------------------------------------------------------------------
+# ===========================================================================
+# 6. Location: can this be done from Kissimmee?
+# ===========================================================================
 DEFAULT_LOCAL = (
     "orlando", "kissimmee", "poinciana", "st. cloud", "saint cloud", "celebration",
     "lake nona", "lake mary", "maitland", "winter park", "altamonte springs",
@@ -280,10 +555,8 @@ REMOTE_RE = re.compile(
 )
 US_RE = re.compile(
     r"\b(us|usa|u\.s\.a?\.?|united states|america|americas|north america|"
-    r"worldwide|global|anywhere)\b|"
-    r"\b(?:AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|"
-    r"MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|"
-    r"WA|WV|WI|WY|DC)\b"
+    r"worldwide|global|anywhere)\b",
+    re.IGNORECASE,
 )
 FOREIGN_RE = re.compile(
     r"\b(canada|uk|united kingdom|england|ireland|germany|france|spain|portugal|"
@@ -295,17 +568,57 @@ FOREIGN_RE = re.compile(
 )
 _SPLIT_RE = re.compile(r"[;|/]|\bor\b", re.IGNORECASE)
 
+STATES = {
+    "alabama": "AL", "alaska": "AK", "arizona": "AZ", "arkansas": "AR", "california": "CA",
+    "colorado": "CO", "connecticut": "CT", "delaware": "DE", "florida": "FL", "georgia": "GA",
+    "hawaii": "HI", "idaho": "ID", "illinois": "IL", "indiana": "IN", "iowa": "IA",
+    "kansas": "KS", "kentucky": "KY", "louisiana": "LA", "maine": "ME", "maryland": "MD",
+    "massachusetts": "MA", "michigan": "MI", "minnesota": "MN", "mississippi": "MS",
+    "missouri": "MO", "montana": "MT", "nebraska": "NE", "nevada": "NV",
+    "new hampshire": "NH", "new jersey": "NJ", "new mexico": "NM", "new york": "NY",
+    "north carolina": "NC", "north dakota": "ND", "ohio": "OH", "oklahoma": "OK",
+    "oregon": "OR", "pennsylvania": "PA", "rhode island": "RI", "south carolina": "SC",
+    "south dakota": "SD", "tennessee": "TN", "texas": "TX", "utah": "UT", "vermont": "VT",
+    "virginia": "VA", "washington": "WA", "west virginia": "WV", "wisconsin": "WI",
+    "wyoming": "WY", "district of columbia": "DC",
+}
+_STATE_NAME_RE = re.compile(r"\b(" + "|".join(sorted(STATES, key=len, reverse=True)) + r")\b",
+                            re.IGNORECASE)
+_STATE_ABBR_RE = re.compile(r"\b(" + "|".join(sorted(set(STATES.values()))) + r")\b")
+
+_INCLUDE_RE = re.compile(
+    r"(?:(?:must|required to|need to|will need to)\s+(?:reside|live|be located|be based)\s+in|"
+    r"(?:we|currently)\s+(?:can|are able to|only)\s+(?:only\s+)?(?:hire|employ)\s+"
+    r"(?:candidates\s+)?(?:in|from|residing in)(?:\s+the following states)?|"
+    r"open to (?:candidates|applicants|residents) (?:in|of|located in)|"
+    r"(?:eligible|approved|hiring) (?:states|locations)(?:\s+include)?|"
+    r"remote (?:in|within) the following states)\s*:?\s*(.{0,300}?)(?:\.\s|$|\n)",
+    re.IGNORECASE,
+)
+_EXCLUDE_RE = re.compile(
+    r"(?:(?:not|unable to|cannot|can't|do not|don't)\s+(?:able to\s+)?"
+    r"(?:hire|employ|consider (?:candidates|applicants))\s+(?:who reside |residing |located )?"
+    r"(?:in|from)|excluding(?: the states of)?|with the exception of|except(?: for)?(?: residents of)?)"
+    r"\s*:?\s*(.{0,300}?)(?:\.\s|$|\n)",
+    re.IGNORECASE,
+)
+
+
+def _states_in(text: str) -> set[str]:
+    found = {STATES[m.group(1).lower()] for m in _STATE_NAME_RE.finditer(text)}
+    found |= {m.group(1) for m in _STATE_ABBR_RE.finditer(text)}
+    return found
+
 
 def is_local(location: str, local: tuple[str, ...] = DEFAULT_LOCAL) -> bool:
     loc = (location or "").lower()
     if not loc:
         return False
-    if "orlando" in loc or any(city in loc for city in local):
-        # "Orlando" also exists outside Florida in very few postings; a
-        # stated non-FL state with no FL marker loses.
-        return not re.search(r",\s*(?!fl\b|florida\b)[a-z]{2}\b", loc) or bool(
-            re.search(r"\b(fl|florida)\b", loc)
-        )
+    if any(city in loc for city in local or DEFAULT_LOCAL):
+        # A stated non-FL state with no FL marker loses ("Orlando, MI").
+        if re.search(r"\b(fl|florida)\b", loc):
+            return True
+        return not re.search(r",\s*(?!fl\b|florida\b)[a-z]{2}\b", loc)
     return False
 
 
@@ -328,22 +641,66 @@ def is_remote_us(job: Job) -> bool:
     return False
 
 
-def where(job: Job, local: tuple[str, ...] = DEFAULT_LOCAL) -> str | None:
+@dataclass
+class Place:
+    work_mode: str
+    florida: str           # yes | likely | no | unknown
+    where: str | None      # display label, None = out of range
+    evidence: str = ""
+    flags: list[str] = field(default_factory=list)
+
+
+def place(job: Job, cfg: Config) -> Place:
+    loc = job.location or ""
+    text = job.description or ""
+    local = is_local(loc, cfg.local)
+    hybrid = bool(job.hybrid) or bool(re.search(r"\bhybrid\b", loc, re.I))
     remote = is_remote_us(job)
-    here = is_local(job.location, local)
-    if remote and here:
-        return "Remote / Orlando"
-    if remote:
-        return "Remote"
-    if here:
-        return "Orlando area" + (" (Hybrid)" if job.hybrid or "hybrid" in
-                                 (job.location or "").lower() else "")
-    return None
+    mode = "remote" if remote else "hybrid" if hybrid else (
+        "onsite" if loc.strip("—- ") else "unknown")
+
+    if not remote:
+        if local:
+            return Place(mode, "yes", "Orlando area" + (" (Hybrid)" if hybrid else ""),
+                         f"location: {loc}")
+        return Place(mode, "no", None, f"location: {loc}")
+
+    # Remote: look for applicant-location rules in the posting text first.
+    # Office lists and HQ cities are NOT restrictions, so only explicit
+    # "must reside / can hire in / cannot hire in" phrasing counts.
+    for m in _EXCLUDE_RE.finditer(text):
+        if "FL" in _states_in(m.group(1)):
+            return Place(mode, "no", None, sentence_at(text, m.start()))
+    for m in _INCLUDE_RE.finditer(text):
+        states = _states_in(m.group(1))
+        if states:
+            sentence = sentence_at(text, m.start())
+            if "FL" in states:
+                label = "Remote / Orlando" if local else "Remote"
+                return Place(mode, "yes", label, sentence)
+            return Place(mode, "no", None, sentence)
+
+    label = "Remote / Orlando" if local else "Remote"
+    loc_states = _states_in(re.sub(r"\b(US|USA)\b", "", loc))
+    if "FL" in loc_states:
+        return Place(mode, "yes", label, f"location: {loc}")
+    if US_RE.search(loc) or job.source == "usajobs":
+        return Place(mode, "likely", label, f"location: {loc}")
+    if loc_states:
+        # "Remote - New York" may mean remote-in-NY or just the HQ.
+        return Place(mode, "unknown", label, f"location: {loc}",
+                     ["Check state eligibility"])
+    return Place(mode, "unknown", label, f"location: {loc or '—'}", ["Location unverified"])
 
 
-# ---------------------------------------------------------------------------
-# 5. Category (what kind of security work) — same buckets as secnet
-# ---------------------------------------------------------------------------
+def where(job: Job, local: tuple[str, ...] = DEFAULT_LOCAL) -> str | None:
+    """Display label only (kept for the cheap pre-check)."""
+    return place(job, Config(local=local)).where
+
+
+# ===========================================================================
+# 7. Category
+# ===========================================================================
 _SUBCATS = [
     ("SOC / Detection", re.compile(
         r"\b(soc\b|security operations|detection|threat|incident response|"
@@ -354,109 +711,214 @@ _SUBCATS = [
         re.IGNORECASE)),
     ("GRC / Risk", re.compile(
         r"\b(grc|governance|risk|compliance|it audit|audit|nist|fedramp|cmmc|"
-        r"policy|assurance)\b", re.IGNORECASE)),
+        r"policy|assurance|privacy)\b", re.IGNORECASE)),
     ("Cloud / Network / IAM", re.compile(
         r"\b(cloud|network|infrastructure|identity|iam|zero trust|access)\b",
         re.IGNORECASE)),
 ]
 
 
-def categorize(title: str) -> str:
+def categorize(title: str, duties: list[str] | None = None) -> str:
     for name, pattern in _SUBCATS:
         if pattern.search(title or ""):
             return name
+    duties = duties or []
+    if {"siem", "incident", "monitoring", "threat"} & set(duties):
+        return "SOC / Detection"
+    if {"risk assessment", "frameworks", "controls", "policy"} & set(duties):
+        return "GRC / Risk"
+    if "access review" in duties:
+        return "Cloud / Network / IAM"
     return "Security (general)"
 
 
-# ---------------------------------------------------------------------------
-# The decision
-# ---------------------------------------------------------------------------
-def classify(job: Job, local: tuple[str, ...] = DEFAULT_LOCAL) -> str | None:
-    """Fill kind/category/hours/flags on `job`; return the reason it was
-    rejected, or None when it belongs on the list."""
+# ===========================================================================
+# 8. The decision
+# ===========================================================================
+FED_CYBER_RE = re.compile(
+    r"\b(cyber\w*|information security|infosec|information assurance|"
+    r"incident response|vulnerabilit\w+|security operations)\b",
+    re.IGNORECASE,
+)
+
+
+def _reject(code: str, evidence: dict | None = None) -> Decision:
+    return Decision(models.REJECTED, [code], evidence or {})
+
+
+def classify(job: Job, cfg: Config | None = None) -> Decision:
+    """Decide where `job` goes. On LISTED/REVIEW the job's display fields are
+    filled in; on REJECTED it is left alone."""
+    cfg = cfg or Config(local=DEFAULT_LOCAL)
     title = job.title or ""
     text = job.description or ""
     blob = f"{title}\n{text}"
+    evidence: dict[str, str] = {}
+    flags: list[str] = []
+    missing: list[str] = []
+    review_reasons: list[str] = []
+    priority = is_priority(job.company, cfg)
 
-    if not is_security(title):
-        # Federal student titles are generic ("Student Trainee (Information
-        # Technology)"); the duties say whether it is cyber work.
-        federal_student = job.source == "usajobs" and INTERN_RE.search(title)
-        if not (federal_student and FED_CYBER_RE.search(text)):
-            return "not-security"
+    # ---- what kind of work
     if is_senior(title):
-        return "senior"
+        return _reject("senior", {"title": title})
+    gate = title_gate(job, cfg)
+    duties = security_duties(text)
+    if job.source == "usajobs" and gate != "strict":
+        # Federal titles are generic ("Student Trainee (Information
+        # Technology)"); the duties decide.
+        if not FED_CYBER_RE.search(text):
+            return _reject("not-security", {"title": title})
+        gate = "strict"
+    if gate is None:
+        return _reject("not-security", {"title": title})
+    if gate == "ambiguous":
+        if not text:
+            if priority:
+                review_reasons.append("broad-title-no-description")
+                missing.append("job description")
+            else:
+                return _reject("no-duty-evidence", {"title": title})
+        elif len(duties) < DUTY_THRESHOLD:
+            return _reject("duties-not-security",
+                           {"duties": ", ".join(duties) or "none found"})
+        else:
+            evidence["duties"] = ", ".join(duties)
+            flags.append("Security duties, broad title")
 
-    place = where(job, local)
-    if place is None:
-        return "location"
+    # ---- where
+    p = place(job, cfg)
+    evidence["location"] = p.evidence
+    if p.where is None:
+        return _reject("florida-ineligible" if p.work_mode == "remote" else "location",
+                       {"location": p.evidence})
+    flags += p.flags
+    if p.florida == "unknown":
+        missing.append("applicant location rules")
 
+    # ---- schedule
     etype = job.employment_type
     is_intern = etype == models.INTERN or bool(INTERN_RE.search(title))
-    pt_title = bool(PT_TITLE_RE.search(title))
-    pt_text = bool(PT_TEXT_RE.search(text))
-    ft_text = bool(FT_TEXT_RE.search(text)) and not pt_text
-    lo, hi = parse_hours(blob)
+    mentions = hour_mentions(blob)
+    term = [h for h in mentions if h.season != "summer"]
+    summer = [h for h in mentions if h.season == "summer"]
+    primary = term[0] if term else None
+    summer_ft = bool(SUMMER_FT_RE.search(blob)) or any(
+        (h.lo or 0) > cfg.max_hours or (h.hi or 0) > cfg.max_hours for h in summer)
+    ft_sentence = full_time_job(text)
+    explicit_pt = (etype == models.PART_TIME or bool(PT_EXPLICIT_RE.search(title))
+                   or bool(PT_EXPLICIT_RE.search(text)))
+    seasonal = bool(SEASONAL_RE.search(title)) or bool(SEASONAL_TEXT_RE.search(text))
+    summer_only_title = bool(SUMMER_RE.search(title)) and not PT_TITLE_RE.search(title)
 
-    # Weekly hours that start above 20 are not what this list is for.
-    if lo is not None and lo > 20:
-        return "hours"
-    if lo is None and hi is not None and hi > 29:
-        return "hours"
+    lo = hi = None
+    fit = None
+    if primary is not None:
+        lo, hi = primary.lo, primary.hi
+        evidence["hours"] = primary.sentence
+        if lo is not None and lo > cfg.max_hours:
+            return _reject("hours-over-limit", {"hours": primary.sentence})
+        if hi is not None and hi <= cfg.max_hours:
+            fit = models.FIT_CONFIRMED
+        else:
+            fit = models.FIT_POSSIBLE   # crosses the limit or no upper bound
+            flags.append("Hours may exceed 20")
+    if fit is None:
+        if etype == models.FULL_TIME and not PT_EXPLICIT_RE.search(title):
+            return _reject("full-time", {"employment_type": "full-time (source)"})
+        if ft_sentence and not explicit_pt:
+            return _reject("full-time", {"schedule": ft_sentence})
+        if explicit_pt:
+            fit = models.FIT_POSSIBLE
+            flags.append("Hours unverified")
+            missing.append("weekly hours")
+            m = PT_EXPLICIT_RE.search(text)
+            evidence["schedule"] = sentence_at(text, m.start()) if m else (
+                "title says part-time" if PT_EXPLICIT_RE.search(title)
+                else "source lists part-time")
+        elif summer_only_title and not CONTINUES_RE.search(text):
+            return _reject("summer-only", {"title": title})
+        elif seasonal or (job.source == "usajobs" and is_intern):
+            fit = models.FIT_UNKNOWN
+            missing.append("weekly hours")
+            m = SEASONAL_TEXT_RE.search(text)
+            evidence["schedule"] = sentence_at(text, m.start()) if m else f"title: {title}"
+        elif etype in (models.CONTRACT, models.TEMPORARY) or CONTRACT_RE.search(title):
+            if FREELANCE_TEXT_RE.search(blob):
+                fit = models.FIT_UNKNOWN
+                missing.append("weekly hours")
+                m = FREELANCE_TEXT_RE.search(blob)
+                evidence["schedule"] = sentence_at(blob, m.start())
+            else:
+                return _reject("full-time-contract", {"title": title})
+        else:
+            return _reject("not-part-time", {"title": title})
+    elif ft_sentence and fit == models.FIT_POSSIBLE and not explicit_pt:
+        # "15+ hours" next to "this is a full-time position" is not a fit.
+        return _reject("full-time", {"schedule": ft_sentence})
+    if summer_ft:
+        flags.append("Full-time in summer")
+        m = SUMMER_FT_RE.search(blob)
+        evidence["summer"] = sentence_at(blob, m.start()) if m else summer[0].sentence
 
-    hours_ok = (hi is not None and hi <= 20) or (hi is None and lo is not None and lo < 20)
-    if etype == models.FULL_TIME:
-        # The source says full-time; only the title or stated hours overrule it.
-        part_time = pt_title or hours_ok
-    else:
-        part_time = etype == models.PART_TIME or pt_title or pt_text or hours_ok
-
+    # ---- kind
     if job.source == "usajobs":
-        # Pathways student roles count even without a part-time schedule:
-        # agencies set school-year hours with the student after hire.
-        if SUMMER_RE.search(title) and not pt_title:
-            return "summer-only"
-        if not (part_time or is_intern):
-            return "not-part-time"
         kind = models.KIND_FEDERAL
+        flags.append("Federal: check eligibility")
     elif is_intern:
-        # A summer-only title belongs to secnet-internships. A stated
-        # full-time intern with no part-time cue is the same thing.
-        if SUMMER_RE.search(title) and not pt_title:
-            return "summer-only"
-        if not part_time or (ft_text and not (pt_title or hours_ok)):
-            return "not-part-time"
         kind = models.KIND_INTERNSHIP
     elif etype in (models.CONTRACT, models.TEMPORARY) or CONTRACT_RE.search(title):
-        # Most "contract" security roles are 40-hour W-2 contracts. Keep only
-        # the ones with part-time or freelance evidence.
-        if not (part_time or FREELANCE_TEXT_RE.search(blob)) or (ft_text and not hours_ok):
-            return "full-time-contract"
         kind = models.KIND_CONTRACT
     else:
-        if not part_time or (ft_text and not (pt_title or hours_ok)):
-            return "not-part-time"
         kind = models.KIND_JOB
 
-    years = min_years(text)
-    if years is not None and years >= 5 and kind != models.KIND_FEDERAL:
-        return "experience"
+    # ---- experience (title is entry level; now check what the text asks)
+    exp = experience(text)
+    required = [e for e in exp if e.level == "required"]
+    if required:
+        worst = min(required, key=lambda e: e.years)
+        evidence["experience"] = worst.sentence
+        if worst.years >= 5 and kind != models.KIND_FEDERAL:
+            return _reject("experience-required", {"experience": worst.sentence})
+        if worst.years >= 2:
+            flags.append(f"{worst.years}+ yrs exp")
+    for e in exp:
+        if e.level == "preferred" and e.years >= 2:
+            flags.append(f"{e.years}+ yrs preferred")
+            evidence.setdefault("experience", e.sentence)
+            break
+    for e in exp:
+        if e.level == "alternative" and e.years >= 2 and not required:
+            flags.append(f"{e.years} yrs or equivalent")
+            evidence.setdefault("experience", e.sentence)
+            break
 
-    flags: list[str] = []
-    if years is not None and years >= 2:
-        flags.append(f"{years}+ yrs exp")
-    if CLEARANCE_RE.search(blob):
+    m = CLEARANCE_RE.search(blob)
+    if m:
         flags.append("Clearance")
+        evidence["clearance"] = sentence_at(blob, m.start())
     elif CITIZEN_RE.search(blob):
         flags.append("US citizen")
-    if hi is not None and hi > 20:
-        flags.append("Hours may exceed 20")
 
+    # ---- fill in and route
     job.kind = kind
-    job.category = categorize(title)
+    job.category = categorize(title, duties)
+    job.schedule_fit = fit
+    job.hours_min, job.hours_max = lo, hi
     job.hours = format_hours(lo, hi)
-    job.where = place
-    job.flags = flags
+    job.summer_commitment = summer_ft
+    job.work_mode = p.work_mode
+    job.florida_eligibility = p.florida
+    job.where = p.where
+    job.priority = priority
+    job.flags = list(dict.fromkeys(flags))
+    job.evidence = {k: v for k, v in evidence.items() if v}
     if not job.salary:
         job.salary = hourly_pay(text)
-    return None
+
+    if fit == models.FIT_UNKNOWN:
+        review_reasons.append("schedule-unknown")
+    reasons = review_reasons or [f"schedule-{fit}"]
+    verdict = models.REVIEW if review_reasons else models.LISTED
+    job.queue = verdict
+    return Decision(verdict, reasons, job.evidence, missing)

@@ -3,12 +3,13 @@
 Set USAJOBS_API_KEY and USAJOBS_EMAIL as repo secrets. Without them this
 source is skipped and the run summary says so.
 
-Three searches, all in the 2210 IT Management series (where INFOSEC and
-CYBERSECURITY roles live) plus a keyword search for other series:
+Searches, in the 2210 IT Management series (where INFOSEC and CYBERSECURITY
+roles live) and by keyword:
   - part-time schedule (PositionScheduleTypeCode 2)
   - student hiring path (Pathways interns, often part-time during school)
-  - keyword "cybersecurity" on the student path
-Remote roles and roles in the Orlando area are kept by the shared filter.
+The shared filter keeps remote and Orlando-area roles. Federal qualification
+rules are NOT judged here: every federal role carries a "check eligibility"
+flag and its hiring paths, and the announcement itself is the authority.
 """
 
 from __future__ import annotations
@@ -27,6 +28,8 @@ QUERIES = (
     {"Keyword": "cybersecurity", "HiringPath": "student"},
     {"Keyword": "cybersecurity", "PositionScheduleTypeCode": "2"},
 )
+PER_PAGE = 500
+MAX_PAGES = 3
 
 
 def parse(payload: dict) -> list[Job]:
@@ -46,10 +49,8 @@ def parse(payload: dict) -> list[Job]:
             fmt = (lambda v: f"${v:,.2f}") if unit == "/hr" else (lambda v: f"${v:,.0f}")
             salary = fmt(lo) + (f"–{fmt(hi)}" if hi != lo else "") + unit
         remote = str(details.get("RemoteIndicator")).lower() == "true"
-        title = (d.get("PositionTitle") or "").strip()
-        # Federal titles are generic ("IT Specialist (INFOSEC)" passes, plain
-        # "IT Specialist (CUSTSPT)" does not). Put the series tag the posting
-        # carries into the title the filter reads, so INFOSEC roles survive.
+        paths = details.get("HiringPath") or []
+        paths = [str(p) for p in (paths if isinstance(paths, list) else [paths]) if p]
         text = " ".join(filter(None, [
             details.get("JobSummary"), d.get("QualificationSummary"), schedule,
             " ".join(details.get("MajorDuties") or []),
@@ -57,12 +58,14 @@ def parse(payload: dict) -> list[Job]:
         ]))
         out.append(Job(
             id=f"usajobs:{d.get('PositionID') or d.get('PositionURI')}", source="usajobs",
-            board="usajobs", company=d.get("OrganizationName") or d.get("DepartmentName") or "Federal",
-            title=title, location=d.get("PositionLocationDisplay") or "—",
+            company=d.get("OrganizationName") or d.get("DepartmentName") or "Federal",
+            title=(d.get("PositionTitle") or "").strip(),
+            location=d.get("PositionLocationDisplay") or "—",
             url=d.get("PositionURI") or "",
             posted_at=(d.get("PublicationStartDate") or "")[:10] or None,
             employment_type=models.PART_TIME if "part" in schedule.lower() else models.UNKNOWN,
-            remote=remote or None, salary=salary, description=plain(text),
+            remote=remote or None, salary=salary, requisition_id=d.get("PositionID"),
+            hiring_paths=paths or None, description=plain(text),
         ))
     return out
 
@@ -70,11 +73,24 @@ def parse(payload: dict) -> list[Job]:
 async def fetch(net: Net) -> Fetch:
     key, email = os.environ.get("USAJOBS_API_KEY"), os.environ.get("USAJOBS_EMAIL")
     if not key or not email:
-        return Fetch([], ok=False, error="skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set")
+        return Fetch([], ok=False, error="skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set",
+                     notes=["skipped"])
     headers = {"Host": "data.usajobs.gov", "User-Agent": email, "Authorization-Key": key}
     seen: dict[str, Job] = {}
+    complete = True
     for q in QUERIES:
-        data = await net.get_json(URL, params={**q, "ResultsPerPage": 500}, headers=headers)
-        for job in parse(data):
-            seen.setdefault(job.id, job)
-    return Fetch(list(seen.values()))
+        for page in range(1, MAX_PAGES + 1):
+            data = await net.get_json(URL, params={**q, "ResultsPerPage": PER_PAGE, "Page": page},
+                                      headers=headers)
+            rows = parse(data)
+            for job in rows:
+                seen.setdefault(job.id, job)
+            total = ((data or {}).get("SearchResult") or {}).get("SearchResultCountAll")
+            if len(rows) < PER_PAGE or (isinstance(total, int) and page * PER_PAGE >= total):
+                break
+        else:
+            complete = False
+    return Fetch(list(seen.values()), complete=complete)
+
+
+SCOPE = {"usajobs": QUERIES}

@@ -2,7 +2,7 @@ name: update
 
 on:
   schedule:
-    - cron: "17 */6 * * *"   # every 6 hours
+    - cron: "17 */6 * * *"   # every 6 hours (GitHub may run it late or skip one)
   workflow_dispatch:
 
 permissions:
@@ -23,6 +23,13 @@ jobs:
           python-version: "3.13"
           cache: pip
       - run: pip install -r requirements.txt
+      # Descriptions are cached between runs here, not in the repo.
+      - name: Restore description cache
+        uses: actions/cache@v4
+        with:
+          path: data/cache
+          key: desc-cache-${{ github.run_id }}
+          restore-keys: desc-cache-
       - name: Sync company registry from secnet-internships
         run: python tools/sync_companies.py
       - name: Scan
@@ -30,6 +37,7 @@ jobs:
           USAJOBS_API_KEY: ${{ secrets.USAJOBS_API_KEY }}
           USAJOBS_EMAIL: ${{ secrets.USAJOBS_EMAIL }}
           WORKDAY_PROXY: ${{ secrets.WORKDAY_PROXY }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: python run.py
       - name: Commit
         run: |

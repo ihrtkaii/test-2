@@ -14,7 +14,7 @@ from email.utils import parsedate_to_datetime
 
 import httpx
 
-# Status codes worth retrying — transient server/rate-limit conditions.
+# Status codes worth retrying: transient server/rate-limit conditions.
 _RETRYABLE = {429, 500, 502, 503, 504}
 
 

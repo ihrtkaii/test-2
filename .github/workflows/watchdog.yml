@@ -1,0 +1,20 @@
+name: watchdog
+
+on:
+  schedule:
+    - cron: "43 13 * * *"   # daily, ~9am Eastern
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install -r requirements.txt
+      - name: Fail if the tracker has not updated in 18 hours
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python tools/watchdog.py

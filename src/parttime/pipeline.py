@@ -1,34 +1,40 @@
-"""One run: fetch every source, classify, merge with what's stored, publish."""
+"""One run: fetch every source, classify, dedupe, update the lifecycle,
+publish, alert."""
 
 from __future__ import annotations
 
 import asyncio
 import csv
+import hashlib
 import json
 import os
-import re
+import time
 from collections import Counter
-from datetime import UTC, datetime, timedelta
+from datetime import UTC, datetime
 from pathlib import Path
 
 import httpx
 
-from . import filters, render
+from . import filters, identity, models, notify, render, store
+from .cache import DescCache
 from .models import Fetch, Job
 from .net import HostLimiter, Net
 from .sources import ats, remote_boards, usajobs
+from .sources.base import Ctx
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data"
 DOCS = ROOT / "docs"
 README = ROOT / "README.md"
+CACHE = DATA / "cache" / "descriptions.json.gz"
 
 GLOBAL_CONCURRENCY = 32
 PER_HOST = 8
 BOARD_TIMEOUT = 150
-KEEP_CLOSED_DAYS = 21
+DECISION_SAMPLE = 300           # rejected candidates kept in decisions.jsonl
+DETAIL_SOURCES = {"greenhouse", "workday", "smartrecruiters"}
 TRANSPORT: httpx.AsyncBaseTransport | None = None  # tests swap in a MockTransport
-USER_AGENT = "secnet-parttime/1.0 (+https://github.com/ihrtkaii/secnet-parttime)"
+USER_AGENT = "secnet-parttime/2.0 (+https://github.com/ihrtkaii/secnet-parttime)"
 
 
 def _now() -> str:
@@ -57,14 +63,28 @@ def load_companies() -> list[dict]:
     return out
 
 
-def make_want(local: tuple[str, ...]):
-    """Cheap pre-check deciding which roles are worth a description fetch."""
+def board_label(c: dict) -> str:
+    return f"{c['ats']}:{c['slug']}" + (f":{c['site']}" if c.get("site") else "")
+
+
+def scope_fingerprint(cfg: filters.Config) -> str:
+    blob = json.dumps([ats.SCOPE, remote_boards.SCOPE, usajobs.SCOPE, sorted(cfg.priority)],
+                      sort_keys=True, default=list)
+    return hashlib.sha1(blob.encode()).hexdigest()[:12]
+
+
+def make_want(cfg: filters.Config):
+    """Cheap pre-check deciding which roles are worth a description fetch:
+    a security or plausible title, and a location that could fit (or one too
+    vague to judge until the detail page fills it in)."""
+    import re
     vague = re.compile(r"^(—|-|)$|\d+\s+locations?|multiple", re.IGNORECASE)
 
     def want(job: Job) -> bool:
-        if not filters.is_security(job.title) or filters.is_senior(job.title):
+        if filters.title_gate(job, cfg) is None:
             return False
-        return filters.where(job, local) is not None or bool(vague.search(job.location.strip()))
+        return (filters.place(job, cfg).where is not None
+                or bool(vague.search(job.location.strip())))
     return want
 
 
@@ -76,7 +96,7 @@ async def _bounded(coro, label: str) -> tuple[str, Fetch]:
         return label, Fetch([], ok=False, error=f"{type(exc).__name__}: {exc}"[:200])
 
 
-async def fetch_everything(companies: list[dict], want, sources: set[str]):
+async def fetch_everything(companies: list[dict], ctx: Ctx, sources: set[str]):
     limiter = HostLimiter(PER_HOST, per_provider=GLOBAL_CONCURRENCY)
     gate = asyncio.Semaphore(GLOBAL_CONCURRENCY)
     common = dict(
@@ -98,8 +118,7 @@ async def fetch_everything(companies: list[dict], want, sources: set[str]):
             nonlocal done
             use = wd_net if c["ats"] == "workday" else net
             async with gate:
-                label = f"{c['ats']}:{c['slug']}" + (f":{c['site']}" if c.get("site") else "")
-                result = await _bounded(ats.FETCHERS[c["ats"]](c, use, want), label)
+                result = await _bounded(ats.FETCHERS[c["ats"]](c, use, ctx), board_label(c))
             done += 1
             if done % 500 == 0:
                 print(f"  boards {done}/{len(companies)}", flush=True)
@@ -117,110 +136,132 @@ async def fetch_everything(companies: list[dict], want, sources: set[str]):
                 await wd_client.aclose()
 
 
-def _dedupe(jobs: list[Job]) -> list[Job]:
-    """One row per (company, title, place). Remote boards re-post ATS roles."""
-    best: dict[tuple, Job] = {}
-    for j in jobs:
-        key = (re.sub(r"\W+", "", j.company.lower()), re.sub(r"\W+", "", j.title.lower()),
-               j.where)
-        prior = best.get(key)
-        if prior is None or (prior.source in remote_boards.FETCHERS and
-                             j.source not in remote_boards.FETCHERS):
-            best[key] = j
-    return list(best.values())
-
-
-def merge(stored: dict, kept: list[Job], ok_boards: set[str], now: str) -> dict:
-    out = dict(stored)
-    seen = set()
-    for j in kept:
-        rec = j.record()
-        prior = out.get(j.id) or {}
-        rec["first_seen"] = prior.get("first_seen") or now
-        rec["last_seen"] = now
-        rec["status"] = "open"
-        out[j.id] = rec
-        seen.add(j.id)
-    cutoff = (datetime.now(UTC) - timedelta(days=KEEP_CLOSED_DAYS)).strftime("%Y-%m-%dT%H:%M:%SZ")
-    for jid, rec in list(out.items()):
-        if jid in seen:
-            continue
-        if rec.get("status") == "open" and rec.get("board") in ok_boards:
-            rec["status"] = "closed"
-            rec["closed_at"] = now
-        if rec.get("status") == "closed" and (rec.get("closed_at") or "") < cutoff:
-            del out[jid]
-    return out
+def _decision_row(job: Job, d: models.Decision) -> dict:
+    return {
+        "job_id": job.id, "company": job.company, "title": job.title, "location": job.location,
+        "url": job.url, "decision": d.verdict, "reason_codes": d.reasons,
+        "matched_evidence": d.evidence, "missing_information": d.missing,
+        "classifier_version": models.CLASSIFIER_VERSION,
+    }
 
 
 def run(limit: int | None = None, sources: set[str] | None = None) -> dict:
+    started = time.monotonic()
     sources = sources or {"ats", "remote", "usajobs"}
-    cfg = load_config()
-    local = tuple(x.lower() for x in cfg.get("local_places", filters.DEFAULT_LOCAL))
+    cfg = filters.Config.from_dict(load_config())
     companies = load_companies()
     if limit:
         companies = companies[:limit]
     print(f"Scanning {len(companies)} company boards + remote boards + USAJOBS", flush=True)
 
-    results = asyncio.run(fetch_everything(companies, make_want(local), sources))
+    cache = DescCache(CACHE)
+    ctx = Ctx(want=make_want(cfg), cache=cache, priority=lambda n: filters.is_priority(n, cfg))
+    results = asyncio.run(fetch_everything(companies, ctx, sources))
 
-    ok_boards: set[str] = set()
-    per_source = Counter()
-    errors_by_source = Counter()
+    board_states: dict[str, str] = {}
+    per_source: dict[str, Counter] = {}
     error_samples: dict[str, str] = {}
-    reasons = Counter()
+    workday_notes: Counter = Counter()
+    reasons: Counter = Counter()
     kept: list[Job] = []
+    seen_rejected: dict[str, str] = {}
+    decisions: list[dict] = []
+    rejected_candidates: list[dict] = []
+
     for label, fetch in results:
         src = label.split(":", 1)[0]
+        tally = per_source.setdefault(src, Counter())
+        if src == "workday":
+            workday_notes.update(fetch.notes)
         if not fetch.ok:
-            errors_by_source[src] += 1
+            board_states[label] = store.FAILED
+            tally["failed"] += 1
             error_samples.setdefault(src, fetch.error or "")
             continue
-        per_source[src] += 1
-        ok_boards |= {j.board for j in fetch.jobs} | {label}
+        board_states[label] = store.COMPLETE if fetch.complete else store.PARTIAL
+        tally["complete" if fetch.complete else "partial"] += 1
         for job in fetch.jobs:
-            why = filters.classify(job, local)
-            if why:
-                reasons[why] += 1
+            job.board = label
+            candidate = ctx.want(job)
+            d = filters.classify(job, cfg)
+            if d.verdict == models.REJECTED:
+                reasons[d.reasons[0]] += 1
+                # A wanted role whose description failed to load was not
+                # really checked: leave its stored state alone this run.
+                if candidate and job.description is None and job.source in DETAIL_SOURCES:
+                    reasons["unchecked-no-description"] += 1
+                    continue
+                seen_rejected[job.id] = d.reasons[0]
+                if candidate:
+                    rejected_candidates.append(_decision_row(job, d))
             else:
                 kept.append(job)
-    kept = _dedupe(kept)
+                decisions.append(_decision_row(job, d))
+
+    groups = identity.group(kept)
+
+    stats_path = DATA / "stats.json"
+    prev_stats = json.loads(stats_path.read_text(encoding="utf-8")) if stats_path.exists() else {}
+    scope = scope_fingerprint(cfg)
+    closing_allowed = prev_stats.get("scope") in (None, scope)
 
     store_path = DATA / "jobs.json"
-    stored = json.loads(store_path.read_text(encoding="utf-8")) if store_path.exists() else {}
+    records = store.load(store_path)
     now = _now()
-    merged = merge(stored, kept, ok_boards, now)
-    store_path.write_text(json.dumps(merged, indent=1, sort_keys=True), encoding="utf-8")
+    life = store.update(records, groups, seen_rejected, board_states, now, closing_allowed)
+    store_path.write_text(json.dumps(records, indent=1, sort_keys=True), encoding="utf-8")
+    store.append_archive(DATA / "archive.jsonl", life.pop("archived"))
 
-    open_rows = sorted((r for r in merged.values() if r.get("status") == "open"),
-                       key=lambda r: (r.get("posted_at") or r.get("first_seen") or ""),
-                       reverse=True)
-    _write_csv(open_rows)
+    rows = store.visible(records)
+    listed = [r for r in rows if r.get("queue") == models.LISTED]
+    review = [r for r in rows if r.get("queue") == models.REVIEW]
+    _write_csv(rows)
     DOCS.mkdir(exist_ok=True)
-    (DOCS / "jobs.json").write_text(json.dumps({"updated": now, "jobs": open_rows}, indent=1),
+    (DOCS / "jobs.json").write_text(json.dumps({"updated": now, "jobs": rows}, indent=1),
                                     encoding="utf-8")
+
+    # Every kept role plus a stable sample of rejected candidates, so a clean
+    # list can be checked for "rejected everything useful".
+    rejected_candidates.sort(key=lambda r: hashlib.sha1(r["job_id"].encode()).hexdigest())
+    with open(DATA / "decisions.jsonl", "w", encoding="utf-8") as f:
+        for row in decisions + rejected_candidates[:DECISION_SAMPLE]:
+            f.write(json.dumps(row, sort_keys=True) + "\n")
+
+    alerts = notify.run(rows, DATA / "notify_state.json")
+    cache.save()
+
     stats = {
         "updated": now,
-        "open": len(open_rows),
-        "new_this_run": sum(1 for r in open_rows if r.get("first_seen") == now),
-        "by_kind": Counter(r["kind"] for r in open_rows),
-        "boards_ok": dict(per_source),
-        "boards_failed": dict(errors_by_source),
+        "classifier_version": models.CLASSIFIER_VERSION,
+        "scope": scope,
+        "closing_allowed": closing_allowed,
+        "runtime_seconds": round(time.monotonic() - started, 1),
+        "listed": len(listed),
+        "review": len(review),
+        "by_kind": dict(Counter(r["kind"] for r in listed)),
+        "by_fit": dict(Counter(r.get("schedule_fit") for r in rows)),
+        "by_status": dict(Counter(r.get("status") for r in rows)),
+        "lifecycle": life,
+        "boards": {k: dict(v) for k, v in sorted(per_source.items())},
+        "workday_outcomes": dict(workday_notes),
         "error_samples": error_samples,
+        "cache": {"hits": cache.hits, "misses": cache.misses, "entries": len(cache.data)},
         "rejected": dict(reasons.most_common()),
+        "alerts": alerts,
     }
-    (DATA / "stats.json").write_text(json.dumps(stats, indent=1), encoding="utf-8")
-    render.write_readme(README, open_rows, stats)
-    print(json.dumps({k: stats[k] for k in ("open", "new_this_run", "by_kind",
-                                            "boards_ok", "boards_failed")}, indent=1))
+    stats_path.write_text(json.dumps(stats, indent=1), encoding="utf-8")
+    render.write_readme(README, listed, len(review), stats)
+    print(json.dumps({k: stats[k] for k in ("listed", "review", "by_kind", "lifecycle",
+                                            "boards", "runtime_seconds")}, indent=1))
     return stats
 
 
 def _write_csv(rows: list[dict]) -> None:
-    cols = ["kind", "company", "title", "where", "location", "hours", "salary", "flags",
-            "category", "posted_at", "first_seen", "url", "source"]
+    cols = ["queue", "kind", "company", "title", "where", "location", "schedule_fit", "hours",
+            "salary", "flags", "florida_eligibility", "category", "status", "posted_at",
+            "first_seen", "url", "primary_source"]
     with open(DATA / "jobs.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
         w.writeheader()
         for r in rows:
-            w.writerow({**r, "flags": "; ".join(r.get("flags") or [])})
+            w.writerow({**r, "flags": "; ".join(r.get("display_flags") or [])})
