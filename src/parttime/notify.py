@@ -32,7 +32,7 @@ from . import models
 DIGEST_HOUR_ET = 8
 MAX_EMBEDS = 10          # Discord's per-message limit
 DIGEST_MAX_ITEMS = 40    # beyond this the digest links to the dashboard
-DASHBOARD = "https://ihrtkaii.github.io/secnet-parttime/"
+DASHBOARD = "https://ihrtkaii.github.io/test-2/"
 COLORS = {models.FIT_CONFIRMED: 0x2E9E6B, models.FIT_POSSIBLE: 0xD39B22,
           models.FIT_UNKNOWN: 0x7A8594}
 

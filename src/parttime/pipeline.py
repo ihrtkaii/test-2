@@ -34,7 +34,7 @@ BOARD_TIMEOUT = 150
 DECISION_SAMPLE = 300           # rejected candidates kept in decisions.jsonl
 DETAIL_SOURCES = {"greenhouse", "workday", "smartrecruiters"}
 TRANSPORT: httpx.AsyncBaseTransport | None = None  # tests swap in a MockTransport
-USER_AGENT = "secnet-parttime/2.0 (+https://github.com/ihrtkaii/secnet-parttime)"
+USER_AGENT = "secnet-parttime/2.0 (+https://github.com/ihrtkaii/test-2)"
 
 
 def _now() -> str:

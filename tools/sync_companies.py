@@ -6,7 +6,7 @@ import sys
 import urllib.request
 from pathlib import Path
 
-URL = "https://raw.githubusercontent.com/ihrtkaii/secnet-internships/main/data/companies.json"
+URL = "https://raw.githubusercontent.com/ihrtkaii/test-1/main/data/companies.json"
 DEST = Path(__file__).resolve().parents[1] / "data" / "companies.json"
 
 try:

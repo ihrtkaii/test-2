@@ -11,7 +11,7 @@ from .models import FIT_CONFIRMED, FIT_POSSIBLE, KINDS
 
 START, END = "<!-- LIST:START -->", "<!-- LIST:END -->"
 MAX_ROWS = 150  # per section; the dashboard shows everything
-DASHBOARD = "https://ihrtkaii.github.io/secnet-parttime/"
+DASHBOARD = "https://ihrtkaii.github.io/test-2/"
 FIT_LABEL = {FIT_CONFIRMED: "Confirmed", FIT_POSSIBLE: "Possible"}
 
 
