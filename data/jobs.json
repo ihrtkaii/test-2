@@ -1,0 +1,811 @@
+{
+ "ashby:handshake:7f607c0b-291d-4c17-9897-6d8c5d35eb00": {
+  "alternate_sources": [],
+  "board": "ashby:handshake",
+  "boards": [
+   "ashby:handshake"
+  ],
+  "category": "SOC / Detection",
+  "company": "Handshake",
+  "employment_type": "contract",
+  "evidence": {
+   "location": "location: Remote (USA)",
+   "schedule": "Work arrangement: Flexible, including part-time availability"
+  },
+  "first_seen": "2026-10-21T14:00:41Z",
+  "flags": [
+   "Hours unverified"
+  ],
+  "florida_eligibility": "likely",
+  "hiring_paths": null,
+  "hours": null,
+  "hours_max": null,
+  "hours_min": null,
+  "hybrid": null,
+  "id": "ashby:handshake:7f607c0b-291d-4c17-9897-6d8c5d35eb00",
+  "key": "ashby:handshake:7f607c0b-291d-4c17-9897-6d8c5d35eb00",
+  "kind": "Contract / Freelance",
+  "last_checked": "2026-10-21T14:00:41Z",
+  "last_seen": "2026-10-21T14:00:41Z",
+  "location": "Remote (USA)",
+  "missing_scans": 0,
+  "missing_since": null,
+  "posted_at": "2026-09-05T03:08:58.058+00:00",
+  "primary_source": "ashby",
+  "priority": false,
+  "queue": "listed",
+  "remote": true,
+  "requisition_id": null,
+  "salary": "$65 \u2013 $125 per hour",
+  "schedule_fit": "possible",
+  "source": "ashby",
+  "source_job_ids": [
+   "ashby:handshake:7f607c0b-291d-4c17-9897-6d8c5d35eb00"
+  ],
+  "status": "open",
+  "summer_commitment": false,
+  "title": "AI Red Teamer, Cybersecurity (Remote)",
+  "url": "https://jobs.ashbyhq.com/handshake/7f607c0b-291d-4c17-9897-6d8c5d35eb00",
+  "where": "Remote",
+  "work_mode": "remote"
+ },
+ "greenhouse:axle:5225541007": {
+  "alternate_sources": [],
+  "board": "greenhouse:axle",
+  "boards": [
+   "greenhouse:axle"
+  ],
+  "category": "GRC / Risk",
+  "company": "Axle",
+  "employment_type": "unknown",
+  "evidence": {
+   "location": "location: Remote",
+   "schedule": "Individuals may be required to perform duties outside of their position, job description or responsibilities as needed."
+  },
+  "first_seen": "2026-10-21T14:00:41Z",
+  "flags": [
+   "Location unverified"
+  ],
+  "florida_eligibility": "unknown",
+  "hiring_paths": null,
+  "hours": null,
+  "hours_max": null,
+  "hours_min": null,
+  "hybrid": null,
+  "id": "greenhouse:axle:5225541007",
+  "key": "greenhouse:axle:5225541007",
+  "kind": "Part-Time Jobs",
+  "last_checked": "2026-10-21T14:00:41Z",
+  "last_seen": "2026-10-21T14:00:41Z",
+  "location": "Remote",
+  "missing_scans": 0,
+  "missing_since": null,
+  "posted_at": "2026-08-28T16:20:34-04:00",
+  "primary_source": "greenhouse",
+  "priority": false,
+  "queue": "review",
+  "remote": null,
+  "requisition_id": "2026-1702",
+  "salary": null,
+  "schedule_fit": "unknown",
+  "source": "greenhouse",
+  "source_job_ids": [
+   "greenhouse:axle:5225541007"
+  ],
+  "status": "open",
+  "summer_commitment": false,
+  "title": "Cybersecurity Research Assistant",
+  "url": "https://job-boards.greenhouse.io/axle/jobs/5225541007",
+  "where": "Remote",
+  "work_mode": "remote"
+ },
+ "greenhouse:bugcrowd:8202018": {
+  "alternate_sources": [],
+  "board": "greenhouse:bugcrowd",
+  "boards": [
+   "greenhouse:bugcrowd"
+  ],
+  "category": "Offensive / AppSec",
+  "company": "Bugcrowd",
+  "employment_type": "unknown",
+  "evidence": {
+   "experience": "Build systems based on incentives and accountability rather than just bureaucratic process Education, Experience, Knowledge, Skills, and Abilities 3+ years of experience in product security, application security, or sec\u2026",
+   "location": "location: Remote - Costa Rica",
+   "schedule": "Sitting and / or standing - Must be able to remain in a stationary position 50% of the time Carrying and / or lifting - Must be able to carry / move laptop as needed throughout the work day."
+  },
+  "first_seen": "2026-10-21T14:00:41Z",
+  "flags": [
+   "Location unverified",
+   "3+ yrs exp"
+  ],
+  "florida_eligibility": "unknown",
+  "hiring_paths": null,
+  "hours": null,
+  "hours_max": null,
+  "hours_min": null,
+  "hybrid": null,
+  "id": "greenhouse:bugcrowd:8202018",
+  "key": "greenhouse:bugcrowd:8202018",
+  "kind": "Part-Time Jobs",
+  "last_checked": "2026-10-21T14:00:41Z",
+  "last_seen": "2026-10-21T14:00:41Z",
+  "location": "Remote - Costa Rica",
+  "missing_scans": 0,
+  "missing_since": null,
+  "posted_at": "2026-10-01T08:55:44-04:00",
+  "primary_source": "greenhouse",
+  "priority": false,
+  "queue": "review",
+  "remote": null,
+  "requisition_id": "27187",
+  "salary": null,
+  "schedule_fit": "unknown",
+  "source": "greenhouse",
+  "source_job_ids": [
+   "greenhouse:bugcrowd:8202018"
+  ],
+  "status": "open",
+  "summer_commitment": false,
+  "title": "Product Security Engineer",
+  "url": "https://boards.greenhouse.io/bugcrowd/jobs/8202018?gh_jid=8202018",
+  "where": "Remote",
+  "work_mode": "remote"
+ },
+ "greenhouse:guidepointsecurity:6207768004": {
+  "alternate_sources": [],
+  "board": "greenhouse:guidepointsecurity",
+  "boards": [
+   "greenhouse:guidepointsecurity"
+  ],
+  "category": "Offensive / AppSec",
+  "company": "GuidePoint Security",
+  "employment_type": "unknown",
+  "evidence": {
+   "location": "location: Remote",
+   "schedule": "Roles and Responsibilities: Implement, operationalize, and troubleshoot SAST platforms (e.g., Semgrep, Snyk, CodeQL, Checkmarx, Veracode) within client environments Design and integrate automated security testing into C\u2026"
+  },
+  "first_seen": "2026-10-21T14:00:41Z",
+  "flags": [
+   "Location unverified"
+  ],
+  "florida_eligibility": "unknown",
+  "hiring_paths": null,
+  "hours": null,
+  "hours_max": null,
+  "hours_min": null,
+  "hybrid": null,
+  "id": "greenhouse:guidepointsecurity:6207768004",
+  "key": "greenhouse:guidepointsecurity:6207768004",
+  "kind": "Part-Time Jobs",
+  "last_checked": "2026-10-21T14:00:41Z",
+  "last_seen": "2026-10-21T14:00:41Z",
+  "location": "Remote",
+  "missing_scans": 0,
+  "missing_since": null,
+  "posted_at": "2026-09-24T13:23:30-04:00",
+  "primary_source": "greenhouse",
+  "priority": false,
+  "queue": "review",
+  "remote": null,
+  "requisition_id": "2563",
+  "salary": null,
+  "schedule_fit": "unknown",
+  "source": "greenhouse",
+  "source_job_ids": [
+   "greenhouse:guidepointsecurity:6207768004"
+  ],
+  "status": "open",
+  "summer_commitment": false,
+  "title": "Application Security Engineer - Northeast region",
+  "url": "https://boards.greenhouse.io/guidepointsecurity/jobs/6207768004?gh_jid=6207768004",
+  "where": "Remote",
+  "work_mode": "remote"
+ },
+ "greenhouse:guidepointsecurity:6218520004": {
+  "alternate_sources": [],
+  "board": "greenhouse:guidepointsecurity",
+  "boards": [
+   "greenhouse:guidepointsecurity"
+  ],
+  "category": "Offensive / AppSec",
+  "company": "GuidePoint Security",
+  "employment_type": "unknown",
+  "evidence": {
+   "location": "location: Remote",
+   "schedule": "Roles and Responsibilities: Implement, operationalize, and troubleshoot SAST platforms (e.g., Semgrep, Snyk, CodeQL, Checkmarx, Veracode) within client environments Design and integrate automated security testing into C\u2026"
+  },
+  "first_seen": "2026-10-21T14:00:41Z",
+  "flags": [
+   "Location unverified"
+  ],
+  "florida_eligibility": "unknown",
+  "hiring_paths": null,
+  "hours": null,
+  "hours_max": null,
+  "hours_min": null,
+  "hybrid": null,
+  "id": "greenhouse:guidepointsecurity:6218520004",
+  "key": "greenhouse:guidepointsecurity:6218520004",
+  "kind": "Part-Time Jobs",
+  "last_checked": "2026-10-21T14:00:41Z",
+  "last_seen": "2026-10-21T14:00:41Z",
+  "location": "Remote",
+  "missing_scans": 0,
+  "missing_since": null,
+  "posted_at": "2026-10-06T15:09:17-04:00",
+  "primary_source": "greenhouse",
+  "priority": false,
+  "queue": "review",
+  "remote": null,
+  "requisition_id": "2586",
+  "salary": null,
+  "schedule_fit": "unknown",
+  "source": "greenhouse",
+  "source_job_ids": [
+   "greenhouse:guidepointsecurity:6218520004"
+  ],
+  "status": "open",
+  "summer_commitment": false,
+  "title": "Application Security Engineer - Southeast region",
+  "url": "https://boards.greenhouse.io/guidepointsecurity/jobs/6218520004?gh_jid=6218520004",
+  "where": "Remote",
+  "work_mode": "remote"
+ },
+ "greenhouse:guidepointsecurity:6224196004": {
+  "alternate_sources": [],
+  "board": "greenhouse:guidepointsecurity",
+  "boards": [
+   "greenhouse:guidepointsecurity"
+  ],
+  "category": "SOC / Detection",
+  "company": "GuidePoint Security",
+  "employment_type": "unknown",
+  "evidence": {
+   "hours": "During this internship, interns are expected to: Be located near Tulsa, OK, or be willing to relocate there for follow-on full-time hire Be physically located within the United States for the entire internship Work 20-2\u2026",
+   "location": "location: Remote"
+  },
+  "first_seen": "2026-10-21T14:00:41Z",
+  "flags": [
+   "Location unverified",
+   "Hours may exceed 20"
+  ],
+  "florida_eligibility": "unknown",
+  "hiring_paths": null,
+  "hours": "20\u201329/wk",
+  "hours_max": 29,
+  "hours_min": 20,
+  "hybrid": null,
+  "id": "greenhouse:guidepointsecurity:6224196004",
+  "key": "greenhouse:guidepointsecurity:6224196004",
+  "kind": "Part-Time Internships",
+  "last_checked": "2026-10-21T14:00:41Z",
+  "last_seen": "2026-10-21T14:00:41Z",
+  "location": "Remote",
+  "missing_scans": 0,
+  "missing_since": null,
+  "posted_at": "2026-10-14T17:22:54-04:00",
+  "primary_source": "greenhouse",
+  "priority": false,
+  "queue": "listed",
+  "remote": null,
+  "requisition_id": "2601",
+  "salary": "$20/hr",
+  "schedule_fit": "possible",
+  "source": "greenhouse",
+  "source_job_ids": [
+   "greenhouse:guidepointsecurity:6224196004"
+  ],
+  "status": "open",
+  "summer_commitment": false,
+  "title": "Cybersecurity Presales Intern - GPSU/Heartland (Tulsa)",
+  "url": "https://boards.greenhouse.io/guidepointsecurity/jobs/6224196004?gh_jid=6224196004",
+  "where": "Remote",
+  "work_mode": "remote"
+ },
+ "greenhouse:srsacquiom:5260255007": {
+  "alternate_sources": [],
+  "board": "greenhouse:srsacquiom",
+  "boards": [
+   "greenhouse:srsacquiom"
+  ],
+  "category": "GRC / Risk",
+  "company": "SRS Acquiom",
+  "employment_type": "unknown",
+  "evidence": {
+   "experience": "Primary Responsibilities Interact with security holders via email and phone to resolve user/account validation flags Diligently evaluate exception materials to resolve user/account validation flags and fraud concerns Pr\u2026",
+   "location": "location: Denver, Colorado, United States; Remote - United States",
+   "schedule": "Primary Responsibilities Interact with security holders via email and phone to resolve user/account validation flags Diligently evaluate exception materials to resolve user/account validation flags and fraud concerns Pr\u2026"
+  },
+  "first_seen": "2026-10-21T14:00:41Z",
+  "flags": [
+   "2+ yrs exp"
+  ],
+  "florida_eligibility": "likely",
+  "hiring_paths": null,
+  "hours": null,
+  "hours_max": null,
+  "hours_min": null,
+  "hybrid": null,
+  "id": "greenhouse:srsacquiom:5260255007",
+  "key": "greenhouse:srsacquiom:5260255007",
+  "kind": "Part-Time Jobs",
+  "last_checked": "2026-10-21T14:00:41Z",
+  "last_seen": "2026-10-21T14:00:41Z",
+  "location": "Denver, Colorado, United States; Remote - United States",
+  "missing_scans": 0,
+  "missing_since": null,
+  "posted_at": "2026-10-08T14:29:31-04:00",
+  "primary_source": "greenhouse",
+  "priority": false,
+  "queue": "review",
+  "remote": null,
+  "requisition_id": "2035",
+  "salary": null,
+  "schedule_fit": "unknown",
+  "source": "greenhouse",
+  "source_job_ids": [
+   "greenhouse:srsacquiom:5260255007"
+  ],
+  "status": "open",
+  "summer_commitment": false,
+  "title": "Payments Compliance Analyst",
+  "url": "https://job-boards.greenhouse.io/srsacquiom/jobs/5260255007",
+  "where": "Remote",
+  "work_mode": "remote"
+ },
+ "greenhouse:twilio:7808464": {
+  "alternate_sources": [],
+  "board": "greenhouse:twilio",
+  "boards": [
+   "greenhouse:twilio"
+  ],
+  "category": "SOC / Detection",
+  "company": "Twilio",
+  "employment_type": "unknown",
+  "evidence": {
+   "experience": "*Required: 3+ years of experience in a GSOC working environment Experience with physical safety and security technology, systems (ACS, IDS, VSS, VMS), travel safety, and mass notification tools Experience with open-sour\u2026",
+   "location": "location: Remote - US",
+   "schedule": "verbal and written Ability to work \u2018non-standard\u2019 shift hours, to overlap as needed with colleagues and stakeholders in other global locations, including weekend and holiday hours English Language Proficiency Desired: C\u2026"
+  },
+  "first_seen": "2026-10-21T14:00:41Z",
+  "flags": [
+   "3+ yrs exp"
+  ],
+  "florida_eligibility": "likely",
+  "hiring_paths": null,
+  "hours": null,
+  "hours_max": null,
+  "hours_min": null,
+  "hybrid": null,
+  "id": "greenhouse:twilio:7808464",
+  "key": "greenhouse:twilio:7808464",
+  "kind": "Part-Time Jobs",
+  "last_checked": "2026-10-21T14:00:41Z",
+  "last_seen": "2026-10-21T14:00:41Z",
+  "location": "Remote - US",
+  "missing_scans": 0,
+  "missing_since": null,
+  "posted_at": "2026-04-17T14:19:53-04:00",
+  "primary_source": "greenhouse",
+  "priority": false,
+  "queue": "review",
+  "remote": null,
+  "requisition_id": "50283",
+  "salary": null,
+  "schedule_fit": "unknown",
+  "source": "greenhouse",
+  "source_job_ids": [
+   "greenhouse:twilio:7808464"
+  ],
+  "status": "open",
+  "summer_commitment": false,
+  "title": "Global Security Operations Center Operator",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/7808464",
+  "where": "Remote",
+  "work_mode": "remote"
+ },
+ "greenhouse:vercel:6093255004": {
+  "alternate_sources": [],
+  "board": "greenhouse:vercel",
+  "boards": [
+   "greenhouse:vercel"
+  ],
+  "category": "Cloud / Network / IAM",
+  "company": "Vercel",
+  "employment_type": "unknown",
+  "evidence": {
+   "location": "location: Remote - United States",
+   "schedule": "We will provide you the gear you need to do your role, and a WFH budget for you to outfit your space as needed."
+  },
+  "first_seen": "2026-10-21T14:00:41Z",
+  "flags": [],
+  "florida_eligibility": "likely",
+  "hiring_paths": null,
+  "hours": null,
+  "hours_max": null,
+  "hours_min": null,
+  "hybrid": null,
+  "id": "greenhouse:vercel:6093255004",
+  "key": "greenhouse:vercel:6093255004",
+  "kind": "Part-Time Jobs",
+  "last_checked": "2026-10-21T14:00:41Z",
+  "last_seen": "2026-10-21T14:00:41Z",
+  "location": "Remote - United States",
+  "missing_scans": 0,
+  "missing_since": null,
+  "posted_at": "2026-06-24T20:19:22-04:00",
+  "primary_source": "greenhouse",
+  "priority": false,
+  "queue": "review",
+  "remote": null,
+  "requisition_id": "1259",
+  "salary": null,
+  "schedule_fit": "unknown",
+  "source": "greenhouse",
+  "source_job_ids": [
+   "greenhouse:vercel:6093255004"
+  ],
+  "status": "open",
+  "summer_commitment": false,
+  "title": "Security Software Engineer, IAM",
+  "url": "https://job-boards.greenhouse.io/vercel/jobs/6093255004",
+  "where": "Remote",
+  "work_mode": "remote"
+ },
+ "lever:cgsfederal:74c89386-a4d2-4a09-ae10-d2537a31e054": {
+  "alternate_sources": [],
+  "board": "lever:cgsfederal",
+  "boards": [
+   "lever:cgsfederal"
+  ],
+  "category": "SOC / Detection",
+  "company": "CGS Federal (Contact Government Services)",
+  "employment_type": "unknown",
+  "evidence": {
+   "location": "location: Remote",
+   "schedule": "Participate in an on-call rotation as needed, including nights and weekends"
+  },
+  "first_seen": "2026-10-21T14:00:41Z",
+  "flags": [
+   "Location unverified"
+  ],
+  "florida_eligibility": "unknown",
+  "hiring_paths": null,
+  "hours": null,
+  "hours_max": null,
+  "hours_min": null,
+  "hybrid": null,
+  "id": "lever:cgsfederal:74c89386-a4d2-4a09-ae10-d2537a31e054",
+  "key": "lever:cgsfederal:74c89386-a4d2-4a09-ae10-d2537a31e054",
+  "kind": "Part-Time Jobs",
+  "last_checked": "2026-10-21T14:00:41Z",
+  "last_seen": "2026-10-21T14:00:41Z",
+  "location": "Remote",
+  "missing_scans": 0,
+  "missing_since": null,
+  "posted_at": "2026-03-09T20:07:22Z",
+  "primary_source": "lever",
+  "priority": false,
+  "queue": "review",
+  "remote": true,
+  "requisition_id": null,
+  "salary": "$60,000\u2013$100,000/yr",
+  "schedule_fit": "unknown",
+  "source": "lever",
+  "source_job_ids": [
+   "lever:cgsfederal:74c89386-a4d2-4a09-ae10-d2537a31e054"
+  ],
+  "status": "open",
+  "summer_commitment": false,
+  "title": "Cyber Project Associate",
+  "url": "https://jobs.lever.co/cgsfederal/74c89386-a4d2-4a09-ae10-d2537a31e054",
+  "where": "Remote",
+  "work_mode": "remote"
+ },
+ "smartrecruiters:SOSi1:3743990011641106": {
+  "alternate_sources": [],
+  "board": "smartrecruiters:SOSi1",
+  "boards": [
+   "smartrecruiters:SOSi1"
+  ],
+  "category": "Cloud / Network / IAM",
+  "company": "SOSi",
+  "employment_type": "part-time",
+  "evidence": {
+   "clearance": "Active Secret Clearance.",
+   "location": "location: Remote, Remote, United States",
+   "schedule": "source lists part-time"
+  },
+  "first_seen": "2026-10-21T14:00:41Z",
+  "flags": [
+   "Hours unverified",
+   "Clearance"
+  ],
+  "florida_eligibility": "likely",
+  "hiring_paths": null,
+  "hours": null,
+  "hours_max": null,
+  "hours_min": null,
+  "hybrid": null,
+  "id": "smartrecruiters:SOSi1:3743990011641106",
+  "key": "smartrecruiters:SOSi1:3743990011641106",
+  "kind": "Part-Time Jobs",
+  "last_checked": "2026-10-21T14:00:41Z",
+  "last_seen": "2026-10-21T14:00:41Z",
+  "location": "Remote, Remote, United States",
+  "missing_scans": 0,
+  "missing_since": null,
+  "posted_at": "2026-02-11T18:55:10.742Z",
+  "primary_source": "smartrecruiters",
+  "priority": false,
+  "queue": "listed",
+  "remote": true,
+  "requisition_id": "REF1265C",
+  "salary": null,
+  "schedule_fit": "possible",
+  "source": "smartrecruiters",
+  "source_job_ids": [
+   "smartrecruiters:SOSi1:3743990011641106"
+  ],
+  "status": "open",
+  "summer_commitment": false,
+  "title": "Cloud Security Engineer",
+  "url": "https://jobs.smartrecruiters.com/SOSi1/3743990011641106",
+  "where": "Remote",
+  "work_mode": "remote"
+ },
+ "smartrecruiters:SOSi1:3743990015353557": {
+  "alternate_sources": [],
+  "board": "smartrecruiters:SOSi1",
+  "boards": [
+   "smartrecruiters:SOSi1"
+  ],
+  "category": "GRC / Risk",
+  "company": "SOSi",
+  "employment_type": "part-time",
+  "evidence": {
+   "clearance": "Active in scope secret clearance.",
+   "location": "location: Remote, Remote, United States",
+   "schedule": "source lists part-time"
+  },
+  "first_seen": "2026-10-21T14:00:41Z",
+  "flags": [
+   "Hours unverified",
+   "Clearance"
+  ],
+  "florida_eligibility": "likely",
+  "hiring_paths": null,
+  "hours": null,
+  "hours_max": null,
+  "hours_min": null,
+  "hybrid": null,
+  "id": "smartrecruiters:SOSi1:3743990015353557",
+  "key": "smartrecruiters:SOSi1:3743990015353557",
+  "kind": "Part-Time Jobs",
+  "last_checked": "2026-10-21T14:00:41Z",
+  "last_seen": "2026-10-21T14:00:41Z",
+  "location": "Remote, Remote, United States",
+  "missing_scans": 0,
+  "missing_since": null,
+  "posted_at": "2026-09-17T19:12:15.599Z",
+  "primary_source": "smartrecruiters",
+  "priority": false,
+  "queue": "listed",
+  "remote": null,
+  "requisition_id": "REF1325O",
+  "salary": null,
+  "schedule_fit": "possible",
+  "source": "smartrecruiters",
+  "source_job_ids": [
+   "smartrecruiters:SOSi1:3743990015353557"
+  ],
+  "status": "open",
+  "summer_commitment": false,
+  "title": "Security & Compliance Administrator",
+  "url": "https://jobs.smartrecruiters.com/SOSi1/3743990015353557",
+  "where": "Remote",
+  "work_mode": "remote"
+ },
+ "workday:arcticwolf:/job/Remote-Germany/Cyber-Security-Consultant--m-w-d----Security-Advisor---100--Remote-in-Deutschland_R26_1146": {
+  "alternate_sources": [],
+  "board": "workday:arcticwolf:External",
+  "boards": [
+   "workday:arcticwolf:External"
+  ],
+  "category": "SOC / Detection",
+  "company": "Arctic Wolf",
+  "employment_type": "part-time",
+  "evidence": {
+   "location": "location: Remote, Germany; Frankfurt, DEU",
+   "schedule": "source lists part-time"
+  },
+  "first_seen": "2026-10-21T14:00:41Z",
+  "flags": [
+   "Location unverified",
+   "Hours unverified"
+  ],
+  "florida_eligibility": "unknown",
+  "hiring_paths": null,
+  "hours": null,
+  "hours_max": null,
+  "hours_min": null,
+  "hybrid": null,
+  "id": "workday:arcticwolf:/job/Remote-Germany/Cyber-Security-Consultant--m-w-d----Security-Advisor---100--Remote-in-Deutschland_R26_1146",
+  "key": "workday:arcticwolf:/job/Remote-Germany/Cyber-Security-Consultant--m-w-d----Security-Advisor---100--Remote-in-Deutschland_R26_1146",
+  "kind": "Contract / Freelance",
+  "last_checked": "2026-10-21T14:00:41Z",
+  "last_seen": "2026-10-21T14:00:41Z",
+  "location": "Remote, Germany; Frankfurt, DEU",
+  "missing_scans": 0,
+  "missing_since": null,
+  "posted_at": "2026-10-21",
+  "primary_source": "workday",
+  "priority": false,
+  "queue": "listed",
+  "remote": null,
+  "requisition_id": "R26_1146",
+  "salary": null,
+  "schedule_fit": "possible",
+  "source": "workday",
+  "source_job_ids": [
+   "workday:arcticwolf:/job/Remote-Germany/Cyber-Security-Consultant--m-w-d----Security-Advisor---100--Remote-in-Deutschland_R26_1146"
+  ],
+  "status": "open",
+  "summer_commitment": false,
+  "title": "Cyber Security Consultant (m/w/d) \u2013 Security Advisor | Teilzeit",
+  "url": "https://arcticwolf.wd1.myworkdayjobs.com/External/job/Remote-Germany/Cyber-Security-Consultant--m-w-d----Security-Advisor---100--Remote-in-Deutschland_R26_1146",
+  "where": "Remote",
+  "work_mode": "remote"
+ },
+ "workday:highmarkhealth:/job/PA-Working-at-Home---Pennsylvania/Summer-2027-IT-Audit-Undergraduate-Intern_J286837": {
+  "alternate_sources": [],
+  "board": "workday:highmarkhealth:highmark",
+  "boards": [
+   "workday:highmarkhealth:highmark"
+  ],
+  "category": "GRC / Risk",
+  "company": "Highmark Health",
+  "employment_type": "part-time",
+  "evidence": {
+   "location": "location: PA, Working at Home - Pennsylvania; MD, Working at Home - Maryland; WA, Working at Home - Washington; NC, Working at Home - N Carolina; LA, Working at Home - Louisiana; KY, Working at Home - Kentucky; KS, Working at Home - Kansas; IN, Working at Home - Indiana; IL, Working at Home - Illinois; GA, Working at Home - Georgia; IA, Working at Home - Iowa; FL, Working at Home - Florida; CO, Working at Home - Colorado; CA, Working at Home - California; DE, Working at Home - Delaware; CT, Working at Home - Conneticut; AR, Working at Home -  Arkansas; AZ, Working at Home - Arizona; AL, Working at Home - Alabama; AK, Working at Home - Alaska; NV, Working at Home - Nevada; VT, Working at Home - Vermont; TN, Working at Home -Tennessee; ID, Working at Home - Idaho; OK, Working at Home - Oklahoma; HI, Working at Home - Hawaii; MS, Working at Home - Mississippi; UT, Working at Home - Utah; NH, Working at Home - New Hampshire; NM, Working at Home - New Mexico; WY, Working at Home - Wyoming; ND, Working at Home - North Dakota; SD, Working at Home-South Dakota; RI, Working at Home - Rhode Island; WV, Working at Home - W Virginia; MO, Working at Home - Montana; TX, Working at Home - Texas; DC, Working at Home - Dist of Col; OH, Working at Home - Ohio; NJ, Working at Home - New Jersey; OR, Working at Home - Oregon; SC, Working at Home-South Carolina; MO, Working at Home - Missouri; VA, Working at Home - Virginia; MA, Working at Home -Massachusetts; NE, Working at Home - Nebraska; MN, Working at Home - Minnesota; MI, Working at Home - Michigan; WI, Working at Home - Wisconsin; NY, Working at Home - New York; ME, Working at Home - Maine",
+   "schedule": "REQUIRED QUALIFICATIONS Full or part-time enrollment in an accredited college or university baccalaureate program."
+  },
+  "first_seen": "2026-10-21T14:00:41Z",
+  "flags": [
+   "Hours unverified"
+  ],
+  "florida_eligibility": "yes",
+  "hiring_paths": null,
+  "hours": null,
+  "hours_max": null,
+  "hours_min": null,
+  "hybrid": null,
+  "id": "workday:highmarkhealth:/job/PA-Working-at-Home---Pennsylvania/Summer-2027-IT-Audit-Undergraduate-Intern_J286837",
+  "key": "workday:highmarkhealth:/job/PA-Working-at-Home---Pennsylvania/Summer-2027-IT-Audit-Undergraduate-Intern_J286837",
+  "kind": "Part-Time Internships",
+  "last_checked": "2026-10-21T14:00:41Z",
+  "last_seen": "2026-10-21T14:00:41Z",
+  "location": "PA, Working at Home - Pennsylvania; MD, Working at Home - Maryland; WA, Working at Home - Washington; NC, Working at Home - N Carolina; LA, Working at Home - Louisiana; KY, Working at Home - Kentucky; KS, Working at Home - Kansas; IN, Working at Home - Indiana; IL, Working at Home - Illinois; GA, Working at Home - Georgia; IA, Working at Home - Iowa; FL, Working at Home - Florida; CO, Working at Home - Colorado; CA, Working at Home - California; DE, Working at Home - Delaware; CT, Working at Home - Conneticut; AR, Working at Home -  Arkansas; AZ, Working at Home - Arizona; AL, Working at Home - Alabama; AK, Working at Home - Alaska; NV, Working at Home - Nevada; VT, Working at Home - Vermont; TN, Working at Home -Tennessee; ID, Working at Home - Idaho; OK, Working at Home - Oklahoma; HI, Working at Home - Hawaii; MS, Working at Home - Mississippi; UT, Working at Home - Utah; NH, Working at Home - New Hampshire; NM, Working at Home - New Mexico; WY, Working at Home - Wyoming; ND, Working at Home - North Dakota; SD, Working at Home-South Dakota; RI, Working at Home - Rhode Island; WV, Working at Home - W Virginia; MO, Working at Home - Montana; TX, Working at Home - Texas; DC, Working at Home - Dist of Col; OH, Working at Home - Ohio; NJ, Working at Home - New Jersey; OR, Working at Home - Oregon; SC, Working at Home-South Carolina; MO, Working at Home - Missouri; VA, Working at Home - Virginia; MA, Working at Home -Massachusetts; NE, Working at Home - Nebraska; MN, Working at Home - Minnesota; MI, Working at Home - Michigan; WI, Working at Home - Wisconsin; NY, Working at Home - New York; ME, Working at Home - Maine",
+  "missing_scans": 0,
+  "missing_since": null,
+  "posted_at": "2026-10-12",
+  "primary_source": "workday",
+  "priority": false,
+  "queue": "listed",
+  "remote": true,
+  "requisition_id": "J286837",
+  "salary": null,
+  "schedule_fit": "possible",
+  "source": "workday",
+  "source_job_ids": [
+   "workday:highmarkhealth:/job/PA-Working-at-Home---Pennsylvania/Summer-2027-IT-Audit-Undergraduate-Intern_J286837"
+  ],
+  "status": "open",
+  "summer_commitment": false,
+  "title": "Summer 2027 IT Audit Undergraduate Intern",
+  "url": "https://highmarkhealth.wd1.myworkdayjobs.com/highmark/job/PA-Working-at-Home---Pennsylvania/Summer-2027-IT-Audit-Undergraduate-Intern_J286837",
+  "where": "Remote",
+  "work_mode": "remote"
+ },
+ "workday:livenation:/job/Lake-Buena-Vista-FL-USA/Security-Door-Host_JR-86600": {
+  "alternate_sources": [],
+  "board": "workday:livenation:LNExternalSite",
+  "boards": [
+   "workday:livenation:LNExternalSite"
+  ],
+  "category": "Security (general)",
+  "company": "Live Nation Entertainment",
+  "employment_type": "part-time",
+  "evidence": {
+   "location": "location: Lake Buena Vista, FL, USA",
+   "schedule": "source lists part-time"
+  },
+  "first_seen": "2026-10-21T14:00:41Z",
+  "flags": [
+   "Hours unverified"
+  ],
+  "florida_eligibility": "yes",
+  "hiring_paths": null,
+  "hours": null,
+  "hours_max": null,
+  "hours_min": null,
+  "hybrid": null,
+  "id": "workday:livenation:/job/Lake-Buena-Vista-FL-USA/Security-Door-Host_JR-86600",
+  "key": "workday:livenation:/job/Lake-Buena-Vista-FL-USA/Security-Door-Host_JR-86600",
+  "kind": "Part-Time Jobs",
+  "last_checked": "2026-10-21T14:00:41Z",
+  "last_seen": "2026-10-21T14:00:41Z",
+  "location": "Lake Buena Vista, FL, USA",
+  "missing_scans": 0,
+  "missing_since": null,
+  "posted_at": null,
+  "primary_source": "workday",
+  "priority": false,
+  "queue": "listed",
+  "remote": null,
+  "requisition_id": "JR-86600",
+  "salary": null,
+  "schedule_fit": "possible",
+  "source": "workday",
+  "source_job_ids": [
+   "workday:livenation:/job/Lake-Buena-Vista-FL-USA/Security-Door-Host_JR-86600"
+  ],
+  "status": "open",
+  "summer_commitment": false,
+  "title": "Security/Door Host",
+  "url": "https://livenation.wd503.myworkdayjobs.com/LNExternalSite/job/Lake-Buena-Vista-FL-USA/Security-Door-Host_JR-86600",
+  "where": "Orlando area",
+  "work_mode": "onsite"
+ },
+ "workday:rrhs:/job/Riedman---Remote/RIT-Co-op_REQ_244351-1": {
+  "alternate_sources": [],
+  "board": "workday:rrhs:RRH",
+  "boards": [
+   "workday:rrhs:RRH"
+  ],
+  "category": "Security (general)",
+  "company": "Rochester Regional Health",
+  "employment_type": "part-time",
+  "evidence": {
+   "location": "location: Riedman - Remote",
+   "schedule": "source lists part-time"
+  },
+  "first_seen": "2026-10-21T14:00:41Z",
+  "flags": [
+   "Location unverified",
+   "Hours unverified"
+  ],
+  "florida_eligibility": "unknown",
+  "hiring_paths": null,
+  "hours": null,
+  "hours_max": null,
+  "hours_min": null,
+  "hybrid": null,
+  "id": "workday:rrhs:/job/Riedman---Remote/RIT-Co-op_REQ_244351-1",
+  "key": "workday:rrhs:/job/Riedman---Remote/RIT-Co-op_REQ_244351-1",
+  "kind": "Part-Time Internships",
+  "last_checked": "2026-10-21T14:00:41Z",
+  "last_seen": "2026-10-21T14:00:41Z",
+  "location": "Riedman - Remote",
+  "missing_scans": 0,
+  "missing_since": null,
+  "posted_at": "2026-10-19",
+  "primary_source": "workday",
+  "priority": false,
+  "queue": "listed",
+  "remote": null,
+  "requisition_id": "REQ_244351",
+  "salary": null,
+  "schedule_fit": "possible",
+  "source": "workday",
+  "source_job_ids": [
+   "workday:rrhs:/job/Riedman---Remote/RIT-Co-op_REQ_244351-1"
+  ],
+  "status": "open",
+  "summer_commitment": false,
+  "title": "RIT Co-op: Security Engineering",
+  "url": "https://rrhs.wd5.myworkdayjobs.com/RRH/job/Riedman---Remote/RIT-Co-op_REQ_244351-1",
+  "where": "Remote",
+  "work_mode": "remote"
+ }
+}

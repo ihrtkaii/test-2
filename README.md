@@ -9,4 +9,34 @@ the list updates every 6 hours. the [dashboard](https://ihrtkaii.github.io/test-
 how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.md).
 
 <!-- LIST:START -->
+
+**8 roles on the list**, plus 8 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-10-21 14:00 UTC
+
+## Part-Time Internships (3)
+
+| Company | Role | Where | Hours | Fit | Pay | Check | Posted | Link |
+|---|---|---|---|---|---|---|---|---|
+| Rochester Regional Health | RIT Co-op: Security Engineering | Remote | — | Possible | — | Location unverified, Hours unverified | 2026-10-19 | [Apply](https://rrhs.wd5.myworkdayjobs.com/RRH/job/Riedman---Remote/RIT-Co-op_REQ_244351-1) |
+| GuidePoint Security | Cybersecurity Presales Intern - GPSU/Heartland (Tulsa) | Remote | 20–29/wk | Possible | $20/hr | Location unverified, Hours may exceed 20 | 2026-10-14 | [Apply](https://boards.greenhouse.io/guidepointsecurity/jobs/6224196004?gh_jid=6224196004) |
+| Highmark Health | Summer 2027 IT Audit Undergraduate Intern | Remote | — | Possible | — | Hours unverified | 2026-10-12 | [Apply](https://highmarkhealth.wd1.myworkdayjobs.com/highmark/job/PA-Working-at-Home---Pennsylvania/Summer-2027-IT-Audit-Undergraduate-Intern_J286837) |
+
+## Part-Time Jobs (3)
+
+| Company | Role | Where | Hours | Fit | Pay | Check | Posted | Link |
+|---|---|---|---|---|---|---|---|---|
+| Live Nation Entertainment | Security/Door Host | Orlando area | — | Possible | — | Hours unverified | 2026-10-21 | [Apply](https://livenation.wd503.myworkdayjobs.com/LNExternalSite/job/Lake-Buena-Vista-FL-USA/Security-Door-Host_JR-86600) |
+| SOSi | Security & Compliance Administrator | Remote | — | Possible | — | Hours unverified, Clearance | 2026-09-17 | [Apply](https://jobs.smartrecruiters.com/SOSi1/3743990015353557) |
+| SOSi | Cloud Security Engineer | Remote | — | Possible | — | Hours unverified, Clearance | 2026-02-11 | [Apply](https://jobs.smartrecruiters.com/SOSi1/3743990011641106) |
+
+## Federal / Pathways (0)
+
+_Nothing open right now._
+
+## Contract / Freelance (2)
+
+| Company | Role | Where | Hours | Fit | Pay | Check | Posted | Link |
+|---|---|---|---|---|---|---|---|---|
+| Arctic Wolf | Cyber Security Consultant (m/w/d) – Security Advisor / Teilzeit | Remote | — | Possible | — | Location unverified, Hours unverified | 2026-10-21 | [Apply](https://arcticwolf.wd1.myworkdayjobs.com/External/job/Remote-Germany/Cyber-Security-Consultant--m-w-d----Security-Advisor---100--Remote-in-Deutschland_R26_1146) |
+| Handshake | AI Red Teamer, Cybersecurity (Remote) | Remote | — | Possible | $65 – $125 per hour | Hours unverified | 2026-09-05 | [Apply](https://jobs.ashbyhq.com/handshake/7f607c0b-291d-4c17-9897-6d8c5d35eb00) |
+
 <!-- LIST:END -->

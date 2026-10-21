@@ -1,0 +1,114 @@
+{
+ "updated": "2026-10-21T14:00:41Z",
+ "classifier_version": "2.0",
+ "scope": "81466cb8386a",
+ "closing_allowed": true,
+ "runtime_seconds": 661.2,
+ "listed": 8,
+ "review": 8,
+ "by_kind": {
+  "Part-Time Jobs": 3,
+  "Contract / Freelance": 2,
+  "Part-Time Internships": 3
+ },
+ "by_fit": {
+  "possible": 8,
+  "unknown": 8
+ },
+ "by_status": {
+  "open": 16
+ },
+ "lifecycle": {
+  "new": 16,
+  "reopened": 0,
+  "missing": 0,
+  "closed": 0,
+  "stale": 0,
+  "filtered": 0,
+  "archived_count": 0
+ },
+ "boards": {
+  "ashby": {
+   "complete": 733,
+   "failed": 67
+  },
+  "breezy": {
+   "complete": 16
+  },
+  "greenhouse": {
+   "complete": 1059,
+   "failed": 68
+  },
+  "jobicy": {
+   "partial": 1
+  },
+  "lever": {
+   "complete": 381,
+   "failed": 40
+  },
+  "recruitee": {
+   "failed": 1,
+   "complete": 2
+  },
+  "remoteok": {
+   "partial": 1
+  },
+  "remotive": {
+   "complete": 1
+  },
+  "rippling": {
+   "complete": 165,
+   "failed": 8
+  },
+  "smartrecruiters": {
+   "complete": 289,
+   "partial": 19
+  },
+  "usajobs": {
+   "failed": 1
+  },
+  "workday": {
+   "partial": 623,
+   "complete": 1165,
+   "failed": 76
+  }
+ },
+ "workday_outcomes": {
+  "facet-missing": 1690,
+  "capped": 842,
+  "facet-found": 98,
+  "tenant-unavailable": 76,
+  "zero-matches": 25,
+  "page-failed": 4
+ },
+ "error_samples": {
+  "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
+  "recruitee": "HTTPStatusError: Client error '404 Not Found' for url 'https://1x.recruitee.com/api/offers/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+  "rippling": "HTTPStatusError: Client error '404 Not Found' for url 'https://api.rippling.com/platform/api/ats/v1/board/acretrader-jobs/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web",
+  "workday": "tenant-unavailable: HTTPStatusError",
+  "lever": "HTTPStatusError: Client error '404 Not Found' for url 'https://api.lever.co/v0/postings/aifund?mode=json'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+  "ashby": "HTTPStatusError: Client error '404 Not Found' for url 'https://api.ashbyhq.com/posting-api/job-board/airspace-intelligence?includeCompensation=true'\nFor more information check: https://developer.mozil",
+  "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
+ },
+ "cache": {
+  "hits": 0,
+  "misses": 913,
+  "entries": 913
+ },
+ "rejected": {
+  "not-security": 164455,
+  "senior": 118507,
+  "location": 4250,
+  "no-duty-evidence": 775,
+  "full-time": 310,
+  "duties-not-security": 257,
+  "not-part-time": 59,
+  "hours-over-limit": 14,
+  "full-time-contract": 6,
+  "florida-ineligible": 3,
+  "experience-required": 2
+ },
+ "alerts": {
+  "enabled": false
+ }
+}
