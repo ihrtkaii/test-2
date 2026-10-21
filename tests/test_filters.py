@@ -325,3 +325,87 @@ def test_federal_part_time_infosec():
                   source="usajobs", etype=models.PART_TIME, desc="Requires 5 years of experience")
     assert d.verdict == models.LISTED  # experience gate does not apply to federal
     assert j.florida_eligibility == "likely"
+
+
+# ---------------------------------------------------------------- first live run (2026-10-21)
+@pytest.mark.parametrize("desc", [
+    "Participate in an on-call rotation as needed, including nights and weekends.",
+    "We provide a WFH budget for you to outfit your space as needed.",
+    "Must be able to carry / move laptop as needed.",
+    "We offer a flexible schedule and unlimited PTO.",
+])
+def test_as_needed_and_perks_are_not_a_schedule(desc):
+    d, _ = decide("Security Software Engineer, IAM", desc=desc)
+    assert d.reasons == ["not-part-time"]
+
+
+@pytest.mark.parametrize("desc", [
+    "Full or part-time enrollment in an accredited college or university.",
+    "Open to students enrolled full-time or part-time.",
+    "Must be a part-time or full-time student in good standing.",
+])
+def test_part_time_enrollment_is_not_a_part_time_job(desc):
+    d, _ = decide("Cybersecurity Analyst Intern", desc=desc)
+    assert d.reasons == ["not-part-time"]
+
+
+def test_part_time_job_next_to_enrollment_wording():
+    d, j = decide("Cybersecurity Analyst Intern",
+                  desc="Must be enrolled full-time. This is a part-time role during the semester.")
+    assert d.verdict == models.LISTED and "part-time role" in j.evidence["schedule"]
+
+
+def test_summer_title_rejected_even_with_part_time_facet():
+    d, _ = decide("Summer 2027 IT Audit Undergraduate Intern", etype=models.PART_TIME)
+    assert d.reasons == ["summer-only"]
+    d, _ = decide("Cybersecurity Intern - Summer 2027", desc="20 hours per week.")
+    assert d.reasons == ["summer-only"]
+
+
+@pytest.mark.parametrize("title", [
+    "Security/Door Host", "Security & Door Staff", "Door Host", "Security Associate",
+    "Security Coordinator",
+])
+def test_guard_and_bare_security_titles_fail(title):
+    assert not filters.is_security(title)
+
+
+def test_bare_security_with_cyber_word_still_passes():
+    assert filters.is_security("IT Security Associate (Part-Time)")
+    assert filters.is_security("Security Engineer Intern")
+
+
+def test_bare_security_title_judged_by_duties():
+    d, _ = decide("Security Coordinator - Part Time", location="Orlando, FL",
+                  desc="Greet guests and patrol the venue.")
+    assert d.reasons == ["duties-not-security"]
+
+
+@pytest.mark.parametrize("location", [
+    "Remote, Germany; Frankfurt, DEU", "Remote - Costa Rica", "Remote, DEU",
+    "Remote - Canada; Toronto",
+])
+def test_foreign_remote_rejected(location):
+    d, _ = decide("Part-Time SOC Analyst", location=location)
+    assert d.reasons == ["location"]
+
+
+@pytest.mark.parametrize("location", [
+    "Remote, Remote, United States", "Riedman - Remote", "Denver, Colorado, United States; Remote - United States",
+    "Remote - Canada; Remote - US",
+])
+def test_us_or_plain_remote_kept(location):
+    _, j = decide("Part-Time SOC Analyst", location=location)
+    assert j.work_mode == "remote"
+
+
+def test_source_remote_with_office_city_kept():
+    _, j = decide("Part-Time SOC Analyst", location="Austin", remote=True)
+    assert j.work_mode == "remote"
+
+
+def test_bare_security_title_with_security_duties_listed():
+    d, _ = decide("Security Coordinator - Part Time", location="Orlando, FL",
+                  desc="Monitor SIEM alerts, triage phishing reports, run vulnerability scans "
+                       "and help with incident response.")
+    assert d.verdict == models.LISTED

@@ -61,7 +61,7 @@ AMBIGUOUS_RE = re.compile(
     r"it compliance|technology compliance|it governance|"
     r"information technology|it\b|technology|"
     r"network\w*|systems?|infrastructure|cloud|"
-    r"it operations|technical operations"
+    r"it operations|technical operations|security"
     r")\b",
     re.IGNORECASE,
 )
@@ -70,8 +70,9 @@ AMBIGUOUS_RE = re.compile(
 # a SIEM, unless the title also names a cyber/IT term.
 PHYSICAL_RE = re.compile(
     r"\b("
-    r"security\s+(?:officer|guard|patrol|agent|associate|supervisor|"
-    r"screener|dispatcher|host|ambassador|attendant|monitor\w*)|"
+    r"security[\s/&-]+(?:door[\s/&-]+)?(?:officer|guard|patrol|agent|associate|"
+    r"supervisor|screener|dispatcher|host|ambassador|attendant|monitor\w*|staff)|"
+    r"door\s+(?:host|staff|supervisor|person)|"
     r"(?:armed|unarmed|event|campus|site|mobile|retail|hospital|flex)\s+security|"
     r"loss prevention|asset protection|public safety|police|"
     r"guard\b|bouncer|crowd management|concierge|doorman|"
@@ -141,6 +142,12 @@ def is_security(title: str) -> bool:
     if PHYSICAL_RE.search(title) and not CYBER_ANCHOR_RE.search(
         PHYSICAL_RE.sub(" ", title)
     ):
+        return False
+    # A bare "security" ("Security Associate", "Security/Door Host") is
+    # usually a uniform. Without a cyber/IT word it goes the ambiguous route,
+    # where the duties decide.
+    bare = all(m.group(0).lower() == "security" for m in SECURITY_RE.finditer(title))
+    if bare and not CYBER_ANCHOR_RE.search(title) and not SWE_VETO_RE.search(title):
         return False
     # "Software Engineer, Security" is a security job; "Software Engineer
     # (Security Clearance)" was already removed by PHYSICAL_RE above.
@@ -376,6 +383,26 @@ PT_TITLE_RE = re.compile(
     re.IGNORECASE,
 )
 # Seasonal or flexible wording: says "during school", not "20 hours or less".
+# Not "as needed" or "flexible hours": full-time postings say both ("on-call
+# as needed", "flexible schedule" as a perk).
+# "Full or part-time enrollment", "enrolled part-time": the student, not the job.
+PT_NOT_JOB_RE = re.compile(
+    r"part[\s-]?time\s+(?:or\s+full[\s-]?time\s+)?(?:students?|enrol\w*|undergrad\w*|"
+    r"graduate|degree|programs?|mba|study|studies|coursework|basis as a student)|"
+    r"enrolled\s+(?:on\s+a\s+)?(?:(?:full|half)[\s-]?time\s+or\s+)?part[\s-]?time",
+    re.IGNORECASE,
+)
+
+
+def part_time_text(text: str | None) -> re.Match | None:
+    """The first part-time mention that describes the job."""
+    for m in PT_EXPLICIT_RE.finditer(text or ""):
+        window = text[max(0, m.start() - 40):m.end() + 40]
+        if not PT_NOT_JOB_RE.search(window):
+            return m
+    return None
+
+
 SEASONAL_RE = re.compile(
     r"\b(fall|spring|winter|year[\s-]?round|academic[\s-]year|school[\s-]year|"
     r"semester|co[\s-]?op)\b",
@@ -389,7 +416,7 @@ SEASONAL_TEXT_RE = re.compile(
     r"\b(?:schedule|hours) (?:around|that work with) (?:your |their )?"
     r"(?:classes|class schedule|school)\b|"
     r"\byear[\s-]?round internship\b|\bacademic[\s-]year intern\w*\b|"
-    r"\bflexible (?:hours|schedule)\b|\bas[\s-]needed\b|\bset your own (?:hours|schedule)\b)",
+    r"\bset your own (?:hours|schedule)\b)",
     re.IGNORECASE,
 )
 # A full-time JOB, not a full-time STUDENT. Internship postings constantly say
@@ -563,8 +590,22 @@ FOREIGN_RE = re.compile(
     r"netherlands|poland|romania|india|philippines|pakistan|brazil|mexico|"
     r"argentina|colombia|australia|new zealand|singapore|japan|israel|"
     r"emea|apac|latam|europe|eu\b|international|south africa|nigeria|kenya|"
-    r"ontario|toronto|london|berlin|bangalore|bengaluru)\b",
+    r"ontario|toronto|london|berlin|bangalore|bengaluru|"
+    r"costa rica|italy|switzerland|sweden|norway|denmark|finland|belgium|austria|"
+    r"czech\w*|ukraine|china|hong kong|taiwan|korea|vietnam|thailand|malaysia|"
+    r"indonesia|egypt|uae|dubai|saudi arabia|turkey|greece|hungary|bulgaria|serbia|"
+    r"croatia|chile|peru|uruguay|guatemala|panama|vancouver|montreal|quebec|"
+    r"british columbia|alberta|paris|madrid|barcelona|lisbon|amsterdam|dublin|"
+    r"munich|frankfurt|hamburg|warsaw|krakow|bucharest|prague|zurich|stockholm|"
+    r"sydney|melbourne|tokyo|mumbai|hyderabad|pune|chennai|manila|"
+    r"s[aã]o paulo|mexico city|bogot[aá]|buenos aires|tel aviv)\b",
     re.IGNORECASE,
+)
+# ISO country codes as Workday writes them ("Frankfurt, DEU"). Case-sensitive.
+ISO_FOREIGN_RE = re.compile(
+    r"\b(CAN|GBR|DEU|FRA|ESP|PRT|NLD|POL|ROU|IND|PHL|PAK|BRA|MEX|ARG|COL|AUS|NZL|"
+    r"SGP|JPN|ISR|IRL|CRI|ZAF|NGA|KEN|CHE|SWE|NOR|DNK|FIN|BEL|AUT|ITA|CZE|UKR|"
+    r"CHN|HKG|TWN|KOR|ARE|TUR|GRC|HUN|BGR|SRB|HRV|CHL|PER|URY|GTM|PAN)\b"
 )
 _SPLIT_RE = re.compile(r"[;|/]|\bor\b", re.IGNORECASE)
 
@@ -630,15 +671,19 @@ def is_remote_us(job: Job) -> bool:
     if job.remote and not loc.strip("—- "):
         return True
     # A multi-location string ("Remote - US; London") is fine if any piece is
-    # US or unqualified-remote; "Remote, India" alone is not.
-    for part in _SPLIT_RE.split(loc) or [loc]:
-        part = part.strip()
-        if not part:
+    # US or unqualified-remote; "Remote, India" alone is not. A piece has to
+    # say remote, US or a state to count: "Remote, Germany; Frankfurt, DEU"
+    # is not saved by "Frankfurt" missing from the foreign list.
+    parts = [x.strip() for x in _SPLIT_RE.split(loc) if x and x.strip()]
+    foreign_any = False
+    for part in parts:
+        if (FOREIGN_RE.search(part) or ISO_FOREIGN_RE.search(part)) and not US_RE.search(part):
+            foreign_any = True
             continue
-        if FOREIGN_RE.search(part) and not US_RE.search(part):
-            continue
-        return True
-    return False
+        if REMOTE_RE.search(part) or US_RE.search(part) or _states_in(part):
+            return True
+    # The source says remote and the location is just an office ("Austin").
+    return bool(job.remote) and not foreign_any
 
 
 @dataclass
@@ -806,10 +851,15 @@ def classify(job: Job, cfg: Config | None = None) -> Decision:
     summer_ft = bool(SUMMER_FT_RE.search(blob)) or any(
         (h.lo or 0) > cfg.max_hours or (h.hi or 0) > cfg.max_hours for h in summer)
     ft_sentence = full_time_job(text)
+    pt_match = part_time_text(text)
     explicit_pt = (etype == models.PART_TIME or bool(PT_EXPLICIT_RE.search(title))
-                   or bool(PT_EXPLICIT_RE.search(text)))
+                   or bool(pt_match))
     seasonal = bool(SEASONAL_RE.search(title)) or bool(SEASONAL_TEXT_RE.search(text))
     summer_only_title = bool(SUMMER_RE.search(title)) and not PT_TITLE_RE.search(title)
+    # Before any part-time evidence: a "Summer 2027 Intern" behind a Workday
+    # part-time filter is still a summer internship (secnet-internships has it).
+    if summer_only_title and not CONTINUES_RE.search(text):
+        return _reject("summer-only", {"title": title})
 
     lo = hi = None
     fit = None
@@ -832,12 +882,10 @@ def classify(job: Job, cfg: Config | None = None) -> Decision:
             fit = models.FIT_POSSIBLE
             flags.append("Hours unverified")
             missing.append("weekly hours")
-            m = PT_EXPLICIT_RE.search(text)
+            m = pt_match
             evidence["schedule"] = sentence_at(text, m.start()) if m else (
                 "title says part-time" if PT_EXPLICIT_RE.search(title)
                 else "source lists part-time")
-        elif summer_only_title and not CONTINUES_RE.search(text):
-            return _reject("summer-only", {"title": title})
         elif seasonal or (job.source == "usajobs" and is_intern):
             fit = models.FIT_UNKNOWN
             missing.append("weekly hours")
