@@ -1,27 +1,28 @@
 {
- "updated": "2026-10-22T12:14:57Z",
+ "updated": "2026-10-22T17:30:44Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 997.4,
+ "runtime_seconds": 982.6,
  "listed": 5,
- "review": 1,
+ "review": 2,
  "by_kind": {
   "Part-Time Jobs": 3,
   "Part-Time Internships": 1,
   "Contract / Freelance": 1
  },
  "by_fit": {
-  "possible": 5,
-  "unknown": 1
+  "unknown": 2,
+  "possible": 5
  },
  "by_status": {
-  "open": 6
+  "open": 6,
+  "missing": 1
  },
  "lifecycle": {
-  "new": 0,
+  "new": 1,
   "reopened": 0,
-  "missing": 0,
+  "missing": 1,
   "closed": 0,
   "stale": 0,
   "filtered": 0,
@@ -29,14 +30,14 @@
  },
  "boards": {
   "ashby": {
-   "complete": 737,
+   "complete": 739,
    "failed": 67
   },
   "breezy": {
    "complete": 16
   },
   "greenhouse": {
-   "complete": 1059,
+   "complete": 1061,
    "failed": 68
   },
   "jobicy": {
@@ -57,53 +58,53 @@
    "complete": 1
   },
   "rippling": {
-   "complete": 165,
+   "complete": 167,
    "failed": 8
   },
   "smartrecruiters": {
-   "complete": 289,
+   "complete": 291,
    "partial": 19
   },
   "usajobs": {
    "failed": 1
   },
   "workday": {
-   "partial": 675,
-   "complete": 1098,
-   "failed": 92
+   "partial": 666,
+   "complete": 1107,
+   "failed": 94
   }
  },
  "workday_outcomes": {
-  "facet-missing": 1675,
-  "capped": 804,
-  "facet-found": 98,
-  "facet-query-failed": 4,
-  "page-failed": 116,
-  "tenant-unavailable": 92,
-  "zero-matches": 21
+  "facet-missing": 1676,
+  "capped": 796,
+  "facet-found": 97,
+  "tenant-unavailable": 94,
+  "page-failed": 107,
+  "zero-matches": 22,
+  "facet-query-failed": 1
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
   "recruitee": "HTTPStatusError: Client error '404 Not Found' for url 'https://1x.recruitee.com/api/offers/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
-  "rippling": "HTTPStatusError: Client error '404 Not Found' for url 'https://api.rippling.com/platform/api/ats/v1/board/acretrader-jobs/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web",
   "workday": "tenant-unavailable: HTTPStatusError",
+  "rippling": "HTTPStatusError: Client error '404 Not Found' for url 'https://api.rippling.com/platform/api/ats/v1/board/acretrader-jobs/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web",
   "lever": "HTTPStatusError: Client error '404 Not Found' for url 'https://api.lever.co/v0/postings/aifund?mode=json'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
   "ashby": "HTTPStatusError: Client error '404 Not Found' for url 'https://api.ashbyhq.com/posting-api/job-board/airspace-intelligence?includeCompensation=true'\nFor more information check: https://developer.mozil",
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 740,
-  "misses": 7,
-  "entries": 951
+  "hits": 731,
+  "misses": 14,
+  "entries": 961
  },
  "rejected": {
-  "not-security": 163264,
-  "senior": 117788,
-  "location": 3514,
-  "no-duty-evidence": 775,
-  "duties-not-security": 262,
-  "full-time": 138,
-  "not-part-time": 106,
+  "not-security": 164036,
+  "senior": 117624,
+  "location": 3549,
+  "no-duty-evidence": 785,
+  "duties-not-security": 252,
+  "full-time": 137,
+  "not-part-time": 104,
   "hours-over-limit": 11,
   "full-time-contract": 9,
   "florida-ineligible": 2,

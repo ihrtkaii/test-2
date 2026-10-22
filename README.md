@@ -10,13 +10,13 @@ how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.m
 
 <!-- LIST:START -->
 
-**5 roles on the list**, plus 1 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-10-22 12:14 UTC
+**5 roles on the list**, plus 2 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-10-22 17:30 UTC
 
 ## Part-Time Internships (1)
 
 | Company | Role | Where | Hours | Fit | Pay | Check | Posted | Link |
 |---|---|---|---|---|---|---|---|---|
-| GuidePoint Security | Cybersecurity Presales Intern - GPSU/Heartland (Tulsa) | Remote | 20–29/wk | Possible | $20/hr | Location unverified, Hours may exceed 20 | 2026-10-14 | [Apply](https://boards.greenhouse.io/guidepointsecurity/jobs/6224196004?gh_jid=6224196004) |
+| GuidePoint Security | Cybersecurity Presales Intern - GPSU/Heartland (Tulsa) | Remote | 20–29/wk | Possible | $20/hr | Location unverified, Hours may exceed 20, May be closed | 2026-10-14 | [Apply](https://boards.greenhouse.io/guidepointsecurity/jobs/6224196004?gh_jid=6224196004) |
 
 ## Part-Time Jobs (3)
 
