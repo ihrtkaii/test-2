@@ -1,29 +1,27 @@
 {
- "updated": "2026-10-23T05:11:59Z",
+ "updated": "2026-10-23T11:59:40Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 901.8,
- "listed": 5,
+ "runtime_seconds": 936.7,
+ "listed": 4,
  "review": 2,
  "by_kind": {
   "Part-Time Jobs": 3,
-  "Part-Time Internships": 1,
   "Contract / Freelance": 1
  },
  "by_fit": {
   "unknown": 2,
-  "possible": 5
+  "possible": 4
  },
  "by_status": {
-  "open": 6,
-  "missing": 1
+  "open": 6
  },
  "lifecycle": {
   "new": 0,
   "reopened": 0,
   "missing": 0,
-  "closed": 0,
+  "closed": 1,
   "stale": 0,
   "filtered": 0,
   "archived_count": 0
@@ -69,19 +67,19 @@
    "failed": 1
   },
   "workday": {
-   "partial": 623,
-   "complete": 1156,
-   "failed": 88
+   "partial": 648,
+   "complete": 1079,
+   "failed": 140
   }
  },
  "workday_outcomes": {
-  "facet-missing": 1682,
-  "capped": 837,
-  "facet-found": 97,
-  "facet-query-failed": 1,
-  "page-failed": 6,
-  "tenant-unavailable": 88,
-  "zero-matches": 28
+  "facet-missing": 1632,
+  "capped": 786,
+  "facet-found": 95,
+  "tenant-unavailable": 140,
+  "page-failed": 99,
+  "facet-query-failed": 4,
+  "zero-matches": 23
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -93,20 +91,20 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 761,
-  "misses": 6,
-  "entries": 983
+  "hits": 735,
+  "misses": 5,
+  "entries": 988
  },
  "rejected": {
-  "not-security": 165935,
-  "senior": 118412,
-  "location": 3592,
-  "no-duty-evidence": 787,
-  "duties-not-security": 276,
-  "full-time": 142,
-  "not-part-time": 103,
+  "not-security": 162056,
+  "senior": 116103,
+  "location": 3536,
+  "no-duty-evidence": 755,
+  "duties-not-security": 266,
+  "full-time": 141,
+  "not-part-time": 102,
   "hours-over-limit": 12,
-  "full-time-contract": 8,
+  "full-time-contract": 11,
   "florida-ineligible": 2,
   "summer-only": 1
  },
