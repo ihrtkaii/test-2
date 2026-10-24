@@ -1,9 +1,9 @@
 {
- "updated": "2026-10-24T11:23:57Z",
+ "updated": "2026-10-24T16:10:21Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 982.1,
+ "runtime_seconds": 631.2,
  "listed": 5,
  "review": 2,
  "by_kind": {
@@ -29,21 +29,21 @@
  },
  "boards": {
   "ashby": {
-   "complete": 742,
+   "complete": 747,
    "failed": 67
   },
   "breezy": {
    "complete": 16
   },
   "greenhouse": {
-   "complete": 1064,
+   "complete": 1067,
    "failed": 68
   },
   "jobicy": {
    "partial": 1
   },
   "lever": {
-   "complete": 385,
+   "complete": 386,
    "failed": 42
   },
   "recruitee": {
@@ -68,19 +68,18 @@
    "failed": 1
   },
   "workday": {
-   "partial": 673,
-   "complete": 1104,
-   "failed": 94
+   "partial": 632,
+   "complete": 1159,
+   "failed": 83
   }
  },
  "workday_outcomes": {
-  "facet-missing": 1679,
-  "capped": 804,
-  "facet-found": 98,
-  "tenant-unavailable": 94,
-  "page-failed": 111,
-  "zero-matches": 23,
-  "facet-query-failed": 3
+  "facet-missing": 1694,
+  "capped": 837,
+  "facet-found": 97,
+  "tenant-unavailable": 83,
+  "zero-matches": 25,
+  "page-failed": 14
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -92,18 +91,18 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 749,
-  "misses": 0,
-  "entries": 1014
+  "hits": 761,
+  "misses": 1,
+  "entries": 1015
  },
  "rejected": {
-  "not-security": 164560,
-  "senior": 117663,
-  "location": 3503,
-  "no-duty-evidence": 779,
-  "duties-not-security": 269,
+  "not-security": 166759,
+  "senior": 118731,
+  "location": 3564,
+  "no-duty-evidence": 785,
+  "duties-not-security": 275,
   "full-time": 141,
-  "not-part-time": 98,
+  "not-part-time": 99,
   "full-time-contract": 12,
   "hours-over-limit": 12,
   "florida-ineligible": 2,
