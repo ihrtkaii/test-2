@@ -1,9 +1,9 @@
 {
- "updated": "2026-10-25T16:43:32Z",
+ "updated": "2026-10-25T21:09:51Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 950.0,
+ "runtime_seconds": 928.4,
  "listed": 5,
  "review": 2,
  "by_kind": {
@@ -24,7 +24,7 @@
   "reopened": 0,
   "missing": 0,
   "closed": 0,
-  "stale": 1,
+  "stale": 0,
   "filtered": 0,
   "archived_count": 0
  },
@@ -70,18 +70,18 @@
   },
   "workday": {
    "partial": 669,
-   "complete": 1095,
-   "failed": 110
+   "complete": 1075,
+   "failed": 130
   }
  },
  "workday_outcomes": {
-  "facet-missing": 1670,
-  "capped": 789,
-  "facet-found": 94,
-  "tenant-unavailable": 110,
-  "page-failed": 123,
-  "zero-matches": 24,
-  "facet-query-failed": 1
+  "facet-missing": 1649,
+  "capped": 795,
+  "facet-found": 95,
+  "tenant-unavailable": 130,
+  "page-failed": 115,
+  "facet-query-failed": 4,
+  "zero-matches": 22
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -93,20 +93,20 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 694,
-  "misses": 0,
-  "entries": 1016
+  "hits": 727,
+  "misses": 1,
+  "entries": 1017
  },
  "rejected": {
-  "not-security": 163403,
-  "senior": 116905,
-  "location": 3301,
-  "no-duty-evidence": 768,
-  "duties-not-security": 257,
-  "full-time": 143,
-  "not-part-time": 95,
+  "not-security": 163235,
+  "senior": 116715,
+  "location": 3519,
+  "no-duty-evidence": 754,
+  "duties-not-security": 262,
+  "full-time": 142,
+  "not-part-time": 94,
   "full-time-contract": 12,
-  "hours-over-limit": 12,
+  "hours-over-limit": 8,
   "florida-ineligible": 2,
   "summer-only": 1
  },
