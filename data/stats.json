@@ -1,9 +1,9 @@
 {
- "updated": "2026-10-26T13:25:22Z",
+ "updated": "2026-10-26T22:55:06Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 931.4,
+ "runtime_seconds": 743.3,
  "listed": 5,
  "review": 2,
  "by_kind": {
@@ -16,13 +16,14 @@
   "possible": 5
  },
  "by_status": {
-  "open": 6,
+  "open": 4,
+  "missing": 2,
   "stale": 1
  },
  "lifecycle": {
   "new": 0,
   "reopened": 0,
-  "missing": 0,
+  "missing": 2,
   "closed": 0,
   "stale": 0,
   "filtered": 0,
@@ -37,7 +38,7 @@
    "complete": 16
   },
   "greenhouse": {
-   "complete": 1067,
+   "complete": 1068,
    "failed": 68
   },
   "jobicy": {
@@ -69,19 +70,18 @@
    "failed": 1
   },
   "workday": {
-   "partial": 638,
-   "complete": 1138,
-   "failed": 98
+   "partial": 630,
+   "complete": 1169,
+   "failed": 78
   }
  },
  "workday_outcomes": {
-  "facet-missing": 1682,
-  "capped": 821,
-  "facet-found": 94,
-  "tenant-unavailable": 98,
-  "page-failed": 41,
-  "zero-matches": 27,
-  "facet-query-failed": 2
+  "facet-missing": 1706,
+  "capped": 844,
+  "facet-found": 93,
+  "tenant-unavailable": 78,
+  "page-failed": 8,
+  "zero-matches": 28
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -93,22 +93,21 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 743,
-  "misses": 9,
-  "entries": 1033
+  "hits": 730,
+  "misses": 39,
+  "entries": 1067
  },
  "rejected": {
-  "not-security": 165421,
-  "senior": 117979,
-  "location": 3552,
-  "no-duty-evidence": 759,
-  "duties-not-security": 268,
-  "full-time": 144,
-  "not-part-time": 98,
-  "hours-over-limit": 12,
-  "full-time-contract": 11,
-  "florida-ineligible": 2,
-  "summer-only": 1
+  "not-security": 166818,
+  "senior": 118758,
+  "location": 3578,
+  "no-duty-evidence": 777,
+  "duties-not-security": 280,
+  "full-time": 150,
+  "not-part-time": 94,
+  "hours-over-limit": 13,
+  "full-time-contract": 10,
+  "florida-ineligible": 2
  },
  "alerts": {
   "enabled": false
