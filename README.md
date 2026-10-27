@@ -10,7 +10,7 @@ how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.m
 
 <!-- LIST:START -->
 
-**5 roles on the list**, plus 2 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-10-26 22:55 UTC
+**7 roles on the list**, plus 2 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-10-27 05:28 UTC
 
 ## Part-Time Internships (1)
 
@@ -18,10 +18,12 @@ how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.m
 |---|---|---|---|---|---|---|---|---|
 | GuidePoint Security | Cybersecurity Presales Intern - GPSU/Heartland (Tulsa) | Remote | 20–29/wk | Possible | $20/hr | Location unverified, Hours may exceed 20, May be closed | 2026-10-14 | [Apply](https://boards.greenhouse.io/guidepointsecurity/jobs/6224196004?gh_jid=6224196004) |
 
-## Part-Time Jobs (3)
+## Part-Time Jobs (5)
 
 | Company | Role | Where | Hours | Fit | Pay | Check | Posted | Link |
 |---|---|---|---|---|---|---|---|---|
+| Centene | Incident Response Analyst I | Remote | — | Possible | $30.58–$55.09/hr | Check state eligibility, Hours unverified, 2+ yrs exp | 2026-10-27 | [Apply](https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-MO/Incident-Response-Analyst-I_1671641) |
+| Centene | Incident Response Analyst I | Remote | — | Possible | $30.58–$55.09/hr | Check state eligibility, Hours unverified, 2+ yrs exp | 2026-10-27 | [Apply](https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-MO/Incident-Response-Analyst-I_1671642) |
 | Premier | Security Engineer I | Remote | — | Possible | — | Location unverified, Hours unverified, May be closed | 2026-10-20 | [Apply](https://premierinc.wd1.myworkdayjobs.com/External_Professional/job/Remote/Security-Engineer-I_R0008543) |
 | SOSi | Security & Compliance Administrator | Remote | — | Possible | — | Security duties, broad title, Hours unverified, Clearance | 2026-09-17 | [Apply](https://jobs.smartrecruiters.com/SOSi1/3743990015353557) |
 | SOSi | Cloud Security Engineer | Remote | — | Possible | — | Hours unverified, Clearance | 2026-02-11 | [Apply](https://jobs.smartrecruiters.com/SOSi1/3743990011641106) |
