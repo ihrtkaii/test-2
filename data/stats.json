@@ -1,30 +1,28 @@
 {
- "updated": "2026-10-27T05:28:01Z",
+ "updated": "2026-10-27T12:34:46Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 1029.7,
- "listed": 7,
+ "runtime_seconds": 998.5,
+ "listed": 5,
  "review": 2,
  "by_kind": {
-  "Part-Time Jobs": 5,
-  "Part-Time Internships": 1,
+  "Part-Time Jobs": 4,
   "Contract / Freelance": 1
  },
  "by_fit": {
-  "possible": 7,
+  "possible": 5,
   "unknown": 2
  },
  "by_status": {
   "open": 6,
-  "missing": 2,
   "stale": 1
  },
  "lifecycle": {
-  "new": 2,
+  "new": 0,
   "reopened": 0,
   "missing": 0,
-  "closed": 0,
+  "closed": 2,
   "stale": 0,
   "filtered": 0,
   "archived_count": 0
@@ -70,19 +68,19 @@
    "failed": 1
   },
   "workday": {
-   "partial": 652,
-   "complete": 1120,
-   "failed": 105
+   "partial": 662,
+   "complete": 1096,
+   "failed": 119
   }
  },
  "workday_outcomes": {
-  "facet-missing": 1681,
-  "capped": 808,
-  "facet-found": 91,
-  "tenant-unavailable": 105,
-  "page-failed": 90,
-  "zero-matches": 26,
-  "facet-query-failed": 1
+  "facet-missing": 1668,
+  "capped": 796,
+  "facet-found": 90,
+  "tenant-unavailable": 119,
+  "page-failed": 106,
+  "facet-query-failed": 3,
+  "zero-matches": 24
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -94,17 +92,17 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 745,
-  "misses": 8,
-  "entries": 1074
+  "hits": 742,
+  "misses": 5,
+  "entries": 1078
  },
  "rejected": {
-  "not-security": 163596,
-  "senior": 117264,
-  "location": 3526,
-  "no-duty-evidence": 749,
-  "duties-not-security": 277,
-  "full-time": 143,
+  "not-security": 162873,
+  "senior": 116733,
+  "location": 3527,
+  "no-duty-evidence": 746,
+  "duties-not-security": 268,
+  "full-time": 144,
   "not-part-time": 100,
   "hours-over-limit": 13,
   "full-time-contract": 10,
