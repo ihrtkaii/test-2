@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27T12:34:46Z",
+ "updated": "2026-10-27T22:35:58Z",
  "jobs": [
   {
    "alternate_sources": [],
@@ -30,7 +30,7 @@
    "id": "workday:centene:/job/Remote-MO/Incident-Response-Analyst-I_1671641",
    "key": "workday:centene:/job/Remote-MO/Incident-Response-Analyst-I_1671641",
    "kind": "Part-Time Jobs",
-   "last_checked": "2026-10-27T12:34:46Z",
+   "last_checked": "2026-10-27T22:35:58Z",
    "last_seen": "2026-10-27T05:28:01Z",
    "location": "Remote-MO",
    "missing_scans": 0,
@@ -88,7 +88,7 @@
    "id": "workday:centene:/job/Remote-MO/Incident-Response-Analyst-I_1671642",
    "key": "workday:centene:/job/Remote-MO/Incident-Response-Analyst-I_1671642",
    "kind": "Part-Time Jobs",
-   "last_checked": "2026-10-27T12:34:46Z",
+   "last_checked": "2026-10-27T22:35:58Z",
    "last_seen": "2026-10-27T05:28:01Z",
    "location": "Remote-MO",
    "missing_scans": 0,
@@ -151,8 +151,8 @@
    },
    "key": "ashby:1password:aac7eea6-ed7c-4871-bbf2-7cb2d5138847",
    "first_seen": "2026-10-22T17:30:44Z",
-   "last_seen": "2026-10-27T12:34:46Z",
-   "last_checked": "2026-10-27T12:34:46Z",
+   "last_seen": "2026-10-27T22:35:58Z",
+   "last_checked": "2026-10-27T22:35:58Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -192,7 +192,7 @@
    "id": "workday:rrhs:/job/Riedman---Remote/RIT-Co-op_REQ_244351-1",
    "key": "workday:rrhs:/job/Riedman---Remote/RIT-Co-op_REQ_244351-1",
    "kind": "Part-Time Internships",
-   "last_checked": "2026-10-27T12:34:46Z",
+   "last_checked": "2026-10-27T22:35:58Z",
    "last_seen": "2026-10-21T14:22:08Z",
    "location": "Riedman - Remote",
    "missing_scans": 0,
@@ -218,6 +218,61 @@
    "display_flags": [
     "Location unverified",
     "Unverified"
+   ]
+  },
+  {
+   "id": "greenhouse:guidepointsecurity:6224196004",
+   "source": "greenhouse",
+   "company": "GuidePoint Security",
+   "title": "Cybersecurity Presales Intern - GPSU/Heartland (Tulsa)",
+   "location": "Remote",
+   "url": "https://boards.greenhouse.io/guidepointsecurity/jobs/6224196004?gh_jid=6224196004",
+   "board": "greenhouse:guidepointsecurity",
+   "posted_at": "2026-10-14T17:22:54-04:00",
+   "employment_type": "unknown",
+   "remote": null,
+   "hybrid": null,
+   "salary": "$20/hr",
+   "requisition_id": "2601",
+   "hiring_paths": null,
+   "queue": "listed",
+   "kind": "Part-Time Internships",
+   "category": "SOC / Detection",
+   "schedule_fit": "possible",
+   "hours_min": 20,
+   "hours_max": 29,
+   "hours": "20\u201329/wk",
+   "summer_commitment": false,
+   "work_mode": "remote",
+   "florida_eligibility": "unknown",
+   "where": "Remote",
+   "priority": false,
+   "flags": [
+    "Location unverified",
+    "Hours may exceed 20"
+   ],
+   "evidence": {
+    "location": "location: Remote",
+    "hours": "During this internship, interns are expected to: Be located near Tulsa, OK, or be willing to relocate there for follow-on full-time hire Be physically located within the United States for the entire internship Work 20-2\u2026"
+   },
+   "key": "greenhouse:guidepointsecurity:6224196004",
+   "first_seen": "2026-10-21T14:00:41Z",
+   "last_seen": "2026-10-27T22:35:58Z",
+   "last_checked": "2026-10-27T22:35:58Z",
+   "status": "open",
+   "missing_since": null,
+   "missing_scans": 0,
+   "source_job_ids": [
+    "greenhouse:guidepointsecurity:6224196004"
+   ],
+   "boards": [
+    "greenhouse:guidepointsecurity"
+   ],
+   "alternate_sources": [],
+   "primary_source": "greenhouse",
+   "display_flags": [
+    "Location unverified",
+    "Hours may exceed 20"
    ]
   },
   {
@@ -260,8 +315,8 @@
    },
    "key": "smartrecruiters:SOSi1:3743990015353557",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-10-27T12:34:46Z",
-   "last_checked": "2026-10-27T12:34:46Z",
+   "last_seen": "2026-10-27T22:35:58Z",
+   "last_checked": "2026-10-27T22:35:58Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -315,8 +370,8 @@
    },
    "key": "ashby:handshake:7f607c0b-291d-4c17-9897-6d8c5d35eb00",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-10-27T12:34:46Z",
-   "last_checked": "2026-10-27T12:34:46Z",
+   "last_seen": "2026-10-27T22:35:58Z",
+   "last_checked": "2026-10-27T22:35:58Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -370,8 +425,8 @@
    },
    "key": "smartrecruiters:SOSi1:3743990011641106",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-10-27T12:34:46Z",
-   "last_checked": "2026-10-27T12:34:46Z",
+   "last_seen": "2026-10-27T22:35:58Z",
+   "last_checked": "2026-10-27T22:35:58Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
