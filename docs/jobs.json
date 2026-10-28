@@ -1,59 +1,6 @@
 {
- "updated": "2026-10-28T06:04:21Z",
+ "updated": "2026-10-28T13:17:41Z",
  "jobs": [
-  {
-   "id": "workday:rrhs:/job/Riedman---Remote/RIT-Co-op_REQ_244351-1",
-   "source": "workday",
-   "company": "Rochester Regional Health",
-   "title": "RIT Co-op: Security Engineering",
-   "location": "Riedman - Remote",
-   "url": "https://rrhs.wd5.myworkdayjobs.com/RRH/job/Riedman---Remote/RIT-Co-op_REQ_244351-1",
-   "board": "workday:rrhs:RRH",
-   "posted_at": "2026-10-28",
-   "employment_type": "unknown",
-   "remote": null,
-   "hybrid": null,
-   "salary": null,
-   "requisition_id": null,
-   "hiring_paths": null,
-   "queue": "review",
-   "kind": "Part-Time Internships",
-   "category": "Security (general)",
-   "schedule_fit": "unknown",
-   "hours_min": null,
-   "hours_max": null,
-   "hours": null,
-   "summer_commitment": false,
-   "work_mode": "remote",
-   "florida_eligibility": "unknown",
-   "where": "Remote",
-   "priority": false,
-   "flags": [
-    "Location unverified"
-   ],
-   "evidence": {
-    "location": "location: Riedman - Remote",
-    "schedule": "title: RIT Co-op: Security Engineering"
-   },
-   "key": "workday:rrhs:/job/Riedman---Remote/RIT-Co-op_REQ_244351-1",
-   "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-10-28T06:04:21Z",
-   "last_checked": "2026-10-28T06:04:21Z",
-   "status": "open",
-   "missing_since": null,
-   "missing_scans": 0,
-   "source_job_ids": [
-    "workday:rrhs:/job/Riedman---Remote/RIT-Co-op_REQ_244351-1"
-   ],
-   "boards": [
-    "workday:rrhs:RRH"
-   ],
-   "alternate_sources": [],
-   "primary_source": "workday",
-   "display_flags": [
-    "Location unverified"
-   ]
-  },
   {
    "alternate_sources": [],
    "board": "workday:centene:Centene_External",
@@ -83,7 +30,7 @@
    "id": "workday:centene:/job/Remote-MO/Incident-Response-Analyst-I_1671641",
    "key": "workday:centene:/job/Remote-MO/Incident-Response-Analyst-I_1671641",
    "kind": "Part-Time Jobs",
-   "last_checked": "2026-10-28T06:04:21Z",
+   "last_checked": "2026-10-28T13:17:41Z",
    "last_seen": "2026-10-27T05:28:01Z",
    "location": "Remote-MO",
    "missing_scans": 0,
@@ -141,7 +88,7 @@
    "id": "workday:centene:/job/Remote-MO/Incident-Response-Analyst-I_1671642",
    "key": "workday:centene:/job/Remote-MO/Incident-Response-Analyst-I_1671642",
    "kind": "Part-Time Jobs",
-   "last_checked": "2026-10-28T06:04:21Z",
+   "last_checked": "2026-10-28T13:17:41Z",
    "last_seen": "2026-10-27T05:28:01Z",
    "location": "Remote-MO",
    "missing_scans": 0,
@@ -168,6 +115,59 @@
     "Check state eligibility",
     "Hours unverified",
     "2+ yrs exp"
+   ]
+  },
+  {
+   "id": "workday:rrhs:/job/Riedman---Remote/RIT-Co-op_REQ_244351-1",
+   "source": "workday",
+   "company": "Rochester Regional Health",
+   "title": "RIT Co-op: Security Engineering",
+   "location": "Riedman - Remote",
+   "url": "https://rrhs.wd5.myworkdayjobs.com/RRH/job/Riedman---Remote/RIT-Co-op_REQ_244351-1",
+   "board": "workday:rrhs:RRH",
+   "posted_at": "2026-10-27",
+   "employment_type": "unknown",
+   "remote": null,
+   "hybrid": null,
+   "salary": null,
+   "requisition_id": null,
+   "hiring_paths": null,
+   "queue": "review",
+   "kind": "Part-Time Internships",
+   "category": "Security (general)",
+   "schedule_fit": "unknown",
+   "hours_min": null,
+   "hours_max": null,
+   "hours": null,
+   "summer_commitment": false,
+   "work_mode": "remote",
+   "florida_eligibility": "unknown",
+   "where": "Remote",
+   "priority": false,
+   "flags": [
+    "Location unverified"
+   ],
+   "evidence": {
+    "location": "location: Riedman - Remote",
+    "schedule": "title: RIT Co-op: Security Engineering"
+   },
+   "key": "workday:rrhs:/job/Riedman---Remote/RIT-Co-op_REQ_244351-1",
+   "first_seen": "2026-10-21T14:00:41Z",
+   "last_seen": "2026-10-28T13:17:41Z",
+   "last_checked": "2026-10-28T13:17:41Z",
+   "status": "open",
+   "missing_since": null,
+   "missing_scans": 0,
+   "source_job_ids": [
+    "workday:rrhs:/job/Riedman---Remote/RIT-Co-op_REQ_244351-1"
+   ],
+   "boards": [
+    "workday:rrhs:RRH"
+   ],
+   "alternate_sources": [],
+   "primary_source": "workday",
+   "display_flags": [
+    "Location unverified"
    ]
   },
   {
@@ -204,8 +204,8 @@
    },
    "key": "ashby:1password:aac7eea6-ed7c-4871-bbf2-7cb2d5138847",
    "first_seen": "2026-10-22T17:30:44Z",
-   "last_seen": "2026-10-28T06:04:21Z",
-   "last_checked": "2026-10-28T06:04:21Z",
+   "last_seen": "2026-10-28T13:17:41Z",
+   "last_checked": "2026-10-28T13:17:41Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -256,8 +256,8 @@
    },
    "key": "greenhouse:guidepointsecurity:6224196004",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-10-28T06:04:21Z",
-   "last_checked": "2026-10-28T06:04:21Z",
+   "last_seen": "2026-10-28T13:17:41Z",
+   "last_checked": "2026-10-28T13:17:41Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -314,8 +314,8 @@
    },
    "key": "smartrecruiters:SOSi1:3743990015353557",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-10-28T06:04:21Z",
-   "last_checked": "2026-10-28T06:04:21Z",
+   "last_seen": "2026-10-28T13:17:41Z",
+   "last_checked": "2026-10-28T13:17:41Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -369,8 +369,8 @@
    },
    "key": "ashby:handshake:7f607c0b-291d-4c17-9897-6d8c5d35eb00",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-10-28T06:04:21Z",
-   "last_checked": "2026-10-28T06:04:21Z",
+   "last_seen": "2026-10-28T13:17:41Z",
+   "last_checked": "2026-10-28T13:17:41Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -424,8 +424,8 @@
    },
    "key": "smartrecruiters:SOSi1:3743990011641106",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-10-28T06:04:21Z",
-   "last_checked": "2026-10-28T06:04:21Z",
+   "last_seen": "2026-10-28T13:17:41Z",
+   "last_checked": "2026-10-28T13:17:41Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
