@@ -10,7 +10,7 @@ how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.m
 
 <!-- LIST:START -->
 
-**8 roles on the list**, plus 1 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-10-29 06:06 UTC
+**8 roles on the list**, plus 1 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-10-29 13:22 UTC
 
 ## Part-Time Internships (2)
 
@@ -23,7 +23,7 @@ how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.m
 
 | Company | Role | Where | Hours | Fit | Pay | Check | Posted | Link |
 |---|---|---|---|---|---|---|---|---|
-| Centene | Compliance Analyst - Marketplace Compliance | Remote | — | Possible | — | Check state eligibility, Hours unverified | 2026-10-29 | [Apply](https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-MO/Compliance-Analyst---Marketplace-Compliance_1672002) |
+| Centene | Compliance Analyst - Marketplace Compliance | Remote | — | Possible | — | Check state eligibility, Hours unverified | 2026-10-28 | [Apply](https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-MO/Compliance-Analyst---Marketplace-Compliance_1672002) |
 | Centene | Incident Response Analyst I | Remote | — | Possible | $30.58–$55.09/hr | Check state eligibility, Hours unverified, 2+ yrs exp | 2026-10-27 | [Apply](https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-MO/Incident-Response-Analyst-I_1671641) |
 | Centene | Incident Response Analyst I | Remote | — | Possible | $30.58–$55.09/hr | Check state eligibility, Hours unverified, 2+ yrs exp | 2026-10-27 | [Apply](https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-MO/Incident-Response-Analyst-I_1671642) |
 | SOSi | Security & Compliance Administrator | Remote | — | Possible | — | Security duties, broad title, Hours unverified, Clearance | 2026-09-17 | [Apply](https://jobs.smartrecruiters.com/SOSi1/3743990015353557) |
