@@ -1,25 +1,25 @@
 {
- "updated": "2026-10-28T22:51:51Z",
+ "updated": "2026-10-29T06:06:32Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 778.1,
- "listed": 7,
+ "runtime_seconds": 786.8,
+ "listed": 8,
  "review": 1,
  "by_kind": {
-  "Part-Time Jobs": 4,
+  "Part-Time Jobs": 5,
   "Part-Time Internships": 2,
   "Contract / Freelance": 1
  },
  "by_fit": {
-  "possible": 7,
+  "possible": 8,
   "unknown": 1
  },
  "by_status": {
-  "open": 8
+  "open": 9
  },
  "lifecycle": {
-  "new": 0,
+  "new": 1,
   "reopened": 0,
   "missing": 0,
   "closed": 0,
@@ -68,18 +68,18 @@
    "failed": 1
   },
   "workday": {
-   "partial": 629,
-   "complete": 1162,
-   "failed": 89
+   "partial": 662,
+   "complete": 1126,
+   "failed": 92
   }
  },
  "workday_outcomes": {
-  "facet-missing": 1698,
-  "capped": 842,
-  "facet-found": 93,
-  "tenant-unavailable": 89,
-  "zero-matches": 26,
-  "page-failed": 13
+  "facet-missing": 1696,
+  "capped": 820,
+  "facet-found": 92,
+  "tenant-unavailable": 92,
+  "page-failed": 68,
+  "zero-matches": 27
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -91,23 +91,23 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 186,
-  "misses": 565,
-  "entries": 1142
+  "hits": 718,
+  "misses": 15,
+  "entries": 1146
  },
  "rejected": {
-  "not-security": 167527,
-  "senior": 120062,
-  "location": 3537,
-  "no-duty-evidence": 795,
-  "duties-not-security": 287,
-  "full-time": 206,
-  "not-part-time": 64,
-  "hours-over-limit": 12,
-  "full-time-contract": 6,
-  "summer-only": 2,
+  "not-security": 166155,
+  "senior": 119683,
+  "location": 3471,
+  "no-duty-evidence": 785,
+  "duties-not-security": 285,
+  "full-time": 142,
+  "not-part-time": 90,
+  "hours-over-limit": 13,
+  "full-time-contract": 11,
   "florida-ineligible": 2,
-  "unchecked-no-description": 1
+  "unchecked-no-description": 1,
+  "summer-only": 1
  },
  "alerts": {
   "enabled": false
