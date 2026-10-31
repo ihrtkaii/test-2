@@ -1,50 +1,49 @@
 {
- "updated": "2026-10-31T12:53:43Z",
+ "updated": "2026-10-31T21:52:33Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 887.2,
- "listed": 9,
+ "runtime_seconds": 763.5,
+ "listed": 6,
  "review": 1,
  "by_kind": {
-  "Part-Time Jobs": 6,
+  "Part-Time Jobs": 3,
   "Part-Time Internships": 2,
   "Contract / Freelance": 1
  },
  "by_fit": {
-  "possible": 9,
+  "possible": 6,
   "unknown": 1
  },
  "by_status": {
-  "open": 7,
-  "missing": 3
+  "open": 7
  },
  "lifecycle": {
   "new": 0,
   "reopened": 0,
   "missing": 0,
-  "closed": 0,
+  "closed": 3,
   "stale": 0,
   "filtered": 0,
   "archived_count": 0
  },
  "boards": {
   "ashby": {
-   "complete": 798,
+   "complete": 802,
    "failed": 76
   },
   "breezy": {
    "complete": 18
   },
   "greenhouse": {
-   "complete": 1107,
+   "complete": 1119,
    "failed": 68
   },
   "jobicy": {
    "complete": 1
   },
   "lever": {
-   "complete": 395,
+   "complete": 396,
    "failed": 45
   },
   "recruitee": {
@@ -62,26 +61,25 @@
    "failed": 8
   },
   "smartrecruiters": {
-   "complete": 294,
+   "complete": 295,
    "partial": 19
   },
   "usajobs": {
    "failed": 1
   },
   "workday": {
-   "partial": 663,
-   "complete": 1087,
-   "failed": 136
+   "partial": 627,
+   "complete": 1180,
+   "failed": 82
   }
  },
  "workday_outcomes": {
-  "facet-missing": 1664,
-  "capped": 787,
-  "facet-found": 86,
-  "tenant-unavailable": 136,
-  "page-failed": 119,
-  "zero-matches": 24,
-  "facet-query-failed": 1
+  "facet-missing": 1715,
+  "capped": 836,
+  "facet-found": 92,
+  "tenant-unavailable": 82,
+  "zero-matches": 28,
+  "page-failed": 11
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -93,19 +91,19 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 726,
-  "misses": 0,
+  "hits": 752,
+  "misses": 1,
   "entries": 1207
  },
  "rejected": {
-  "not-security": 164579,
-  "senior": 118565,
-  "location": 3548,
-  "no-duty-evidence": 780,
-  "duties-not-security": 275,
+  "not-security": 168346,
+  "senior": 120888,
+  "location": 3624,
+  "no-duty-evidence": 806,
+  "duties-not-security": 285,
   "full-time": 142,
-  "not-part-time": 96,
-  "hours-over-limit": 14,
+  "not-part-time": 97,
+  "hours-over-limit": 13,
   "full-time-contract": 11,
   "summer-only": 2,
   "florida-ineligible": 2
