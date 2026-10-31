@@ -1,6 +1,64 @@
 {
- "updated": "2026-10-30T22:40:00Z",
+ "updated": "2026-10-31T06:06:17Z",
  "jobs": [
+  {
+   "id": "workday:centene:/job/Remote-OH/IAM-Analyst-II_1672190-1",
+   "source": "workday",
+   "company": "Centene",
+   "title": "IAM Analyst II",
+   "location": "Remote-OH",
+   "url": "https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-OH/IAM-Analyst-II_1672190-1",
+   "board": "workday:centene:Centene_External",
+   "posted_at": "2026-10-31",
+   "employment_type": "unknown",
+   "remote": null,
+   "hybrid": null,
+   "salary": "$30.58\u2013$55.09/hr",
+   "requisition_id": null,
+   "hiring_paths": null,
+   "queue": "listed",
+   "kind": "Part-Time Jobs",
+   "category": "Cloud / Network / IAM",
+   "schedule_fit": "possible",
+   "hours_min": null,
+   "hours_max": null,
+   "hours": null,
+   "summer_commitment": false,
+   "work_mode": "remote",
+   "florida_eligibility": "unknown",
+   "where": "Remote",
+   "priority": false,
+   "flags": [
+    "Check state eligibility",
+    "Hours unverified",
+    "4+ yrs exp"
+   ],
+   "evidence": {
+    "location": "location: Remote-OH",
+    "schedule": "Actual pay will be adjusted based on an individual's skills, experience, education, and other job-related factors permitted by law , including full-time or part-time status.",
+    "experience": "Education/Experience: A Bachelor's degree in a quantitative or business field (e.g., statistics, mathematics, engineering, computer science) and requires 2 \u2013 4 years of related experience."
+   },
+   "key": "workday:centene:/job/Remote-OH/IAM-Analyst-II_1672190-1",
+   "first_seen": "2026-10-31T06:06:17Z",
+   "last_seen": "2026-10-31T06:06:17Z",
+   "last_checked": "2026-10-31T06:06:17Z",
+   "status": "open",
+   "missing_since": null,
+   "missing_scans": 0,
+   "source_job_ids": [
+    "workday:centene:/job/Remote-OH/IAM-Analyst-II_1672190-1"
+   ],
+   "boards": [
+    "workday:centene:Centene_External"
+   ],
+   "alternate_sources": [],
+   "primary_source": "workday",
+   "display_flags": [
+    "Check state eligibility",
+    "Hours unverified",
+    "4+ yrs exp"
+   ]
+  },
   {
    "alternate_sources": [],
    "board": "workday:centene:Centene_External",
@@ -29,11 +87,11 @@
    "id": "workday:centene:/job/Remote-MO/Compliance-Analyst---Marketplace-Compliance_1672002",
    "key": "workday:centene:/job/Remote-MO/Compliance-Analyst---Marketplace-Compliance_1672002",
    "kind": "Part-Time Jobs",
-   "last_checked": "2026-10-30T22:40:00Z",
+   "last_checked": "2026-10-31T06:06:17Z",
    "last_seen": "2026-10-29T13:22:20Z",
    "location": "Remote-MO",
-   "missing_scans": 0,
-   "missing_since": null,
+   "missing_scans": 1,
+   "missing_since": "2026-10-31T06:06:17Z",
    "posted_at": "2026-10-28",
    "primary_source": "workday",
    "priority": false,
@@ -46,7 +104,7 @@
    "source_job_ids": [
     "workday:centene:/job/Remote-MO/Compliance-Analyst---Marketplace-Compliance_1672002"
    ],
-   "status": "open",
+   "status": "missing",
    "summer_commitment": false,
    "title": "Compliance Analyst - Marketplace Compliance",
    "url": "https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-MO/Compliance-Analyst---Marketplace-Compliance_1672002",
@@ -54,7 +112,8 @@
    "work_mode": "remote",
    "display_flags": [
     "Check state eligibility",
-    "Hours unverified"
+    "Hours unverified",
+    "May be closed"
    ]
   },
   {
@@ -86,11 +145,11 @@
    "id": "workday:centene:/job/Remote-MO/Incident-Response-Analyst-I_1671641",
    "key": "workday:centene:/job/Remote-MO/Incident-Response-Analyst-I_1671641",
    "kind": "Part-Time Jobs",
-   "last_checked": "2026-10-30T22:40:00Z",
+   "last_checked": "2026-10-31T06:06:17Z",
    "last_seen": "2026-10-27T05:28:01Z",
    "location": "Remote-MO",
-   "missing_scans": 0,
-   "missing_since": null,
+   "missing_scans": 1,
+   "missing_since": "2026-10-31T06:06:17Z",
    "posted_at": "2026-10-27",
    "primary_source": "workday",
    "priority": false,
@@ -103,7 +162,7 @@
    "source_job_ids": [
     "workday:centene:/job/Remote-MO/Incident-Response-Analyst-I_1671641"
    ],
-   "status": "open",
+   "status": "missing",
    "summer_commitment": false,
    "title": "Incident Response Analyst I",
    "url": "https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-MO/Incident-Response-Analyst-I_1671641",
@@ -112,7 +171,8 @@
    "display_flags": [
     "Check state eligibility",
     "Hours unverified",
-    "2+ yrs exp"
+    "2+ yrs exp",
+    "May be closed"
    ]
   },
   {
@@ -144,11 +204,11 @@
    "id": "workday:centene:/job/Remote-MO/Incident-Response-Analyst-I_1671642",
    "key": "workday:centene:/job/Remote-MO/Incident-Response-Analyst-I_1671642",
    "kind": "Part-Time Jobs",
-   "last_checked": "2026-10-30T22:40:00Z",
+   "last_checked": "2026-10-31T06:06:17Z",
    "last_seen": "2026-10-27T05:28:01Z",
    "location": "Remote-MO",
-   "missing_scans": 0,
-   "missing_since": null,
+   "missing_scans": 1,
+   "missing_since": "2026-10-31T06:06:17Z",
    "posted_at": "2026-10-27",
    "primary_source": "workday",
    "priority": false,
@@ -161,7 +221,7 @@
    "source_job_ids": [
     "workday:centene:/job/Remote-MO/Incident-Response-Analyst-I_1671642"
    ],
-   "status": "open",
+   "status": "missing",
    "summer_commitment": false,
    "title": "Incident Response Analyst I",
    "url": "https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-MO/Incident-Response-Analyst-I_1671642",
@@ -170,7 +230,8 @@
    "display_flags": [
     "Check state eligibility",
     "Hours unverified",
-    "2+ yrs exp"
+    "2+ yrs exp",
+    "May be closed"
    ]
   },
   {
@@ -200,7 +261,7 @@
    "id": "workday:rrhs:/job/Riedman---Remote/RIT-Co-op_REQ_244351-1",
    "key": "workday:rrhs:/job/Riedman---Remote/RIT-Co-op_REQ_244351-1",
    "kind": "Part-Time Internships",
-   "last_checked": "2026-10-30T22:40:00Z",
+   "last_checked": "2026-10-31T06:06:17Z",
    "last_seen": "2026-10-28T22:51:51Z",
    "location": "Riedman - Remote",
    "missing_scans": 0,
@@ -262,8 +323,8 @@
    },
    "key": "ashby:1password:aac7eea6-ed7c-4871-bbf2-7cb2d5138847",
    "first_seen": "2026-10-22T17:30:44Z",
-   "last_seen": "2026-10-30T22:40:00Z",
-   "last_checked": "2026-10-30T22:40:00Z",
+   "last_seen": "2026-10-31T06:06:17Z",
+   "last_checked": "2026-10-31T06:06:17Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -314,8 +375,8 @@
    },
    "key": "greenhouse:guidepointsecurity:6224196004",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-10-30T22:40:00Z",
-   "last_checked": "2026-10-30T22:40:00Z",
+   "last_seen": "2026-10-31T06:06:17Z",
+   "last_checked": "2026-10-31T06:06:17Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -372,8 +433,8 @@
    },
    "key": "smartrecruiters:SOSi1:3743990015353557",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-10-30T22:40:00Z",
-   "last_checked": "2026-10-30T22:40:00Z",
+   "last_seen": "2026-10-31T06:06:17Z",
+   "last_checked": "2026-10-31T06:06:17Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -427,8 +488,8 @@
    },
    "key": "ashby:handshake:7f607c0b-291d-4c17-9897-6d8c5d35eb00",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-10-30T22:40:00Z",
-   "last_checked": "2026-10-30T22:40:00Z",
+   "last_seen": "2026-10-31T06:06:17Z",
+   "last_checked": "2026-10-31T06:06:17Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -482,8 +543,8 @@
    },
    "key": "smartrecruiters:SOSi1:3743990011641106",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-10-30T22:40:00Z",
-   "last_checked": "2026-10-30T22:40:00Z",
+   "last_seen": "2026-10-31T06:06:17Z",
+   "last_checked": "2026-10-31T06:06:17Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
