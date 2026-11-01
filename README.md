@@ -10,7 +10,7 @@ how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.m
 
 <!-- LIST:START -->
 
-**6 roles on the list**, plus 1 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-10-31 21:52 UTC
+**6 roles on the list**, plus 1 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-11-01 06:26 UTC
 
 ## Part-Time Internships (2)
 
@@ -23,7 +23,7 @@ how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.m
 
 | Company | Role | Where | Hours | Fit | Pay | Check | Posted | Link |
 |---|---|---|---|---|---|---|---|---|
-| Centene | IAM Analyst II | Remote | — | Possible | $30.58–$55.09/hr | Check state eligibility, Hours unverified, 4+ yrs exp | 2026-10-30 | [Apply](https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-OH/IAM-Analyst-II_1672190-1) |
+| Centene | IAM Analyst II | Remote | — | Possible | $30.58–$55.09/hr | Check state eligibility, Hours unverified, 4+ yrs exp | 2026-10-31 | [Apply](https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-OH/IAM-Analyst-II_1672190-1) |
 | SOSi | Security & Compliance Administrator | Remote | — | Possible | — | Security duties, broad title, Hours unverified, Clearance | 2026-09-17 | [Apply](https://jobs.smartrecruiters.com/SOSi1/3743990015353557) |
 | SOSi | Cloud Security Engineer | Remote | — | Possible | — | Hours unverified, Clearance | 2026-02-11 | [Apply](https://jobs.smartrecruiters.com/SOSi1/3743990011641106) |
 

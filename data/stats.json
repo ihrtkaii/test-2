@@ -1,9 +1,9 @@
 {
- "updated": "2026-10-31T21:52:33Z",
+ "updated": "2026-11-01T06:26:28Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 763.5,
+ "runtime_seconds": 802.1,
  "listed": 6,
  "review": 1,
  "by_kind": {
@@ -22,7 +22,7 @@
   "new": 0,
   "reopened": 0,
   "missing": 0,
-  "closed": 3,
+  "closed": 0,
   "stale": 0,
   "filtered": 0,
   "archived_count": 0
@@ -57,8 +57,8 @@
    "complete": 1
   },
   "rippling": {
-   "complete": 171,
-   "failed": 8
+   "complete": 168,
+   "failed": 11
   },
   "smartrecruiters": {
    "complete": 295,
@@ -68,18 +68,19 @@
    "failed": 1
   },
   "workday": {
-   "partial": 627,
-   "complete": 1180,
-   "failed": 82
+   "partial": 640,
+   "complete": 1123,
+   "failed": 126
   }
  },
  "workday_outcomes": {
-  "facet-missing": 1715,
-  "capped": 836,
-  "facet-found": 92,
-  "tenant-unavailable": 82,
-  "zero-matches": 28,
-  "page-failed": 11
+  "facet-missing": 1675,
+  "capped": 798,
+  "facet-found": 88,
+  "tenant-unavailable": 126,
+  "page-failed": 74,
+  "facet-query-failed": 3,
+  "zero-matches": 23
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -91,22 +92,22 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 752,
-  "misses": 1,
+  "hits": 737,
+  "misses": 0,
   "entries": 1207
  },
  "rejected": {
-  "not-security": 168346,
-  "senior": 120888,
-  "location": 3624,
-  "no-duty-evidence": 806,
-  "duties-not-security": 285,
-  "full-time": 142,
-  "not-part-time": 97,
-  "hours-over-limit": 13,
+  "not-security": 165097,
+  "senior": 119172,
+  "location": 3591,
+  "no-duty-evidence": 779,
+  "duties-not-security": 277,
+  "full-time": 140,
+  "not-part-time": 95,
   "full-time-contract": 11,
-  "summer-only": 2,
-  "florida-ineligible": 2
+  "hours-over-limit": 9,
+  "florida-ineligible": 2,
+  "summer-only": 1
  },
  "alerts": {
   "enabled": false
