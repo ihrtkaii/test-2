@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-02T16:26:31Z",
+ "updated": "2026-11-03T01:11:29Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 983.8,
+ "runtime_seconds": 596.4,
  "listed": 6,
  "review": 1,
  "by_kind": {
@@ -44,7 +44,7 @@
    "complete": 1
   },
   "lever": {
-   "complete": 394,
+   "complete": 395,
    "failed": 47
   },
   "recruitee": {
@@ -58,8 +58,8 @@
    "complete": 1
   },
   "rippling": {
-   "complete": 169,
-   "failed": 10
+   "complete": 171,
+   "failed": 9
   },
   "smartrecruiters": {
    "complete": 295,
@@ -69,19 +69,18 @@
    "failed": 1
   },
   "workday": {
-   "partial": 639,
-   "complete": 1153,
-   "failed": 97
+   "partial": 624,
+   "complete": 1187,
+   "failed": 79
   }
  },
  "workday_outcomes": {
-  "facet-missing": 1701,
-  "capped": 822,
-  "facet-found": 91,
-  "tenant-unavailable": 97,
-  "page-failed": 42,
-  "facet-query-failed": 2,
-  "zero-matches": 24
+  "facet-missing": 1716,
+  "capped": 839,
+  "facet-found": 95,
+  "tenant-unavailable": 79,
+  "zero-matches": 29,
+  "page-failed": 3
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -93,21 +92,21 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 727,
-  "misses": 14,
-  "entries": 1218
+  "hits": 708,
+  "misses": 45,
+  "entries": 1236
  },
  "rejected": {
-  "not-security": 167157,
-  "senior": 120086,
-  "location": 3592,
-  "no-duty-evidence": 798,
-  "duties-not-security": 278,
-  "full-time": 140,
-  "not-part-time": 97,
-  "hours-over-limit": 12,
+  "not-security": 168571,
+  "senior": 120719,
+  "location": 3589,
+  "no-duty-evidence": 808,
+  "duties-not-security": 284,
+  "full-time": 147,
+  "not-part-time": 94,
   "full-time-contract": 11,
-  "summer-only": 2,
+  "hours-over-limit": 11,
+  "summer-only": 3,
   "florida-ineligible": 2
  },
  "alerts": {
