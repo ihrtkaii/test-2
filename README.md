@@ -10,7 +10,7 @@ how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.m
 
 <!-- LIST:START -->
 
-**8 roles on the list**, plus 2 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-11-04 19:59 UTC
+**7 roles on the list**, plus 2 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-11-05 07:10 UTC
 
 ## Part-Time Internships (2)
 
@@ -19,12 +19,11 @@ how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.m
 | Rochester Regional Health | RIT Co-op: Security Engineering | Remote | — | Possible | — | Location unverified, Hours unverified, Unverified | 2026-10-27 | [Apply](https://rrhs.wd5.myworkdayjobs.com/RRH/job/Riedman---Remote/RIT-Co-op_REQ_244351-1) |
 | GuidePoint Security | Cybersecurity Presales Intern - GPSU/Heartland (Tulsa) | Remote | 20–29/wk | Possible | $20/hr | Location unverified, Hours may exceed 20 | 2026-10-14 | [Apply](https://boards.greenhouse.io/guidepointsecurity/jobs/6224196004?gh_jid=6224196004) |
 
-## Part-Time Jobs (5)
+## Part-Time Jobs (4)
 
 | Company | Role | Where | Hours | Fit | Pay | Check | Posted | Link |
 |---|---|---|---|---|---|---|---|---|
-| Centene | Applications Security Engineer II (SOAR) | Remote | — | Possible | — | Check state eligibility, Hours unverified, 4+ yrs exp | 2026-11-03 | [Apply](https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-MO/Applications-Security-Engineer-II--SOAR-_1672991) |
-| Centene | Compliance Analyst - Marketplace Compliance | Remote | — | Possible | — | Check state eligibility, Hours unverified | 2026-11-03 | [Apply](https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-MO/Compliance-Analyst---Marketplace-Compliance_1672002) |
+| Centene | Applications Security Engineer II (SOAR) | Remote | — | Possible | — | Check state eligibility, Hours unverified, 4+ yrs exp | 2026-11-04 | [Apply](https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-MO/Applications-Security-Engineer-II--SOAR-_1672991) |
 | Centene | IAM Analyst II | Remote | — | Possible | $30.58–$55.09/hr | Check state eligibility, Hours unverified, 4+ yrs exp | 2026-10-31 | [Apply](https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-OH/IAM-Analyst-II_1672190-1) |
 | SOSi | Security & Compliance Administrator | Remote | — | Possible | — | Security duties, broad title, Hours unverified, Clearance | 2026-09-17 | [Apply](https://jobs.smartrecruiters.com/SOSi1/3743990015353557) |
 | SOSi | Cloud Security Engineer | Remote | — | Possible | — | Hours unverified, Clearance | 2026-02-11 | [Apply](https://jobs.smartrecruiters.com/SOSi1/3743990011641106) |
