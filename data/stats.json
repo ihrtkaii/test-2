@@ -1,43 +1,43 @@
 {
- "updated": "2026-11-06T07:05:55Z",
+ "updated": "2026-11-06T19:44:13Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 741.7,
- "listed": 9,
+ "runtime_seconds": 1005.2,
+ "listed": 10,
  "review": 3,
  "by_kind": {
   "Part-Time Jobs": 6,
-  "Part-Time Internships": 2,
+  "Part-Time Internships": 3,
   "Contract / Freelance": 1
  },
  "by_fit": {
-  "possible": 9,
+  "possible": 10,
   "unknown": 3
  },
  "by_status": {
-  "open": 10,
+  "open": 11,
   "stale": 2
  },
  "lifecycle": {
-  "new": 2,
+  "new": 1,
   "reopened": 0,
   "missing": 0,
   "closed": 0,
-  "stale": 1,
+  "stale": 0,
   "filtered": 0,
   "archived_count": 0
  },
  "boards": {
   "ashby": {
-   "complete": 810,
-   "failed": 78
+   "complete": 812,
+   "failed": 79
   },
   "breezy": {
    "complete": 19
   },
   "greenhouse": {
-   "complete": 1125,
+   "complete": 1127,
    "failed": 68
   },
   "jobicy": {
@@ -62,24 +62,26 @@
    "failed": 9
   },
   "smartrecruiters": {
-   "complete": 296,
+   "complete": 297,
    "partial": 18
   },
   "usajobs": {
    "failed": 1
   },
   "workday": {
-   "partial": 632,
-   "complete": 1183,
-   "failed": 78
+   "partial": 659,
+   "complete": 1142,
+   "failed": 92
   }
  },
  "workday_outcomes": {
-  "facet-missing": 1723,
-  "capped": 854,
-  "facet-found": 92,
-  "tenant-unavailable": 78,
-  "zero-matches": 31
+  "facet-missing": 1708,
+  "capped": 824,
+  "facet-found": 93,
+  "tenant-unavailable": 92,
+  "page-failed": 69,
+  "zero-matches": 29,
+  "facet-query-failed": 2
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -91,17 +93,17 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 727,
-  "misses": 41,
-  "entries": 1342
+  "hits": 723,
+  "misses": 24,
+  "entries": 1359
  },
  "rejected": {
-  "not-security": 168814,
-  "senior": 121380,
-  "location": 3596,
-  "no-duty-evidence": 805,
-  "duties-not-security": 291,
-  "full-time": 146,
+  "not-security": 167323,
+  "senior": 120156,
+  "location": 3565,
+  "no-duty-evidence": 804,
+  "duties-not-security": 275,
+  "full-time": 149,
   "not-part-time": 109,
   "hours-over-limit": 10,
   "full-time-contract": 8,
