@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-07T13:20:26Z",
+ "updated": "2026-11-07T22:04:30Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 713.8,
+ "runtime_seconds": 591.4,
  "listed": 10,
  "review": 3,
  "by_kind": {
@@ -30,26 +30,26 @@
  },
  "boards": {
   "ashby": {
-   "complete": 812,
+   "complete": 815,
    "failed": 79
   },
   "breezy": {
    "complete": 19
   },
   "greenhouse": {
-   "complete": 1125,
-   "failed": 70
+   "complete": 1129,
+   "failed": 71
   },
   "jobicy": {
    "partial": 1
   },
   "lever": {
-   "complete": 393,
+   "complete": 394,
    "failed": 49
   },
   "recruitee": {
-   "failed": 1,
-   "complete": 2
+   "failed": 2,
+   "complete": 1
   },
   "remoteok": {
    "partial": 1
@@ -70,17 +70,17 @@
   },
   "workday": {
    "partial": 630,
-   "complete": 1185,
-   "failed": 78
+   "complete": 1183,
+   "failed": 83
   }
  },
  "workday_outcomes": {
   "facet-missing": 1722,
-  "capped": 850,
-  "facet-found": 93,
-  "tenant-unavailable": 78,
+  "capped": 844,
+  "facet-found": 91,
+  "tenant-unavailable": 83,
   "zero-matches": 30,
-  "page-failed": 1
+  "page-failed": 6
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -92,17 +92,17 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 745,
+  "hits": 743,
   "misses": 1,
   "entries": 1372
  },
  "rejected": {
-  "not-security": 168895,
-  "senior": 121050,
-  "location": 3577,
-  "no-duty-evidence": 809,
-  "duties-not-security": 275,
-  "full-time": 145,
+  "not-security": 168511,
+  "senior": 121132,
+  "location": 3569,
+  "no-duty-evidence": 800,
+  "duties-not-security": 274,
+  "full-time": 144,
   "not-part-time": 113,
   "hours-over-limit": 11,
   "full-time-contract": 8,
