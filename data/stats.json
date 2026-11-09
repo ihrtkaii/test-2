@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-09T06:53:56Z",
+ "updated": "2026-11-09T22:38:39Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 729.8,
+ "runtime_seconds": 801.7,
  "listed": 10,
  "review": 3,
  "by_kind": {
@@ -16,29 +16,29 @@
   "unknown": 3
  },
  "by_status": {
-  "open": 11,
-  "stale": 2
+  "open": 10,
+  "stale": 3
  },
  "lifecycle": {
   "new": 0,
   "reopened": 0,
   "missing": 0,
   "closed": 0,
-  "stale": 0,
+  "stale": 1,
   "filtered": 0,
   "archived_count": 0
  },
  "boards": {
   "ashby": {
-   "complete": 817,
+   "complete": 818,
    "failed": 78
   },
   "breezy": {
    "complete": 19
   },
   "greenhouse": {
-   "complete": 1127,
-   "failed": 73
+   "complete": 1129,
+   "failed": 71
   },
   "jobicy": {
    "partial": 1
@@ -58,8 +58,8 @@
    "complete": 1
   },
   "rippling": {
-   "complete": 172,
-   "failed": 9
+   "complete": 173,
+   "failed": 8
   },
   "smartrecruiters": {
    "complete": 297,
@@ -69,43 +69,43 @@
    "failed": 1
   },
   "workday": {
-   "partial": 625,
-   "complete": 1186,
-   "failed": 85
+   "partial": 622,
+   "failed": 82,
+   "complete": 1192
   }
  },
  "workday_outcomes": {
   "facet-missing": 1722,
-  "capped": 841,
-  "facet-found": 89,
-  "tenant-unavailable": 85,
-  "zero-matches": 30,
-  "page-failed": 5
+  "capped": 843,
+  "tenant-unavailable": 81,
+  "facet-found": 92,
+  "zero-matches": 29,
+  "page-failed": 2
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
   "recruitee": "HTTPStatusError: Client error '404 Not Found' for url 'https://1x.recruitee.com/api/offers/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
-  "rippling": "HTTPStatusError: Client error '404 Not Found' for url 'https://api.rippling.com/platform/api/ats/v1/board/acretrader-jobs/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web",
   "workday": "tenant-unavailable: HTTPStatusError",
+  "rippling": "HTTPStatusError: Client error '404 Not Found' for url 'https://api.rippling.com/platform/api/ats/v1/board/acretrader-jobs/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web",
   "lever": "HTTPStatusError: Client error '404 Not Found' for url 'https://api.lever.co/v0/postings/aofl?mode=json'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
   "ashby": "HTTPStatusError: Client error '404 Not Found' for url 'https://api.ashbyhq.com/posting-api/job-board/airspace-intelligence?includeCompensation=true'\nFor more information check: https://developer.mozil",
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 778,
-  "misses": 0,
-  "entries": 1410
+  "hits": 744,
+  "misses": 44,
+  "entries": 1441
  },
  "rejected": {
-  "not-security": 168313,
-  "senior": 120967,
-  "location": 3593,
-  "no-duty-evidence": 798,
-  "duties-not-security": 273,
-  "full-time": 144,
-  "not-part-time": 114,
-  "hours-over-limit": 11,
-  "full-time-contract": 8,
+  "not-security": 168382,
+  "senior": 121013,
+  "location": 3611,
+  "no-duty-evidence": 796,
+  "duties-not-security": 277,
+  "full-time": 155,
+  "not-part-time": 112,
+  "hours-over-limit": 10,
+  "full-time-contract": 9,
   "summer-only": 3,
   "florida-ineligible": 2
  },
