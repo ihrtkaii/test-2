@@ -1,55 +1,55 @@
 {
- "updated": "2026-11-13T07:01:45Z",
+ "updated": "2026-11-13T20:03:28Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 678.2,
+ "runtime_seconds": 1023.6,
  "listed": 8,
- "review": 2,
+ "review": 3,
  "by_kind": {
-  "Part-Time Internships": 3,
-  "Part-Time Jobs": 4,
+  "Part-Time Jobs": 5,
+  "Part-Time Internships": 2,
   "Contract / Freelance": 1
  },
  "by_fit": {
-  "unknown": 2,
+  "unknown": 3,
   "possible": 8
  },
  "by_status": {
-  "open": 7,
+  "open": 8,
   "stale": 3
  },
  "lifecycle": {
   "new": 0,
-  "reopened": 0,
+  "reopened": 2,
   "missing": 0,
   "closed": 0,
   "stale": 0,
-  "filtered": 2,
+  "filtered": 1,
   "archived_count": 0
  },
  "boards": {
   "ashby": {
-   "complete": 832,
-   "failed": 79
+   "complete": 836,
+   "failed": 80
   },
   "breezy": {
    "complete": 19
   },
   "greenhouse": {
    "complete": 1132,
-   "failed": 74
+   "failed": 75
   },
   "jobicy": {
    "partial": 1
   },
   "lever": {
-   "complete": 394,
+   "complete": 395,
    "failed": 50
   },
   "recruitee": {
    "failed": 2,
-   "complete": 1
+   "complete": 4
   },
   "remoteok": {
    "partial": 1
@@ -58,30 +58,29 @@
    "complete": 1
   },
   "rippling": {
-   "complete": 177,
+   "complete": 178,
    "failed": 8
   },
   "smartrecruiters": {
-   "complete": 297,
+   "complete": 299,
    "partial": 18
   },
   "usajobs": {
    "failed": 1
   },
   "workday": {
-   "partial": 646,
-   "failed": 191,
-   "complete": 1083
+   "partial": 667,
+   "failed": 119,
+   "complete": 1141
   }
  },
  "workday_outcomes": {
-  "facet-missing": 1650,
-  "capped": 803,
-  "tenant-unavailable": 191,
-  "facet-found": 79,
+  "facet-missing": 1722,
+  "capped": 836,
+  "tenant-unavailable": 118,
+  "facet-found": 86,
   "zero-matches": 32,
-  "page-failed": 85,
-  "facet-query-failed": 5
+  "page-failed": 76
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -93,20 +92,21 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 689,
-  "misses": 49,
-  "entries": 1508
+  "hits": 636,
+  "misses": 66,
+  "entries": 1518
  },
  "rejected": {
-  "not-security": 162976,
-  "senior": 119525,
-  "location": 3608,
-  "no-duty-evidence": 764,
-  "duties-not-security": 276,
-  "full-time": 154,
-  "not-part-time": 104,
+  "not-security": 166257,
+  "senior": 119477,
+  "location": 3526,
+  "no-duty-evidence": 791,
+  "duties-not-security": 285,
+  "full-time": 151,
+  "not-part-time": 105,
   "hours-over-limit": 10,
   "full-time-contract": 9,
+  "unchecked-no-description": 2,
   "florida-ineligible": 2
  },
  "alerts": {
