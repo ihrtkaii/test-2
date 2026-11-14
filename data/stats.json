@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-13T20:03:28Z",
+ "updated": "2026-11-14T06:35:32Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 1023.6,
+ "runtime_seconds": 312.0,
  "listed": 8,
  "review": 3,
  "by_kind": {
@@ -21,11 +21,11 @@
  },
  "lifecycle": {
   "new": 0,
-  "reopened": 2,
+  "reopened": 0,
   "missing": 0,
   "closed": 0,
   "stale": 0,
-  "filtered": 1,
+  "filtered": 0,
   "archived_count": 0
  },
  "boards": {
@@ -37,8 +37,8 @@
    "complete": 19
   },
   "greenhouse": {
-   "complete": 1132,
-   "failed": 75
+   "complete": 1133,
+   "failed": 74
   },
   "jobicy": {
    "partial": 1
@@ -69,18 +69,17 @@
    "failed": 1
   },
   "workday": {
-   "partial": 667,
-   "failed": 119,
-   "complete": 1141
+   "failed": 1382,
+   "partial": 180,
+   "complete": 365
   }
  },
  "workday_outcomes": {
-  "facet-missing": 1722,
-  "capped": 836,
-  "tenant-unavailable": 118,
-  "facet-found": 86,
-  "zero-matches": 32,
-  "page-failed": 76
+  "tenant-unavailable": 1382,
+  "facet-missing": 530,
+  "capped": 241,
+  "facet-found": 15,
+  "zero-matches": 11
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -92,21 +91,20 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 636,
-  "misses": 66,
+  "hits": 226,
+  "misses": 7,
   "entries": 1518
  },
  "rejected": {
-  "not-security": 166257,
-  "senior": 119477,
-  "location": 3526,
-  "no-duty-evidence": 791,
-  "duties-not-security": 285,
-  "full-time": 151,
-  "not-part-time": 105,
-  "hours-over-limit": 10,
-  "full-time-contract": 9,
-  "unchecked-no-description": 2,
+  "not-security": 110605,
+  "senior": 85716,
+  "location": 2084,
+  "no-duty-evidence": 358,
+  "full-time": 143,
+  "duties-not-security": 128,
+  "not-part-time": 69,
+  "full-time-contract": 7,
+  "hours-over-limit": 3,
   "florida-ineligible": 2
  },
  "alerts": {
