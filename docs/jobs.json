@@ -1,6 +1,59 @@
 {
- "updated": "2026-11-17T08:13:03Z",
+ "updated": "2026-11-17T21:12:46Z",
  "jobs": [
+  {
+   "id": "greenhouse:bugcrowd:8396259",
+   "source": "greenhouse",
+   "company": "Bugcrowd",
+   "title": "Application Security Engineer (Part time - Friday to Monday)",
+   "location": "Remote - US",
+   "url": "https://boards.greenhouse.io/bugcrowd/jobs/8396259?gh_jid=8396259",
+   "board": "greenhouse:bugcrowd",
+   "posted_at": "2026-11-17T12:24:33-05:00",
+   "employment_type": "unknown",
+   "remote": null,
+   "hybrid": null,
+   "salary": null,
+   "requisition_id": "27211",
+   "hiring_paths": null,
+   "queue": "listed",
+   "kind": "Part-Time Jobs",
+   "category": "Offensive / AppSec",
+   "schedule_fit": "possible",
+   "hours_min": null,
+   "hours_max": null,
+   "hours": null,
+   "summer_commitment": false,
+   "work_mode": "remote",
+   "florida_eligibility": "likely",
+   "where": "Remote",
+   "priority": false,
+   "flags": [
+    "Hours unverified"
+   ],
+   "evidence": {
+    "location": "location: Remote - US",
+    "schedule": "This is a part time job (Friday to Monday)."
+   },
+   "key": "greenhouse:bugcrowd:8396259",
+   "first_seen": "2026-11-17T21:12:46Z",
+   "last_seen": "2026-11-17T21:12:46Z",
+   "last_checked": "2026-11-17T21:12:46Z",
+   "status": "open",
+   "missing_since": null,
+   "missing_scans": 0,
+   "source_job_ids": [
+    "greenhouse:bugcrowd:8396259"
+   ],
+   "boards": [
+    "greenhouse:bugcrowd"
+   ],
+   "alternate_sources": [],
+   "primary_source": "greenhouse",
+   "display_flags": [
+    "Hours unverified"
+   ]
+  },
   {
    "alternate_sources": [],
    "board": "jobicy",
@@ -26,7 +79,7 @@
    "id": "jobicy:160317",
    "key": "ashby:1password:aac7eea6-ed7c-4871-bbf2-7cb2d5138847",
    "kind": "Part-Time Internships",
-   "last_checked": "2026-11-17T08:13:03Z",
+   "last_checked": "2026-11-17T21:12:46Z",
    "last_seen": "2026-11-11T19:54:31Z",
    "location": "Remote (Canada,  USA)",
    "missing_scans": 0,
@@ -255,8 +308,8 @@
    },
    "key": "lever:ion:541086b5-9de1-4f65-8038-f9690100b442",
    "first_seen": "2026-11-04T19:59:59Z",
-   "last_seen": "2026-11-17T08:13:03Z",
-   "last_checked": "2026-11-17T08:13:03Z",
+   "last_seen": "2026-11-17T21:12:46Z",
+   "last_checked": "2026-11-17T21:12:46Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -445,62 +498,6 @@
    ]
   },
   {
-   "alternate_sources": [],
-   "board": "greenhouse:guidepointsecurity",
-   "boards": [
-    "greenhouse:guidepointsecurity"
-   ],
-   "category": "SOC / Detection",
-   "company": "GuidePoint Security",
-   "employment_type": "unknown",
-   "evidence": {
-    "hours": "During this internship, interns are expected to: Be located near Tulsa, OK, or be willing to relocate there for follow-on full-time hire Be physically located within the United States for the entire internship Work 20-2\u2026",
-    "location": "location: Remote"
-   },
-   "first_seen": "2026-10-21T14:00:41Z",
-   "flags": [
-    "Location unverified",
-    "Hours may exceed 20"
-   ],
-   "florida_eligibility": "unknown",
-   "hiring_paths": null,
-   "hours": "20\u201329/wk",
-   "hours_max": 29,
-   "hours_min": 20,
-   "hybrid": null,
-   "id": "greenhouse:guidepointsecurity:6224196004",
-   "key": "greenhouse:guidepointsecurity:6224196004",
-   "kind": "Part-Time Internships",
-   "last_checked": "2026-11-17T08:13:03Z",
-   "last_seen": "2026-11-16T22:22:59Z",
-   "location": "Remote",
-   "missing_scans": 1,
-   "missing_since": "2026-11-17T08:13:03Z",
-   "posted_at": "2026-10-14T17:22:54-04:00",
-   "primary_source": "greenhouse",
-   "priority": false,
-   "queue": "listed",
-   "remote": null,
-   "requisition_id": "2601",
-   "salary": "$20/hr",
-   "schedule_fit": "possible",
-   "source": "greenhouse",
-   "source_job_ids": [
-    "greenhouse:guidepointsecurity:6224196004"
-   ],
-   "status": "missing",
-   "summer_commitment": false,
-   "title": "Cybersecurity Presales Intern - GPSU/Heartland (Tulsa)",
-   "url": "https://boards.greenhouse.io/guidepointsecurity/jobs/6224196004?gh_jid=6224196004",
-   "where": "Remote",
-   "work_mode": "remote",
-   "display_flags": [
-    "Location unverified",
-    "Hours may exceed 20",
-    "May be closed"
-   ]
-  },
-  {
    "id": "smartrecruiters:SOSi1:3743990015353557",
    "source": "smartrecruiters",
    "company": "SOSi",
@@ -540,8 +537,8 @@
    },
    "key": "smartrecruiters:SOSi1:3743990015353557",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-11-17T08:13:03Z",
-   "last_checked": "2026-11-17T08:13:03Z",
+   "last_seen": "2026-11-17T21:12:46Z",
+   "last_checked": "2026-11-17T21:12:46Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -595,8 +592,8 @@
    },
    "key": "ashby:handshake:7f607c0b-291d-4c17-9897-6d8c5d35eb00",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-11-17T08:13:03Z",
-   "last_checked": "2026-11-17T08:13:03Z",
+   "last_seen": "2026-11-17T21:12:46Z",
+   "last_checked": "2026-11-17T21:12:46Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -650,8 +647,8 @@
    },
    "key": "smartrecruiters:SOSi1:3743990011641106",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-11-17T08:13:03Z",
-   "last_checked": "2026-11-17T08:13:03Z",
+   "last_seen": "2026-11-17T21:12:46Z",
+   "last_checked": "2026-11-17T21:12:46Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
