@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-16T22:22:59Z",
+ "updated": "2026-11-17T08:13:03Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 782.7,
+ "runtime_seconds": 844.9,
  "listed": 9,
  "review": 3,
  "by_kind": {
@@ -17,12 +17,13 @@
  },
  "by_status": {
   "stale": 4,
-  "open": 8
+  "open": 7,
+  "missing": 1
  },
  "lifecycle": {
   "new": 0,
   "reopened": 0,
-  "missing": 0,
+  "missing": 1,
   "closed": 0,
   "stale": 0,
   "filtered": 0,
@@ -30,8 +31,8 @@
  },
  "boards": {
   "ashby": {
-   "complete": 837,
-   "failed": 81
+   "complete": 836,
+   "failed": 82
   },
   "breezy": {
    "complete": 19
@@ -69,19 +70,19 @@
    "failed": 1
   },
   "workday": {
-   "failed": 1764,
-   "complete": 43,
-   "partial": 138
+   "partial": 207,
+   "failed": 1679,
+   "complete": 59
   }
  },
  "workday_outcomes": {
-  "tenant-unavailable": 1764,
-  "facet-missing": 177,
-  "facet-found": 4,
-  "facet-query-failed": 4,
-  "page-failed": 285,
-  "capped": 15,
-  "zero-matches": 1
+  "facet-missing": 260,
+  "page-failed": 421,
+  "tenant-unavailable": 1679,
+  "capped": 16,
+  "facet-found": 6,
+  "facet-query-failed": 2,
+  "zero-matches": 2
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -93,22 +94,22 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 93,
-  "misses": 9,
-  "entries": 1531
+  "hits": 115,
+  "misses": 5,
+  "entries": 1532
  },
  "rejected": {
-  "not-security": 89149,
-  "senior": 72178,
-  "location": 1583,
-  "no-duty-evidence": 220,
+  "not-security": 90153,
+  "senior": 72968,
+  "location": 1614,
+  "no-duty-evidence": 236,
   "full-time": 139,
-  "duties-not-security": 85,
-  "not-part-time": 65,
-  "full-time-contract": 7,
+  "duties-not-security": 88,
+  "not-part-time": 70,
+  "full-time-contract": 8,
+  "unchecked-no-description": 4,
   "hours-over-limit": 3,
-  "florida-ineligible": 2,
-  "unchecked-no-description": 1
+  "florida-ineligible": 2
  },
  "alerts": {
   "enabled": false
