@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-17T21:12:46Z",
+ "updated": "2026-11-18T07:48:40Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 834.6,
+ "runtime_seconds": 821.1,
  "listed": 9,
  "review": 3,
  "by_kind": {
@@ -20,18 +20,18 @@
   "stale": 4
  },
  "lifecycle": {
-  "new": 1,
+  "new": 0,
   "reopened": 0,
   "missing": 0,
-  "closed": 1,
+  "closed": 0,
   "stale": 0,
   "filtered": 0,
-  "archived_count": 1
+  "archived_count": 0
  },
  "boards": {
   "ashby": {
-   "complete": 837,
-   "failed": 82
+   "complete": 836,
+   "failed": 83
   },
   "breezy": {
    "complete": 19
@@ -69,19 +69,18 @@
    "failed": 1
   },
   "workday": {
-   "failed": 1791,
-   "partial": 120,
-   "complete": 37
+   "failed": 1689,
+   "partial": 196,
+   "complete": 63
   }
  },
  "workday_outcomes": {
-  "tenant-unavailable": 1791,
-  "facet-missing": 154,
-  "page-failed": 246,
-  "capped": 17,
-  "facet-found": 3,
-  "facet-query-failed": 5,
-  "zero-matches": 1
+  "tenant-unavailable": 1689,
+  "facet-missing": 247,
+  "page-failed": 359,
+  "facet-found": 12,
+  "facet-query-failed": 6,
+  "capped": 19
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -93,20 +92,20 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 106,
-  "misses": 7,
+  "hits": 125,
+  "misses": 6,
   "entries": 1535
  },
  "rejected": {
-  "not-security": 88874,
-  "senior": 72089,
-  "location": 1545,
-  "no-duty-evidence": 218,
-  "full-time": 144,
-  "duties-not-security": 88,
-  "not-part-time": 64,
+  "not-security": 90101,
+  "senior": 73026,
+  "location": 1621,
+  "no-duty-evidence": 236,
+  "full-time": 142,
+  "duties-not-security": 95,
+  "not-part-time": 66,
   "full-time-contract": 7,
-  "unchecked-no-description": 4,
+  "unchecked-no-description": 5,
   "hours-over-limit": 3,
   "florida-ineligible": 1
  },
