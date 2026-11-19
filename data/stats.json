@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-18T20:50:17Z",
+ "updated": "2026-11-19T07:43:56Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 820.9,
+ "runtime_seconds": 810.5,
  "listed": 9,
  "review": 3,
  "by_kind": {
@@ -69,18 +69,18 @@
    "failed": 1
   },
   "workday": {
-   "failed": 1692,
-   "partial": 199,
-   "complete": 61
+   "partial": 247,
+   "failed": 1625,
+   "complete": 80
   }
  },
  "workday_outcomes": {
-  "tenant-unavailable": 1692,
-  "facet-missing": 252,
-  "capped": 22,
-  "page-failed": 386,
-  "facet-found": 8,
-  "facet-query-failed": 11,
+  "facet-missing": 311,
+  "page-failed": 476,
+  "tenant-unavailable": 1625,
+  "capped": 24,
+  "facet-found": 16,
+  "facet-query-failed": 12,
   "zero-matches": 1
  },
  "error_samples": {
@@ -93,19 +93,19 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 125,
-  "misses": 11,
-  "entries": 1535
+  "hits": 98,
+  "misses": 25,
+  "entries": 1536
  },
  "rejected": {
-  "not-security": 90377,
-  "senior": 72940,
-  "location": 1607,
-  "no-duty-evidence": 229,
-  "full-time": 139,
-  "duties-not-security": 92,
-  "not-part-time": 65,
-  "unchecked-no-description": 9,
+  "not-security": 91483,
+  "senior": 73587,
+  "location": 1632,
+  "no-duty-evidence": 242,
+  "full-time": 140,
+  "duties-not-security": 90,
+  "not-part-time": 66,
+  "unchecked-no-description": 17,
   "full-time-contract": 5,
   "hours-over-limit": 3,
   "florida-ineligible": 1
