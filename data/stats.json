@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-19T20:56:19Z",
+ "updated": "2026-11-20T07:35:40Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 856.0,
+ "runtime_seconds": 812.6,
  "listed": 9,
  "review": 3,
  "by_kind": {
@@ -16,15 +16,15 @@
   "unknown": 3
  },
  "by_status": {
-  "open": 8,
-  "stale": 4
+  "open": 7,
+  "stale": 5
  },
  "lifecycle": {
   "new": 0,
   "reopened": 0,
   "missing": 0,
   "closed": 0,
-  "stale": 0,
+  "stale": 1,
   "filtered": 0,
   "archived_count": 0
  },
@@ -69,19 +69,19 @@
    "failed": 1
   },
   "workday": {
-   "failed": 1683,
-   "partial": 192,
-   "complete": 79
+   "failed": 1587,
+   "partial": 260,
+   "complete": 107
   }
  },
  "workday_outcomes": {
-  "tenant-unavailable": 1683,
-  "facet-missing": 264,
-  "page-failed": 341,
-  "capped": 23,
-  "facet-found": 7,
-  "facet-query-failed": 11,
-  "zero-matches": 2
+  "tenant-unavailable": 1587,
+  "facet-missing": 349,
+  "page-failed": 474,
+  "facet-found": 18,
+  "capped": 35,
+  "facet-query-failed": 9,
+  "zero-matches": 5
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -93,20 +93,20 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 95,
-  "misses": 40,
-  "entries": 1543
+  "hits": 114,
+  "misses": 55,
+  "entries": 1545
  },
  "rejected": {
-  "not-security": 91314,
-  "senior": 73678,
-  "location": 1634,
-  "no-duty-evidence": 231,
-  "full-time": 140,
-  "duties-not-security": 87,
-  "not-part-time": 66,
-  "unchecked-no-description": 23,
-  "full-time-contract": 5,
+  "not-security": 93161,
+  "senior": 75005,
+  "location": 1643,
+  "no-duty-evidence": 258,
+  "full-time": 144,
+  "duties-not-security": 92,
+  "not-part-time": 71,
+  "unchecked-no-description": 37,
+  "full-time-contract": 4,
   "hours-over-limit": 3,
   "florida-ineligible": 1
  },
