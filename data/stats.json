@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-20T07:35:40Z",
+ "updated": "2026-11-20T20:39:47Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 812.6,
+ "runtime_seconds": 824.8,
  "listed": 9,
  "review": 3,
  "by_kind": {
@@ -24,27 +24,27 @@
   "reopened": 0,
   "missing": 0,
   "closed": 0,
-  "stale": 1,
+  "stale": 0,
   "filtered": 0,
   "archived_count": 0
  },
  "boards": {
   "ashby": {
-   "complete": 836,
+   "complete": 838,
    "failed": 85
   },
   "breezy": {
    "complete": 19
   },
   "greenhouse": {
-   "complete": 1140,
+   "complete": 1141,
    "failed": 74
   },
   "jobicy": {
    "partial": 1
   },
   "lever": {
-   "complete": 399,
+   "complete": 400,
    "failed": 50
   },
   "recruitee": {
@@ -58,7 +58,7 @@
    "complete": 1
   },
   "rippling": {
-   "complete": 183,
+   "complete": 186,
    "failed": 8
   },
   "smartrecruiters": {
@@ -69,19 +69,19 @@
    "failed": 1
   },
   "workday": {
-   "failed": 1587,
-   "partial": 260,
-   "complete": 107
+   "failed": 1663,
+   "partial": 205,
+   "complete": 87
   }
  },
  "workday_outcomes": {
-  "tenant-unavailable": 1587,
-  "facet-missing": 349,
-  "page-failed": 474,
-  "facet-found": 18,
-  "capped": 35,
-  "facet-query-failed": 9,
-  "zero-matches": 5
+  "tenant-unavailable": 1663,
+  "facet-missing": 277,
+  "page-failed": 364,
+  "facet-found": 15,
+  "facet-query-failed": 11,
+  "capped": 27,
+  "zero-matches": 2
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -93,20 +93,20 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 114,
-  "misses": 55,
-  "entries": 1545
+  "hits": 101,
+  "misses": 30,
+  "entries": 1547
  },
  "rejected": {
-  "not-security": 93161,
-  "senior": 75005,
-  "location": 1643,
-  "no-duty-evidence": 258,
-  "full-time": 144,
-  "duties-not-security": 92,
-  "not-part-time": 71,
-  "unchecked-no-description": 37,
-  "full-time-contract": 4,
+  "not-security": 92391,
+  "senior": 74171,
+  "location": 1609,
+  "no-duty-evidence": 250,
+  "full-time": 142,
+  "duties-not-security": 87,
+  "not-part-time": 65,
+  "unchecked-no-description": 19,
+  "full-time-contract": 5,
   "hours-over-limit": 3,
   "florida-ineligible": 1
  },
