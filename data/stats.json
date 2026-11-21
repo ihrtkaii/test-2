@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-21T07:27:20Z",
+ "updated": "2026-11-21T19:34:40Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 705.2,
+ "runtime_seconds": 827.4,
  "listed": 9,
  "review": 3,
  "by_kind": {
@@ -30,21 +30,21 @@
  },
  "boards": {
   "ashby": {
-   "complete": 838,
-   "failed": 85
+   "complete": 841,
+   "failed": 86
   },
   "breezy": {
    "complete": 19
   },
   "greenhouse": {
-   "complete": 1141,
+   "complete": 1144,
    "failed": 74
   },
   "jobicy": {
    "partial": 1
   },
   "lever": {
-   "complete": 400,
+   "complete": 402,
    "failed": 50
   },
   "recruitee": {
@@ -69,18 +69,18 @@
    "failed": 1
   },
   "workday": {
-   "failed": 1876,
-   "complete": 32,
-   "partial": 47
+   "partial": 223,
+   "failed": 1629,
+   "complete": 107
   }
  },
  "workday_outcomes": {
-  "tenant-unavailable": 1876,
-  "facet-missing": 77,
-  "page-failed": 78,
-  "capped": 7,
-  "facet-found": 2,
-  "facet-query-failed": 2,
+  "facet-missing": 322,
+  "capped": 30,
+  "tenant-unavailable": 1629,
+  "page-failed": 397,
+  "facet-found": 8,
+  "facet-query-failed": 5,
   "zero-matches": 1
  },
  "error_samples": {
@@ -93,21 +93,21 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 103,
-  "misses": 26,
-  "entries": 1408
+  "hits": 129,
+  "misses": 25,
+  "entries": 1400
  },
  "rejected": {
-  "not-security": 88335,
-  "senior": 71830,
-  "location": 1494,
-  "no-duty-evidence": 213,
-  "full-time": 164,
-  "duties-not-security": 88,
-  "not-part-time": 62,
+  "not-security": 93263,
+  "senior": 74836,
+  "location": 1603,
+  "no-duty-evidence": 246,
+  "full-time": 168,
+  "duties-not-security": 91,
+  "not-part-time": 65,
+  "unchecked-no-description": 23,
   "full-time-contract": 5,
   "hours-over-limit": 3,
-  "unchecked-no-description": 2,
   "florida-ineligible": 1
  },
  "alerts": {
