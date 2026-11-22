@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-22T07:11:15Z",
+ "updated": "2026-11-22T19:59:17Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 929.5,
+ "runtime_seconds": 869.0,
  "listed": 9,
  "review": 3,
  "by_kind": {
@@ -26,12 +26,12 @@
   "closed": 0,
   "stale": 0,
   "filtered": 0,
-  "archived_count": 2
+  "archived_count": 0
  },
  "boards": {
   "ashby": {
-   "complete": 841,
-   "failed": 86
+   "complete": 840,
+   "failed": 87
   },
   "breezy": {
    "complete": 19
@@ -69,18 +69,18 @@
    "failed": 1
   },
   "workday": {
-   "failed": 1671,
-   "complete": 79,
-   "partial": 209
+   "partial": 331,
+   "failed": 1469,
+   "complete": 161
   }
  },
  "workday_outcomes": {
-  "tenant-unavailable": 1670,
-  "facet-missing": 274,
-  "facet-found": 14,
-  "facet-query-failed": 11,
-  "page-failed": 421,
-  "capped": 27,
+  "facet-missing": 470,
+  "capped": 50,
+  "tenant-unavailable": 1469,
+  "page-failed": 572,
+  "facet-found": 22,
+  "facet-query-failed": 16,
   "zero-matches": 2
  },
  "error_samples": {
@@ -88,26 +88,27 @@
   "recruitee": "HTTPStatusError: Client error '404 Not Found' for url 'https://1x.recruitee.com/api/offers/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
   "workday": "tenant-unavailable: HTTPStatusError",
   "rippling": "HTTPStatusError: Client error '404 Not Found' for url 'https://api.rippling.com/platform/api/ats/v1/board/acretrader-jobs/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web",
+  "ashby": "HTTPStatusError: Client error '404 Not Found' for url 'https://api.ashbyhq.com/posting-api/job-board/aditude?includeCompensation=true'\nFor more information check: https://developer.mozilla.org/en-US/d",
   "lever": "HTTPStatusError: Client error '404 Not Found' for url 'https://api.lever.co/v0/postings/aofl?mode=json'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
-  "ashby": "HTTPStatusError: Client error '404 Not Found' for url 'https://api.ashbyhq.com/posting-api/job-board/airspace-intelligence?includeCompensation=true'\nFor more information check: https://developer.mozil",
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 132,
-  "misses": 36,
-  "entries": 1390
+  "hits": 130,
+  "misses": 47,
+  "entries": 1379
  },
  "rejected": {
-  "not-security": 91634,
-  "senior": 73773,
-  "location": 1616,
-  "no-duty-evidence": 233,
-  "full-time": 168,
-  "duties-not-security": 92,
-  "not-part-time": 66,
-  "unchecked-no-description": 23,
+  "not-security": 96515,
+  "senior": 77236,
+  "location": 1715,
+  "no-duty-evidence": 270,
+  "full-time": 167,
+  "duties-not-security": 93,
+  "not-part-time": 62,
+  "unchecked-no-description": 28,
   "full-time-contract": 5,
   "hours-over-limit": 3,
+  "summer-only": 1,
   "florida-ineligible": 1
  },
  "alerts": {
