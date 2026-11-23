@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-22T19:59:17Z",
+ "updated": "2026-11-23T07:59:00Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 869.0,
+ "runtime_seconds": 850.5,
  "listed": 9,
  "review": 3,
  "by_kind": {
@@ -16,15 +16,15 @@
   "unknown": 3
  },
  "by_status": {
-  "open": 7,
-  "stale": 5
+  "open": 6,
+  "stale": 6
  },
  "lifecycle": {
   "new": 0,
   "reopened": 0,
   "missing": 0,
   "closed": 0,
-  "stale": 0,
+  "stale": 1,
   "filtered": 0,
   "archived_count": 0
  },
@@ -69,18 +69,18 @@
    "failed": 1
   },
   "workday": {
-   "partial": 331,
-   "failed": 1469,
-   "complete": 161
+   "failed": 1711,
+   "complete": 71,
+   "partial": 179
   }
  },
  "workday_outcomes": {
-  "facet-missing": 470,
-  "capped": 50,
-  "tenant-unavailable": 1469,
-  "page-failed": 572,
-  "facet-found": 22,
-  "facet-query-failed": 16,
+  "tenant-unavailable": 1711,
+  "facet-missing": 238,
+  "page-failed": 339,
+  "facet-found": 12,
+  "capped": 29,
+  "facet-query-failed": 6,
   "zero-matches": 2
  },
  "error_samples": {
@@ -93,22 +93,21 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 130,
-  "misses": 47,
-  "entries": 1379
+  "hits": 132,
+  "misses": 15,
+  "entries": 1359
  },
  "rejected": {
-  "not-security": 96515,
-  "senior": 77236,
-  "location": 1715,
-  "no-duty-evidence": 270,
-  "full-time": 167,
-  "duties-not-security": 93,
-  "not-part-time": 62,
-  "unchecked-no-description": 28,
+  "not-security": 91575,
+  "senior": 73585,
+  "location": 1624,
+  "no-duty-evidence": 240,
+  "full-time": 166,
+  "duties-not-security": 89,
+  "not-part-time": 64,
+  "unchecked-no-description": 14,
   "full-time-contract": 5,
   "hours-over-limit": 3,
-  "summer-only": 1,
   "florida-ineligible": 1
  },
  "alerts": {

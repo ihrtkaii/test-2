@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T19:59:17Z",
+ "updated": "2026-11-23T07:59:00Z",
  "jobs": [
   {
    "id": "greenhouse:bugcrowd:8396259",
@@ -37,8 +37,8 @@
    },
    "key": "greenhouse:bugcrowd:8396259",
    "first_seen": "2026-11-17T21:12:46Z",
-   "last_seen": "2026-11-22T19:59:17Z",
-   "last_checked": "2026-11-22T19:59:17Z",
+   "last_seen": "2026-11-23T07:59:00Z",
+   "last_checked": "2026-11-23T07:59:00Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -79,7 +79,7 @@
    "id": "jobicy:160317",
    "key": "ashby:1password:aac7eea6-ed7c-4871-bbf2-7cb2d5138847",
    "kind": "Part-Time Internships",
-   "last_checked": "2026-11-22T19:59:17Z",
+   "last_checked": "2026-11-23T07:59:00Z",
    "last_seen": "2026-11-11T19:54:31Z",
    "location": "Remote (Canada,  USA)",
    "missing_scans": 0,
@@ -153,7 +153,7 @@
    "source_job_ids": [
     "workday:centene:/job/Remote-TX/Applications-Security-Engineer-II_1674413-1"
    ],
-   "status": "open",
+   "status": "stale",
    "summer_commitment": false,
    "title": "Applications Security Engineer II",
    "url": "https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-TX/Applications-Security-Engineer-II_1674413-1",
@@ -162,7 +162,8 @@
    "display_flags": [
     "Check state eligibility",
     "Hours unverified",
-    "4+ yrs exp"
+    "4+ yrs exp",
+    "Unverified"
    ]
   },
   {
@@ -309,8 +310,8 @@
    },
    "key": "lever:ion:541086b5-9de1-4f65-8038-f9690100b442",
    "first_seen": "2026-11-04T19:59:59Z",
-   "last_seen": "2026-11-22T19:59:17Z",
-   "last_checked": "2026-11-22T19:59:17Z",
+   "last_seen": "2026-11-23T07:59:00Z",
+   "last_checked": "2026-11-23T07:59:00Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -538,8 +539,8 @@
    },
    "key": "smartrecruiters:SOSi1:3743990015353557",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-11-22T19:59:17Z",
-   "last_checked": "2026-11-22T19:59:17Z",
+   "last_seen": "2026-11-23T07:59:00Z",
+   "last_checked": "2026-11-23T07:59:00Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -593,8 +594,8 @@
    },
    "key": "ashby:handshake:7f607c0b-291d-4c17-9897-6d8c5d35eb00",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-11-22T19:59:17Z",
-   "last_checked": "2026-11-22T19:59:17Z",
+   "last_seen": "2026-11-23T07:59:00Z",
+   "last_checked": "2026-11-23T07:59:00Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -648,8 +649,8 @@
    },
    "key": "smartrecruiters:SOSi1:3743990011641106",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-11-22T19:59:17Z",
-   "last_checked": "2026-11-22T19:59:17Z",
+   "last_seen": "2026-11-23T07:59:00Z",
+   "last_checked": "2026-11-23T07:59:00Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,

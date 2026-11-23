@@ -10,7 +10,7 @@ how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.m
 
 <!-- LIST:START -->
 
-**9 roles on the list**, plus 3 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-11-22 19:59 UTC
+**9 roles on the list**, plus 3 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-11-23 07:59 UTC
 
 ## Part-Time Internships (2)
 
@@ -24,7 +24,7 @@ how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.m
 | Company | Role | Where | Hours | Fit | Pay | Check | Posted | Link |
 |---|---|---|---|---|---|---|---|---|
 | Bugcrowd | Application Security Engineer (Part time - Friday to Monday) | Remote | — | Possible | — | Hours unverified | 2026-11-17 | [Apply](https://boards.greenhouse.io/bugcrowd/jobs/8396259?gh_jid=8396259) |
-| Centene | Applications Security Engineer II | Remote | — | Possible | — | Check state eligibility, Hours unverified, 4+ yrs exp | 2026-11-06 | [Apply](https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-TX/Applications-Security-Engineer-II_1674413-1) |
+| Centene | Applications Security Engineer II | Remote | — | Possible | — | Check state eligibility, Hours unverified, 4+ yrs exp, Unverified | 2026-11-06 | [Apply](https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-TX/Applications-Security-Engineer-II_1674413-1) |
 | Centene | Applications Security Engineer II (SOAR) | Remote | — | Possible | — | Check state eligibility, Hours unverified, 4+ yrs exp, Unverified | 2026-11-04 | [Apply](https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-MO/Applications-Security-Engineer-II--SOAR-_1672991) |
 | Centene | IAM Analyst II | Remote | — | Possible | $30.58–$55.09/hr | Check state eligibility, Hours unverified, 4+ yrs exp, Unverified | 2026-10-31 | [Apply](https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-OH/IAM-Analyst-II_1672190-1) |
 | SOSi | Security & Compliance Administrator | Remote | — | Possible | — | Security duties, broad title, Hours unverified, Clearance | 2026-09-17 | [Apply](https://jobs.smartrecruiters.com/SOSi1/3743990015353557) |
