@@ -10,7 +10,7 @@ how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.m
 
 <!-- LIST:START -->
 
-**9 roles on the list**, plus 3 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-11-24 22:44 UTC
+**10 roles on the list**, plus 3 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-11-25 08:55 UTC
 
 ## Part-Time Internships (2)
 
@@ -34,10 +34,11 @@ how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.m
 
 _Nothing open right now._
 
-## Contract / Freelance (1)
+## Contract / Freelance (2)
 
 | Company | Role | Where | Hours | Fit | Pay | Check | Posted | Link |
 |---|---|---|---|---|---|---|---|---|
+| Firework | GRC & Privacy Consultant (Part-Time) | Remote | — | Possible | — | Hours unverified | 2026-11-25 | [Apply](https://jobs.lever.co/fireworkhq/214a7d93-1881-469b-bc94-b9a5be1bb670) |
 | Handshake | AI Red Teamer, Cybersecurity (Remote) | Remote | — | Possible | $65 – $125 per hour | Hours unverified | 2026-09-05 | [Apply](https://jobs.ashbyhq.com/handshake/7f607c0b-291d-4c17-9897-6d8c5d35eb00) |
 
 <!-- LIST:END -->
