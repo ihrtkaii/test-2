@@ -10,7 +10,7 @@ how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.m
 
 <!-- LIST:START -->
 
-**10 roles on the list**, plus 3 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-11-25 21:59 UTC
+**12 roles on the list**, plus 3 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-11-26 08:40 UTC
 
 ## Part-Time Internships (2)
 
@@ -19,7 +19,7 @@ how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.m
 | Associated Bank | 2027 Corporate Intern - IT Audit  (Year-Round) | Remote | — | Possible | $17–$26.71/hr | Hours unverified, Full-time in summer, Unverified | 2026-11-05 | [Apply](https://associatedbank.wd1.myworkdayjobs.com/external_careers/job/US-WI-Remote/XMLNAME-2027-Corporate-Intern---IT-Audit---Year-Round-_JR106776-1) |
 | Rochester Regional Health | RIT Co-op: Security Engineering | Remote | — | Possible | — | Location unverified, Hours unverified, Unverified | 2026-10-27 | [Apply](https://rrhs.wd5.myworkdayjobs.com/RRH/job/Riedman---Remote/RIT-Co-op_REQ_244351-1) |
 
-## Part-Time Jobs (6)
+## Part-Time Jobs (8)
 
 | Company | Role | Where | Hours | Fit | Pay | Check | Posted | Link |
 |---|---|---|---|---|---|---|---|---|
@@ -29,6 +29,8 @@ how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.m
 | Centene | IAM Analyst II | Remote | — | Possible | $30.58–$55.09/hr | Check state eligibility, Hours unverified, 4+ yrs exp, Unverified | 2026-10-31 | [Apply](https://centene.wd5.myworkdayjobs.com/Centene_External/job/Remote-OH/IAM-Analyst-II_1672190-1) |
 | SOSi | Security & Compliance Administrator | Remote | — | Possible | — | Security duties, broad title, Hours unverified, Clearance | 2026-09-17 | [Apply](https://jobs.smartrecruiters.com/SOSi1/3743990015353557) |
 | SOSi | Cloud Security Engineer | Remote | — | Possible | — | Hours unverified, Clearance | 2026-02-11 | [Apply](https://jobs.smartrecruiters.com/SOSi1/3743990011641106) |
+| Cobalt | Cobalt Core Pentester - US Remote-Only | Remote | — | Possible | — | Hours unverified | 2021-11-10 | [Apply](https://job-boards.greenhouse.io/cobaltio/jobs/5688200002) |
+| Cobalt | Cobalt Core Pentester | Remote | — | Possible | — | Location unverified, Hours unverified | 2018-12-27 | [Apply](https://job-boards.greenhouse.io/cobaltio/jobs/4141074002) |
 
 ## Federal / Pathways (0)
 

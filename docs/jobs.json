@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T21:59:14Z",
+ "updated": "2026-11-26T08:40:28Z",
  "jobs": [
   {
    "id": "lever:fireworkhq:214a7d93-1881-469b-bc94-b9a5be1bb670",
@@ -37,8 +37,8 @@
    },
    "key": "lever:fireworkhq:214a7d93-1881-469b-bc94-b9a5be1bb670",
    "first_seen": "2026-11-25T08:55:32Z",
-   "last_seen": "2026-11-25T21:59:14Z",
-   "last_checked": "2026-11-25T21:59:14Z",
+   "last_seen": "2026-11-26T08:40:28Z",
+   "last_checked": "2026-11-26T08:40:28Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -90,8 +90,8 @@
    },
    "key": "greenhouse:bugcrowd:8396259",
    "first_seen": "2026-11-17T21:12:46Z",
-   "last_seen": "2026-11-25T21:59:14Z",
-   "last_checked": "2026-11-25T21:59:14Z",
+   "last_seen": "2026-11-26T08:40:28Z",
+   "last_checked": "2026-11-26T08:40:28Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -132,10 +132,10 @@
    "id": "jobicy:160317",
    "key": "ashby:1password:aac7eea6-ed7c-4871-bbf2-7cb2d5138847",
    "kind": "Part-Time Internships",
-   "last_checked": "2026-11-25T21:59:14Z",
+   "last_checked": "2026-11-26T08:40:28Z",
    "last_seen": "2026-11-11T19:54:31Z",
    "location": "Remote (Canada,  USA)",
-   "missing_scans": 1,
+   "missing_scans": 2,
    "missing_since": "2026-11-25T21:59:14Z",
    "posted_at": "2026-11-09",
    "primary_source": "jobicy",
@@ -364,8 +364,8 @@
    },
    "key": "lever:ion:541086b5-9de1-4f65-8038-f9690100b442",
    "first_seen": "2026-11-04T19:59:59Z",
-   "last_seen": "2026-11-25T21:59:14Z",
-   "last_checked": "2026-11-25T21:59:14Z",
+   "last_seen": "2026-11-26T08:40:28Z",
+   "last_checked": "2026-11-26T08:40:28Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -593,8 +593,8 @@
    },
    "key": "smartrecruiters:SOSi1:3743990015353557",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-11-25T21:59:14Z",
-   "last_checked": "2026-11-25T21:59:14Z",
+   "last_seen": "2026-11-26T08:40:28Z",
+   "last_checked": "2026-11-26T08:40:28Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -648,8 +648,8 @@
    },
    "key": "ashby:handshake:7f607c0b-291d-4c17-9897-6d8c5d35eb00",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-11-25T21:59:14Z",
-   "last_checked": "2026-11-25T21:59:14Z",
+   "last_seen": "2026-11-26T08:40:28Z",
+   "last_checked": "2026-11-26T08:40:28Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -703,8 +703,8 @@
    },
    "key": "smartrecruiters:SOSi1:3743990011641106",
    "first_seen": "2026-10-21T14:00:41Z",
-   "last_seen": "2026-11-25T21:59:14Z",
-   "last_checked": "2026-11-25T21:59:14Z",
+   "last_seen": "2026-11-26T08:40:28Z",
+   "last_checked": "2026-11-26T08:40:28Z",
    "status": "open",
    "missing_since": null,
    "missing_scans": 0,
@@ -719,6 +719,114 @@
    "display_flags": [
     "Hours unverified",
     "Clearance"
+   ]
+  },
+  {
+   "id": "greenhouse:cobaltio:5688200002",
+   "source": "greenhouse",
+   "company": "Cobalt",
+   "title": "Cobalt Core Pentester - US Remote-Only",
+   "location": "Remote - US (Freelancer Part Time)",
+   "url": "https://job-boards.greenhouse.io/cobaltio/jobs/5688200002",
+   "board": "greenhouse:cobaltio",
+   "posted_at": "2021-11-10T00:30:25-05:00",
+   "employment_type": "unknown",
+   "remote": null,
+   "hybrid": null,
+   "salary": null,
+   "requisition_id": "297",
+   "hiring_paths": null,
+   "queue": "listed",
+   "kind": "Part-Time Jobs",
+   "category": "GRC / Risk",
+   "schedule_fit": "possible",
+   "hours_min": null,
+   "hours_max": null,
+   "hours": null,
+   "summer_commitment": false,
+   "work_mode": "remote",
+   "florida_eligibility": "likely",
+   "where": "Remote",
+   "priority": false,
+   "flags": [
+    "Hours unverified"
+   ],
+   "evidence": {
+    "location": "location: Remote - US (Freelancer Part Time)",
+    "schedule": "Please note: this is a freelance, part-time position available only to pentesters residing in the USA."
+   },
+   "key": "greenhouse:cobaltio:5688200002",
+   "first_seen": "2026-11-26T08:40:28Z",
+   "last_seen": "2026-11-26T08:40:28Z",
+   "last_checked": "2026-11-26T08:40:28Z",
+   "status": "open",
+   "missing_since": null,
+   "missing_scans": 0,
+   "source_job_ids": [
+    "greenhouse:cobaltio:5688200002"
+   ],
+   "boards": [
+    "greenhouse:cobaltio"
+   ],
+   "alternate_sources": [],
+   "primary_source": "greenhouse",
+   "display_flags": [
+    "Hours unverified"
+   ]
+  },
+  {
+   "id": "greenhouse:cobaltio:4141074002",
+   "source": "greenhouse",
+   "company": "Cobalt",
+   "title": "Cobalt Core Pentester",
+   "location": "Remote - Freelancer Part Time",
+   "url": "https://job-boards.greenhouse.io/cobaltio/jobs/4141074002",
+   "board": "greenhouse:cobaltio",
+   "posted_at": "2018-12-27T16:36:31-05:00",
+   "employment_type": "unknown",
+   "remote": null,
+   "hybrid": null,
+   "salary": null,
+   "requisition_id": "8",
+   "hiring_paths": null,
+   "queue": "listed",
+   "kind": "Part-Time Jobs",
+   "category": "GRC / Risk",
+   "schedule_fit": "possible",
+   "hours_min": null,
+   "hours_max": null,
+   "hours": null,
+   "summer_commitment": false,
+   "work_mode": "remote",
+   "florida_eligibility": "unknown",
+   "where": "Remote",
+   "priority": false,
+   "flags": [
+    "Location unverified",
+    "Hours unverified"
+   ],
+   "evidence": {
+    "location": "location: Remote - Freelancer Part Time",
+    "schedule": "Please note: this is a freelance, part-time position available only to pentesters residing outside in the USA."
+   },
+   "key": "greenhouse:cobaltio:4141074002",
+   "first_seen": "2026-11-26T08:40:28Z",
+   "last_seen": "2026-11-26T08:40:28Z",
+   "last_checked": "2026-11-26T08:40:28Z",
+   "status": "open",
+   "missing_since": null,
+   "missing_scans": 0,
+   "source_job_ids": [
+    "greenhouse:cobaltio:4141074002"
+   ],
+   "boards": [
+    "greenhouse:cobaltio"
+   ],
+   "alternate_sources": [],
+   "primary_source": "greenhouse",
+   "display_flags": [
+    "Location unverified",
+    "Hours unverified"
    ]
   }
  ]

@@ -1,29 +1,29 @@
 {
- "updated": "2026-11-25T21:59:14Z",
+ "updated": "2026-11-26T08:40:28Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 860.4,
- "listed": 10,
+ "runtime_seconds": 834.6,
+ "listed": 12,
  "review": 3,
  "by_kind": {
   "Contract / Freelance": 2,
-  "Part-Time Jobs": 6,
+  "Part-Time Jobs": 8,
   "Part-Time Internships": 2
  },
  "by_fit": {
-  "possible": 10,
+  "possible": 12,
   "unknown": 3
  },
  "by_status": {
-  "open": 6,
+  "open": 8,
   "missing": 1,
   "stale": 6
  },
  "lifecycle": {
-  "new": 0,
+  "new": 2,
   "reopened": 0,
-  "missing": 1,
+  "missing": 0,
   "closed": 0,
   "stale": 0,
   "filtered": 0,
@@ -38,8 +38,8 @@
    "complete": 20
   },
   "greenhouse": {
-   "complete": 1155,
-   "failed": 76
+   "complete": 1154,
+   "failed": 77
   },
   "jobicy": {
    "complete": 1
@@ -70,18 +70,18 @@
    "failed": 1
   },
   "workday": {
-   "failed": 1688,
-   "complete": 80,
-   "partial": 195
+   "partial": 154,
+   "failed": 1734,
+   "complete": 75
   }
  },
  "workday_outcomes": {
-  "tenant-unavailable": 1688,
-  "facet-missing": 264,
-  "facet-found": 11,
-  "page-failed": 384,
-  "facet-query-failed": 9,
-  "capped": 26,
+  "facet-missing": 223,
+  "page-failed": 282,
+  "tenant-unavailable": 1734,
+  "facet-found": 6,
+  "facet-query-failed": 8,
+  "capped": 23,
   "zero-matches": 1
  },
  "error_samples": {
@@ -94,22 +94,23 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 126,
-  "misses": 35,
-  "entries": 1346
+  "hits": 133,
+  "misses": 23,
+  "entries": 1322
  },
  "rejected": {
-  "not-security": 91192,
-  "senior": 73116,
-  "location": 1602,
-  "no-duty-evidence": 238,
-  "full-time": 180,
+  "not-security": 91078,
+  "senior": 72639,
+  "location": 1561,
+  "no-duty-evidence": 229,
+  "full-time": 183,
   "duties-not-security": 92,
-  "not-part-time": 68,
-  "unchecked-no-description": 20,
+  "not-part-time": 66,
+  "unchecked-no-description": 16,
   "full-time-contract": 4,
   "hours-over-limit": 4,
-  "florida-ineligible": 1
+  "florida-ineligible": 1,
+  "summer-only": 1
  },
  "alerts": {
   "enabled": false
