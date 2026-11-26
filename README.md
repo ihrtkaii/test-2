@@ -10,7 +10,7 @@ how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.m
 
 <!-- LIST:START -->
 
-**12 roles on the list**, plus 3 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-11-26 08:40 UTC
+**12 roles on the list**, plus 2 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-11-26 21:51 UTC
 
 ## Part-Time Internships (2)
 
