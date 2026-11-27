@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-26T21:51:30Z",
+ "updated": "2026-11-27T08:54:54Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 820.9,
+ "runtime_seconds": 854.9,
  "listed": 12,
  "review": 2,
  "by_kind": {
@@ -23,15 +23,15 @@
   "new": 0,
   "reopened": 0,
   "missing": 0,
-  "closed": 1,
+  "closed": 0,
   "stale": 0,
   "filtered": 0,
   "archived_count": 0
  },
  "boards": {
   "ashby": {
-   "complete": 844,
-   "failed": 90
+   "complete": 843,
+   "failed": 91
   },
   "breezy": {
    "complete": 20
@@ -69,19 +69,19 @@
    "failed": 1
   },
   "workday": {
-   "failed": 1717,
-   "partial": 175,
-   "complete": 71
+   "failed": 1652,
+   "partial": 206,
+   "complete": 105
   }
  },
  "workday_outcomes": {
-  "tenant-unavailable": 1717,
-  "facet-missing": 236,
-  "page-failed": 308,
-  "facet-found": 10,
-  "facet-query-failed": 11,
-  "capped": 27,
-  "zero-matches": 3
+  "tenant-unavailable": 1652,
+  "facet-missing": 299,
+  "page-failed": 386,
+  "capped": 30,
+  "facet-found": 12,
+  "facet-query-failed": 12,
+  "zero-matches": 4
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -94,19 +94,19 @@
  },
  "cache": {
   "hits": 137,
-  "misses": 18,
-  "entries": 1311
+  "misses": 26,
+  "entries": 1288
  },
  "rejected": {
-  "not-security": 91745,
-  "senior": 73309,
-  "location": 1589,
-  "no-duty-evidence": 234,
-  "full-time": 181,
-  "duties-not-security": 89,
-  "not-part-time": 69,
-  "unchecked-no-description": 15,
-  "full-time-contract": 4,
+  "not-security": 92595,
+  "senior": 73848,
+  "location": 1616,
+  "no-duty-evidence": 245,
+  "full-time": 179,
+  "duties-not-security": 93,
+  "not-part-time": 70,
+  "unchecked-no-description": 21,
+  "full-time-contract": 5,
   "hours-over-limit": 4,
   "florida-ineligible": 1,
   "summer-only": 1
