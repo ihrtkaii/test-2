@@ -10,14 +10,13 @@ how it works, what it skips, and how to run it are in [DEEP_DIVE.md](DEEP_DIVE.m
 
 <!-- LIST:START -->
 
-**12 roles on the list**, plus 2 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-11-27 21:36 UTC
+**11 roles on the list**, plus 2 worth checking on the [dashboard](https://ihrtkaii.github.io/test-2/) · updated 2026-11-28 08:05 UTC
 
-## Part-Time Internships (2)
+## Part-Time Internships (1)
 
 | Company | Role | Where | Hours | Fit | Pay | Check | Posted | Link |
 |---|---|---|---|---|---|---|---|---|
 | Associated Bank | 2027 Corporate Intern - IT Audit  (Year-Round) | Remote | — | Possible | $17–$26.71/hr | Hours unverified, Full-time in summer, Unverified | 2026-11-05 | [Apply](https://associatedbank.wd1.myworkdayjobs.com/external_careers/job/US-WI-Remote/XMLNAME-2027-Corporate-Intern---IT-Audit---Year-Round-_JR106776-1) |
-| Rochester Regional Health | RIT Co-op: Security Engineering | Remote | — | Possible | — | Location unverified, Hours unverified, Unverified | 2026-10-27 | [Apply](https://rrhs.wd5.myworkdayjobs.com/RRH/job/Riedman---Remote/RIT-Co-op_REQ_244351-1) |
 
 ## Part-Time Jobs (8)
 

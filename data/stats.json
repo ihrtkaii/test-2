@@ -1,23 +1,23 @@
 {
- "updated": "2026-11-27T21:36:24Z",
+ "updated": "2026-11-28T08:05:47Z",
  "classifier_version": "2.0",
  "scope": "81466cb8386a",
  "closing_allowed": true,
- "runtime_seconds": 868.8,
- "listed": 12,
+ "runtime_seconds": 658.2,
+ "listed": 11,
  "review": 2,
  "by_kind": {
   "Contract / Freelance": 2,
   "Part-Time Jobs": 8,
-  "Part-Time Internships": 2
+  "Part-Time Internships": 1
  },
  "by_fit": {
-  "possible": 12,
+  "possible": 11,
   "unknown": 2
  },
  "by_status": {
   "open": 8,
-  "stale": 6
+  "stale": 5
  },
  "lifecycle": {
   "new": 0,
@@ -26,7 +26,7 @@
   "closed": 0,
   "stale": 0,
   "filtered": 0,
-  "archived_count": 0
+  "archived_count": 1
  },
  "boards": {
   "ashby": {
@@ -69,18 +69,19 @@
    "failed": 1
   },
   "workday": {
-   "failed": 1650,
-   "partial": 225,
-   "complete": 88
+   "failed": 1889,
+   "partial": 39,
+   "complete": 35
   }
  },
  "workday_outcomes": {
-  "tenant-unavailable": 1650,
-  "facet-missing": 300,
-  "page-failed": 435,
-  "facet-found": 13,
-  "capped": 30,
-  "facet-query-failed": 13
+  "tenant-unavailable": 1889,
+  "facet-missing": 72,
+  "page-failed": 68,
+  "facet-found": 2,
+  "facet-query-failed": 3,
+  "capped": 4,
+  "zero-matches": 1
  },
  "error_samples": {
   "greenhouse": "HTTPStatusError: Client error '404 Not Found' for url 'https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
@@ -92,21 +93,20 @@
   "usajobs": "skipped: USAJOBS_API_KEY / USAJOBS_EMAIL not set"
  },
  "cache": {
-  "hits": 143,
-  "misses": 29,
-  "entries": 1277
+  "hits": 135,
+  "misses": 1,
+  "entries": 1252
  },
  "rejected": {
-  "not-security": 92468,
-  "senior": 73847,
-  "location": 1638,
-  "no-duty-evidence": 236,
-  "full-time": 173,
-  "duties-not-security": 94,
-  "not-part-time": 70,
-  "unchecked-no-description": 19,
+  "not-security": 88318,
+  "senior": 71175,
+  "location": 1500,
+  "no-duty-evidence": 198,
+  "full-time": 177,
+  "duties-not-security": 88,
+  "not-part-time": 64,
   "full-time-contract": 4,
-  "hours-over-limit": 4,
+  "hours-over-limit": 3,
   "florida-ineligible": 1,
   "summer-only": 1
  },
